@@ -1,0 +1,56 @@
+/* checkout update/input start */
+.quantity-imput{
+  width: 30px;
+}
+.quantity-imput,
+.save-quantity-link{
+  display: none;
+}
+.is-editing-quantity .quantity-label,
+.is-editing-quantity .update-quantity-link{
+  display: none;
+}
+.is-editing-quantity .quantity-imput,
+.is-editing-quantity .save-quantity-link{
+  display: initial;
+}
+/* checkout update/input end */
+.confirm-hidden{
+  display: none;
+}
+.confirm-window{
+  z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.confirm-window{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  width: 100%;
+}
+.confirm-window > div > p{
+  font-size: 20px;
+  color: rgb(255, 216, 20);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.confirm-window > div > button{
+  background-color: rgb(255, 216, 20);
+  border: 2px solid rgb(255, 216, 20);
+  color: black;
+  padding: 13px 27px;
+  font-size: 20px;
+  font-family: bold;
+  border-radius: 13px;
+}
+.confirm-window-yes{
+  margin-right: 30px;
+}
+button {
+  cursor: pointer;
+}
