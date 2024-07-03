@@ -4,7 +4,7 @@ import {cart,
   updateQuantity,
   updateDeliveryOptions}
    from "../../data/cart.js";
-import {products} from "../../data/products.js"
+import {proizvodi} from "../../data/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
 import {deliveryOptions,calculateDeliveryDate} from "../../data/deliveryOptions.js"
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"; //dayjs library
@@ -27,7 +27,7 @@ export function renderOrderSummary(){
     const productId = cartItem.productId;
     let matchingProduct;
 
-    products.forEach(product => {
+    proizvodi.forEach(product => {
       if(product.id === productId){
         matchingProduct = product;
       }

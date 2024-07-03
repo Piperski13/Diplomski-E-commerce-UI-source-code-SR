@@ -15,7 +15,7 @@ app.use(cors()); //middleware
 app.use(express.static(path.join(__dirname,'public')));
 
 
-const products = JSON.parse(fs.readFileSync('./backend/products.json','utf-8'));
+const proizvodi = JSON.parse(fs.readFileSync('./backend/proizvodi.json','utf-8'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'amazon.html'));
@@ -29,8 +29,8 @@ app.get('/orders', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'orders.html'));
 });
 
-app.get('/products',(req,res)=>{
-  res.status(200).json(products)
+app.get('/proizvodi',(req,res)=>{
+  res.status(200).json(proizvodi)
 });
 
 app.post('/amazon.html',(req,res)=>{  
@@ -42,7 +42,7 @@ app.post('/amazon.html',(req,res)=>{
 
   cart.forEach(item => {
     
-    products.forEach(product =>{
+    proizvodi.forEach(product =>{
       if(product.id === item.productId){
         matchingItem = product;
         newCart.push(matchingItem);
@@ -70,7 +70,7 @@ app.post('/amazon.html',(req,res)=>{
     id: uuidv4(),
     orderTime: currentTime,
     totalCostCents: priceCentsTotal,
-    products: order
+    proizvodi: order
   })         
 });
 

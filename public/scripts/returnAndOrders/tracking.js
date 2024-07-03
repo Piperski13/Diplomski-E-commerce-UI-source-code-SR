@@ -1,4 +1,4 @@
-import {products,loadProductsFetch} from '../../data/products.js';
+import {proizvodi,loadProductsFetch} from '../../data/proizvodi.js';
 import {orders} from '../../data/orders.js';
 import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
 import {calculateCartQuantity} from "../../data/cart.js"
@@ -27,7 +27,7 @@ async function renderTrackingPage(){
       matchingOrder = order;
       matchingOrderDate = order;
 
-      matchingOrder.products.forEach(productOrder => {
+      matchingOrder.proizvodi.forEach(productOrder => {
         if(productOrder.productId === productOrderId){
           matchingOrder = productOrder;
         }
@@ -35,7 +35,7 @@ async function renderTrackingPage(){
     }
   });
     
-  products.forEach(product => {
+  proizvodi.forEach(product => {
     if(product.id === productOrderId ){
       matchingProduct = product;
     }

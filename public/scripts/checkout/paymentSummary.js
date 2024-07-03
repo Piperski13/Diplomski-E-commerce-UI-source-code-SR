@@ -1,5 +1,5 @@
 import { calculateCartQuantity, cart } from "../../data/cart.js";
-import { products } from "../../data/products.js";
+import { proizvodi } from "../../data/proizvodi.js";
 import { formatCurrency } from "../../utils/money.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js"
 import { addOrder } from "../../data/orders.js"
@@ -13,7 +13,7 @@ export function renderPaymentSummary(){
     const productId = cartItem.productId;
     const productQuantity = cartItem.quantity;
     const deliveryOptionId = cartItem.deliveryOptionId;
-    products.forEach(product => {
+    proizvodi.forEach(product => {
       if(product.id === productId){
         let priceCents = product.priceCents
         totalCents += productQuantity * priceCents;

@@ -1,7 +1,7 @@
 import {orders} from '../../data/orders.js';
 import {formatCurrency} from '../../utils/money.js';
 import {renderDateOrder} from '../../utils/date.js';
-import {loadProducts,loadProductsFetch,products} from '../../data/products.js';
+import {loadProducts,loadProductsFetch,proizvodi} from '../../data/proizvodi.js';
 import {addToCart, calculateCartQuantity} from '../../data/cart.js';
 console.log(orders);
 loadProductsFetch().then(()=>{          //fetch, returns promise, method then
@@ -16,10 +16,10 @@ function renderOrderSummary(){
 
   orders.forEach(order => {
 
-    order.products.forEach(productOrder =>{
+    order.proizvodi.forEach(productOrder =>{
       let matchingProduct;
 
-      products.forEach(product => {
+      proizvodi.forEach(product => {
         if(product.id === productOrder.productId){
           matchingProduct = product;
         }
@@ -106,7 +106,7 @@ function renderOrderSummary(){
 };
 
 console.log(orders); // number of orders
-// console.log(orders[1].products); //index 1 all products array
-// console.log(orders[0].products[0].productId);
+// console.log(orders[1].proizvodi); //index 1 all proizvodi array
+// console.log(orders[0].proizvodi[0].productId);
 
 

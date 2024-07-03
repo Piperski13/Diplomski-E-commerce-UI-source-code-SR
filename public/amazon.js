@@ -1,5 +1,5 @@
 import {cart, addToCart,calculateCartQuantity} from "../data/cart.js"; // imports a const cart from cart.js, created module
-import {products,loadProducts} from "../data/products.js";
+import {proizvodi,loadProducts} from "../data/proizvodi.js";
 import {formatCurrency} from "./utils/money.js";
 
 loadProducts(renderProductsGrid);
@@ -8,15 +8,15 @@ function renderProductsGrid(){
 
   updateCartQuantity();
 
-  let productsHTML = '';
+  let proizvodiHTML = '';
 
   const url = new URL(window.location.href);
   const search = url.searchParams.get('search');
 
-  let filteredProducts = products;
+  let filteredProducts = proizvodi;
 
   if(search){
-    filteredProducts = products.filter((product)=>{  
+    filteredProducts = proizvodi.filter((product)=>{  
 
       const nameMatch = product.name.toLowerCase().includes(search);
       let keywordMatch = null;
@@ -31,9 +31,9 @@ function renderProductsGrid(){
     });
   };
 
-  //gets products from products.js and generates html 
+  //gets proizvodi from proizvodi.js and generates html 
   filteredProducts.forEach((product)=>{
-    productsHTML += `
+    proizvodiHTML += `
       <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
@@ -86,7 +86,7 @@ function renderProductsGrid(){
     </div>`
   });
 
-  document.querySelector('.js-product-container').innerHTML = productsHTML;
+  document.querySelector('.js-product-container').innerHTML = proizvodiHTML;
 
   function searchBar(){
     const searchValue = document.querySelector('.js-search-bar').value;
