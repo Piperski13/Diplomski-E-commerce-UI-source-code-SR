@@ -81,7 +81,7 @@ function renderProductsGrid(){
       </div>
 
       <button class="add-to-cart-button button-primary js-add-button" data-product-id="${product.id}">
-        Add to Cart
+        Dodaj u korpu
       </button>
     </div>`
   });

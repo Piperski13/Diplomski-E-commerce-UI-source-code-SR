@@ -36,10 +36,10 @@ function renderOrderSummary(){
                 ${matchingProduct.name}
               </div>
               <div class="product-delivery-date">
-                Arriving on: ${renderDateOrder(productOrder.estimatedDeliveryTime)}
+                Dolazak: ${renderDateOrder(productOrder.estimatedDeliveryTime)}
               </div>
               <div class="product-quantity">
-                Quantity: ${productOrder.quantity}
+                Količina: ${productOrder.quantity}
               </div>
               <button class="buy-again-button button-primary js-buy-again"
               data-product-id="${matchingProduct.id}">
@@ -51,7 +51,7 @@ function renderOrderSummary(){
             <div class="product-actions">
               <a href="tracking.html?orderId=${order.id}&productId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
-                  Track package
+                  Praćenje paketa
                 </button>
               </a>
             </div>
@@ -66,17 +66,17 @@ function renderOrderSummary(){
           <div class="order-header">
             <div class="order-header-left-section">
               <div class="order-date">
-                <div class="order-header-label">Order Placed:</div>
+                <div class="order-header-label">Naručeno datuma:</div>
                 <div>${renderDateOrder(order.orderTime)}</div>
               </div>
               <div class="order-total">
-                <div class="order-header-label">Total:</div>
+                <div class="order-header-label">Ukupno:</div>
                 <div>$${formatCurrency(order.totalCostCents)}</div>
               </div>
             </div>
 
             <div class="order-header-right-section">
-              <div class="order-header-label">Order ID:</div>
+              <div class="order-header-label">ID Porudžbine:</div>
               <div>${order.id}</div>
             </div>
           </div>

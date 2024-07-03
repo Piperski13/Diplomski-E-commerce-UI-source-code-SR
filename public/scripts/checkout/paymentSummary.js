@@ -30,39 +30,39 @@ export function renderPaymentSummary(){
   const taxCents = totalBeforeTax * 0.1;
   const totalAfterTax =  totalBeforeTax + taxCents
   
-  shippingCents = shippingCents === 0 ? 'FREE' : `$${formatCurrency(shippingCents)}`;
+  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `$${formatCurrency(shippingCents)}`;
   generatedHTML = `
   <div class="payment-summary-title">
-    Order Summary
+    Porudžbina:
   </div>
 
   <div class="payment-summary-row">
-    <div>Items (${cartQuantity}):</div>
+    <div>Broj artikala (${cartQuantity}):</div>
     <div class="payment-summary-money">$${formatCurrency(totalCents)}</div>
   </div>
 
   <div class="payment-summary-row">
-    <div>Shipping &amp; handling:</div>
+    <div>Dostava:</div>
     <div class="payment-summary-money js-test-shipping-price">${shippingCents}</div>
   </div>
 
   <div class="payment-summary-row subtotal-row">
-    <div>Total before tax:</div>
+    <div>Cena pre PDV-a:</div>
     <div class="payment-summary-money">$${formatCurrency(totalBeforeTax)}</div>
   </div>
 
   <div class="payment-summary-row">
-    <div>Estimated tax (10%):</div>
+    <div>Cena PDV (10%):</div>
     <div class="payment-summary-money">$${formatCurrency(taxCents)}</div>
   </div>
 
   <div class="payment-summary-row total-row">
-    <div>Order total:</div>
+    <div>Ukupna cena:</div>
     <div class="payment-summary-money js-test-total-price">$${formatCurrency(totalAfterTax)}</div>
   </div>
 
   <button class="place-order-button button-primary js-place-order">
-    Place your order
+    Poruči
   </button>`;
   document.querySelector('.js-payment-summary').innerHTML= generatedHTML;
   

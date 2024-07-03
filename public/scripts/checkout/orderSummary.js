@@ -46,7 +46,7 @@ export function renderOrderSummary(){
       js-test-cart-item-container">
 
         <div class="delivery-date">
-          Delivery date: ${formatedDate}
+          Datum isporuke: ${formatedDate}
         </div>
 
       <div class="cart-item-details-grid">
@@ -62,13 +62,13 @@ export function renderOrderSummary(){
           </div>
           <div class="product-quantity">
             <span class="js-test-product-quantity-${matchingProduct.id}">
-              Quantity: <span class="quantity-label">
+              Količina: <span class="quantity-label">
               ${cartItem.quantity}
               </span>
             </span>
             <span class="update-quantity-link link-primary js-update-link" 
             data-product-id="${matchingProduct.id}">
-              Update
+              Ažuriraj
             </span>
             <input type="text" class="quantity-imput js-quantity-imput-${matchingProduct.id}">
             <span class="save-quantity-link link-primary js-save-link"
@@ -77,14 +77,14 @@ export function renderOrderSummary(){
             <span class="delete-quantity-link link-primary js-delete-link 
             js-delete-test-${matchingProduct.id}" 
             data-product-id="${matchingProduct.id}">
-              Delete
+              Obriši
             </span>
           </div>
         </div>
 
         <div class="delivery-options">
           <div class="delivery-options-title">
-            Choose a delivery option:
+            Izaberite opciju isporuke:
           </div>
           ${deliveryOptionsHTML(matchingProduct,cartItem)}
         </div>
@@ -96,7 +96,7 @@ export function renderOrderSummary(){
     let generatedHTML='';
     deliveryOptions.forEach((option) =>{
       const formatedDate = calculateDeliveryDate(option.deliveryDays);
-      const priceStrings = option.priceCents === 0 ? 'FREE' : `$${formatCurrency(option.priceCents)} - Shipping`;
+      const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `$${formatCurrency(option.priceCents)} - Dostava`;
       const isChecked = option.id === cartItem.deliveryOptionId;
       generatedHTML +=
       `<div class="delivery-option js-delivery-option
@@ -125,8 +125,11 @@ export function renderOrderSummary(){
     if(cartQuantity === 0){
       document.querySelector('.js-return-to-home-link').innerHTML = ``;
     }
+    else if(cartQuantity === 1){
+      document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} artikal`;
+    }
     else{
-      document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
+      document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} artikla`;
     }
   };
 

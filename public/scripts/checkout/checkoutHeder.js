@@ -11,7 +11,7 @@ export function renderCheckoutHeader(){
     </div>
 
     <div class="checkout-header-middle-section">
-      Checkout (<a class="return-to-home-link js-return-to-home-link"
+      Stranica za naplatu (<a class="return-to-home-link js-return-to-home-link"
         href="/"></a>)
     </div>
 

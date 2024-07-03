@@ -46,11 +46,11 @@ async function renderTrackingPage(){
   let generatedHTML = `
      <div class="order-tracking">
         <a class="back-to-orders-link link-primary" href="orders.html">
-          View all orders
+          Pogledajte sve porudžbine
         </a>
 
         <div class="delivery-date">
-          Arriving on ${renderDateOrderTracking(matchingOrder.estimatedDeliveryTime)}
+          Dolazak u: ${renderDateOrderTracking(matchingOrder.estimatedDeliveryTime)}
         </div>
 
         <div class="product-info">
@@ -58,21 +58,21 @@ async function renderTrackingPage(){
         </div>
 
         <div class="product-info">
-          Quantity: ${matchingOrder.quantity}
+          Količina: ${matchingOrder.quantity}
         </div>
 
         <img class="product-image" src="${matchingProduct.image}">
 
         <div class="progress-labels-container">
           <div class="progress-label ${progressionDelivery <=49 ? 'current-status' : '' }" >
-            Preparing
+            Priprema
           </div>
           <div class="progress-label 
           ${progressionDelivery >49 && progressionDelivery <=99 ? 'current-status' : '' }">
-            Shipped
+            Isporučen
           </div>
           <div class="progress-label ${progressionDelivery >=100 ? 'current-status' : '' }">
-            Delivered
+            Dostavljen
           </div>
         </div>
 
