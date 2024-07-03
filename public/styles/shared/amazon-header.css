@@ -38,21 +38,21 @@
   border: 1px solid white;
 }
 
-.amazon-logo {
+.logo-black {
   width: 100px;
   margin-top: 5px;
 }
 
-.amazon-mobile-logo {
+.logo-black-mobile {
   display: none;
 }
 
 @media (max-width: 575px) {
-  .amazon-logo {
+  .logo-black {
     display: none;
   }
 
-  .amazon-mobile-logo {
+  .logo-black-mobile {
     display: block;
     height: 35px;
     margin-top: 5px;
@@ -81,7 +81,7 @@
 }
 
 .search-button {
-  background-color: rgb(254, 189, 105);
+  background-color: #D6EFD8;
   border: none;
   width: 45px;
   height: 40px;
@@ -136,7 +136,7 @@
 }
 
 .cart-quantity {
-  color: rgb(240, 136, 4);
+  color: rgb(221, 79, 3);
   font-size: 16px;
   font-weight: 700;
 
