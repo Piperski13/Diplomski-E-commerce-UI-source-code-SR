@@ -5,8 +5,8 @@ export function renderCheckoutHeader(){
     <div class="header-content">
     <div class="checkout-header-left-section">
       <a href="/">
-        <img class="amazon-logo" src="images/amazon-logo.png">
-        <img class="amazon-mobile-logo" src="images/amazon-mobile-logo.png">
+        <img class="amazon-logo" src="slike/amazon-logo.png">
+        <img class="amazon-mobile-logo" src="slike/amazon-mobile-logo.png">
       </a>
     </div>
 
@@ -16,7 +16,7 @@ export function renderCheckoutHeader(){
     </div>
 
     <div class="checkout-header-right-section">
-      <img src="images/icons/checkout-lock-icon.png">
+      <img src="slike/ikonice/checkout-lock-icon.png">
     </div>
   </div>`
   document.querySelector('.js-checkout-header').innerHTML = generatedHTML;

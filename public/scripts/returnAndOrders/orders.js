@@ -43,7 +43,7 @@ function renderOrderSummary(){
               </div>
               <button class="buy-again-button button-primary js-buy-again"
               data-product-id="${matchingProduct.id}">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+                <img class="buy-again-icon" src="slike/ikonice/buy-again.png">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>

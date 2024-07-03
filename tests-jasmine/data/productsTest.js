@@ -4,7 +4,7 @@ describe('test Product class',()=>{
   beforeEach(()=>{
       product = new Product({
       id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-      image: "images/products/athletic-cotton-socks-6-pairs.jpg",
+      image: "slike/products/athletic-cotton-socks-6-pairs.jpg",
       name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
       rating: {
         stars: 4.5,
@@ -30,7 +30,7 @@ describe('test Product class',()=>{
     expect(document.querySelector('.test-container').innerHTML=`${product.extraInfoHTML()}`).toEqual('');
   });
   it('product stars rating method',()=>{
-    expect(document.querySelector('.test-container').innerHTML=`${product.getStarsUrl()}`).toEqual(`images/ratings/rating-45.png`);
+    expect(document.querySelector('.test-container').innerHTML=`${product.getStarsUrl()}`).toEqual(`slike/ratings/rating-45.png`);
   });
   it('product rating count method',()=>{
     expect(document.querySelector('.test-container').innerHTML=`${product.getRating()}`).toEqual('87');
@@ -44,7 +44,7 @@ describe('test Clothing class:',()=>{
   beforeEach(()=>{
       clothing = new Clothing({
         id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-        image: "images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+        image: "slike/products/adults-plain-cotton-tshirt-2-pack-teal.jpg",
         name: "Adults Plain Cotton T-Shirt - 2 Pack",
         rating: {
           stars: 4.5,
@@ -57,7 +57,7 @@ describe('test Clothing class:',()=>{
           "mens"
         ],
         type: "clothing",
-        sizeChartLink: "images/clothing-size-chart.png"
+        sizeChartLink: "slike/clothing-size-chart.png"
       });
   });
   afterEach(()=>{
@@ -68,7 +68,7 @@ describe('test Clothing class:',()=>{
     expect(clothing.name).toEqual("Adults Plain Cotton T-Shirt - 2 Pack");
   });
   it('clothing sizeChartLink property',()=>{
-    expect(clothing.sizeChartLink).toEqual("images/clothing-size-chart.png");
+    expect(clothing.sizeChartLink).toEqual("slike/clothing-size-chart.png");
   });
   it('clothing extraInfoHTML method',()=>{
     expect(document.querySelector('.test-container').innerHTML=`${clothing.extraInfoHTML()}`).toContain('Size chart');
@@ -79,7 +79,7 @@ describe('test Appliance class:',()=>{
   beforeEach(()=>{
     appliance = new Appliance({
       id: "54e0eccd-8f36-462b-b68a-8182611d9add",
-      image: "images/products/black-2-slot-toaster.jpg",
+      image: "slike/products/black-2-slot-toaster.jpg",
       name: "2 Slot Toaster - Black",
       rating: {
         stars: 5,
@@ -92,8 +92,8 @@ describe('test Appliance class:',()=>{
         "appliances"
       ],
       type: "appliance",
-      instructionsLink: "images/appliance-instructions.png",
-      warrantyLink: "images/appliance-warranty.png"
+      instructionsLink: "slike/appliance-instructions.png",
+      warrantyLink: "slike/appliance-warranty.png"
     });
   });
   afterEach(()=>{
@@ -103,14 +103,14 @@ describe('test Appliance class:',()=>{
     expect(appliance.id).toEqual("54e0eccd-8f36-462b-b68a-8182611d9add");
     expect(appliance.name).toEqual("2 Slot Toaster - Black");
   });
-  it('appliance images links',()=>{
-    expect(appliance.instructionsLink).toEqual("images/appliance-instructions.png");
-    expect(appliance.warrantyLink).toEqual("images/appliance-warranty.png");
+  it('appliance slike links',()=>{
+    expect(appliance.instructionsLink).toEqual("slike/appliance-instructions.png");
+    expect(appliance.warrantyLink).toEqual("slike/appliance-warranty.png");
   });
   it('appliance extraInfoHTML method',()=>{
     expect(appliance.extraInfoHTML()).toContain(
-      `<a href="images/appliance-instructions.png" target=_blank>Instructions link</a>
-            <a href="images/appliance-warranty.png" target=_blank>Warranty link</a>`
+      `<a href="slike/appliance-instructions.png" target=_blank>Instructions link</a>
+            <a href="slike/appliance-warranty.png" target=_blank>Warranty link</a>`
     );
   });
 });
