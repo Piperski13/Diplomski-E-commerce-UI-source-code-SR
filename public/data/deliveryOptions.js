@@ -1,4 +1,7 @@
-import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"; //dayjs library
+import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"; 
+import sr from 'https://unpkg.com/dayjs@1.11.10/esm/locale/sr.js';
+
+dayjs.locale(sr);
 
 export const deliveryOptions = [
   {
