@@ -99,6 +99,16 @@
   align-items: center;
 }
 
+.remove-order {
+  display: inline-block;
+  color: white;
+  background-color: #531919;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
+}
+
 @media (max-width: 800px) {
   .order-details-grid {
     grid-template-columns: 110px 1fr;

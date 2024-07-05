@@ -50,11 +50,11 @@ export function renderOrderSummary(){
 
       <div class="cart-item-details-grid">
         <img class="product-image"
-          src="${matchingProduct.image}">
+          src="${matchingProduct.slika}">
 
         <div class="cart-item-details">
           <div class="product-name js-test-product-name-${matchingProduct.id}">
-            ${matchingProduct.name}
+            ${matchingProduct.naziv}
           </div>
           <div class="product-price js-test-product-price-${matchingProduct.id}">
             ${matchingProduct.getPrice()}

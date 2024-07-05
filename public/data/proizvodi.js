@@ -1,28 +1,28 @@
 import {formatCurrency} from "../utils/money.js";
 export class Product{
   id;
-  image;
-  name;
-  rating;
-  priceCents;
-  keywords;
+  slika;
+  naziv;
+  ocena;
+  cenaCentima;
+  ključneReči;
 
   constructor(productDetails){
     this.id = productDetails.id;
-    this.image = productDetails.image;
-    this.name = productDetails.name
-    this.rating = productDetails.rating;
-    this.priceCents = productDetails.priceCents;
-    this.keywords = productDetails.keywords;
+    this.slika = productDetails.slika;
+    this.naziv = productDetails.naziv
+    this.ocena = productDetails.ocena;
+    this.cenaCentima = productDetails.cenaCentima;
+    this.ključneReči = productDetails.ključneReči;
   }
   getStarsUrl(){
-    return `slike/ratings/rating-${this.rating.stars*10}.png`;
+    return `slike/ratings/rating-${this.ocena.zvezde*10}.png`;
   }
   getRating(){
-    return `${this.rating.count}`;
+    return `${this.ocena.broj}`;
   }
   getPrice(){
-    return `$${formatCurrency(this.priceCents)}`;
+    return `$${formatCurrency(this.cenaCentima)}`;
   }
   extraInfoHTML(){
     return '';

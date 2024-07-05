@@ -15,7 +15,7 @@ export function renderPaymentSummary(){
     const deliveryOptionId = cartItem.deliveryOptionId;
     proizvodi.forEach(product => {
       if(product.id === productId){
-        let priceCents = product.priceCents
+        let priceCents = product.cenaCentima
         totalCents += productQuantity * priceCents;
 
       }
@@ -66,22 +66,28 @@ export function renderPaymentSummary(){
   </button>`;
   document.querySelector('.js-payment-summary').innerHTML= generatedHTML;
   
-  document.querySelector('.js-place-order').addEventListener('click', async ()=>{
+  document.querySelector('.js-place-order').addEventListener('click', async () => {
     try {
-      const response = await fetch('http://127.0.0.1:3000/amazon.html',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(cart)
-    });
-    const order = await response.json();
-    addOrder(order);
-
+      const payload = {
+        cart: cart,
+        totalAfterTax: totalAfterTax
+      };
+  
+      const response = await fetch('http://127.0.0.1:3000/amazon.html', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+  
+      const order = await response.json();
+      addOrder(order);
+  
     } catch (error) {
       console.log('Unexpected error, try again later.');
     }
-
+  
     window.location.href = 'orders.html';
-  });
+  });  
 };

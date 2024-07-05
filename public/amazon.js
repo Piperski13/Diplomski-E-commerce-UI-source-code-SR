@@ -37,11 +37,11 @@ function renderProductsGrid(){
       <div class="product-container">
       <div class="product-image-container">
         <img class="product-image"
-          src="${product.image}">
+          src="${product.slika}">
       </div>
 
       <div class="product-name limit-text-to-2-lines">
-        ${product.name}
+        ${product.naziv}
       </div>
 
       <div class="product-rating-container">
