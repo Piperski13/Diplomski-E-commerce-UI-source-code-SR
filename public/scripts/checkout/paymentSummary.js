@@ -2,7 +2,7 @@ import { calculateCartQuantity, cart } from "../../data/cart.js";
 import { proizvodi } from "../../data/proizvodi.js";
 import { formatCurrency } from "../../utils/money.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js"
-import { addOrder } from "../../data/orders.js"
+import { addOrder } from "../../data/porudzbenice.js"
 
 export function renderPaymentSummary(){
   let generatedHTML = '';
@@ -88,6 +88,6 @@ export function renderPaymentSummary(){
       console.log('Unexpected error, try again later.');
     }
   
-    window.location.href = 'orders.html';
+    window.location.href = 'porudzbenice.html';
   });  
 };

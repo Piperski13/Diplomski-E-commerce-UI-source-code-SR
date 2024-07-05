@@ -1,4 +1,4 @@
-import {orders,removeFromOrders} from '../../data/orders.js';
+import {orders,removeFromOrders} from '../../data/porudzbenice.js';
 import {formatCurrency} from '../../utils/money.js';
 import {renderDateOrder} from '../../utils/date.js';
 import {loadProducts,loadProductsFetch,proizvodi} from '../../data/proizvodi.js';
