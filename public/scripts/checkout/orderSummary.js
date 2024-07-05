@@ -133,25 +133,25 @@ export function renderOrderSummary(){
   };
 
   function productQuantityUpdate(){
-    const confirmYes = document.querySelector('.confirm-window-yes');
-    const confirmNo = document.querySelector('.confirm-window-no');
+    const confirmYes = document.querySelector('.potvrdi-prozor-da');
+    const confirmNo = document.querySelector('.potvrdi-prozor-ne');
 
     //event Listener for a delete button
     document.querySelectorAll('.js-delete-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const productId = link.dataset.productId;
-        const confirmWindow = document.getElementById('delete-confirm');
-        confirmWindow.classList.toggle('confirm-hidden');
+        const confirmWindow = document.getElementById('potvrdi-brisanje');
+        confirmWindow.classList.toggle('potvrdi-skriveno');
 
         function handleConfirmYes(){
           
-          confirmWindow.classList.toggle('confirm-hidden');
+          confirmWindow.classList.toggle('potvrdi-skriveno');
           confirmYes.removeEventListener('click',handleConfirmYes);
           confirmNo.removeEventListener('click',handleConfirmNo);
           deleteContainer(productId);
         }
         function handleConfirmNo(){
-          confirmWindow.classList.toggle('confirm-hidden');
+          confirmWindow.classList.toggle('potvrdi-skriveno');
           confirmYes.removeEventListener('click',handleConfirmYes);
           confirmNo.removeEventListener('click',handleConfirmNo);
         }
