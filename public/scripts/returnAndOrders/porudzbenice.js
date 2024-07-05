@@ -86,7 +86,7 @@ function renderOrderSummary(){
     `;
     generatedDetailsHTML = '';
   });
-  document.querySelector('.js-orders-grid').innerHTML = generatedHTML;
+  document.querySelector('.js-porudzbine-gird').innerHTML = generatedHTML;
   updateCartQuantity();
 
   document.querySelectorAll('.js-buy-again').forEach((button)=>{

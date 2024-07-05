@@ -19,7 +19,7 @@
   margin-bottom: 25px;
 }
 
-.orders-grid {
+.porudzbine-gird {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 50px;
