@@ -1,4 +1,4 @@
-.checkout-header {
+.naplata-zaglavlje {
   height: 60px;
   padding-left: 30px;
   padding-right: 30px;
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.checkout-header-left-section {
+.naplata-zaglavlje-left-section {
   width: 150px;
 }
 
@@ -40,7 +40,7 @@
    means when the screen width is 575px or less, different
    styles (inside the {...}) will be applied. */
 @media (max-width: 575px) {
-  .checkout-header-left-section {
+  .naplata-zaglavlje-left-section {
     width: auto;
   }
 
@@ -55,7 +55,7 @@
   }
 }
 
-.checkout-header-middle-section {
+.naplata-zaglavlje-middle-section {
   flex: 1;
   flex-shrink: 0;
   text-align: center;
@@ -75,7 +75,7 @@
 }
 
 @media (max-width: 1000px) {
-  .checkout-header-middle-section {
+  .naplata-zaglavlje-middle-section {
     font-size: 20px;
     margin-right: 60px;
   }
@@ -86,18 +86,18 @@
 }
 
 @media (max-width: 575px) {
-  .checkout-header-middle-section {
+  .naplata-zaglavlje-middle-section {
     margin-right: 5px;
   }
 }
 
-.checkout-header-right-section {
+.naplata-zaglavlje-right-section {
   text-align: right;
   width: 150px;
 }
 
 @media (max-width: 1000px) {
-  .checkout-header-right-section {
+  .naplata-zaglavlje-right-section {
     width: auto;
   }
 }
