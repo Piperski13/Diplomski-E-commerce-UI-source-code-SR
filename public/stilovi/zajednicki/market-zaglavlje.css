@@ -107,18 +107,18 @@
   color: white;
 }
 
-.returns-text {
+.poruceni-text {
   display: block;
   font-size: 13px;
 }
 
-.orders-text {
+.proizvodi-text {
   display: block;
   font-size: 15px;
   font-weight: 700;
 }
 
-.cart-link {
+.korpa-link {
   color: white;
   display: flex;
   align-items: center;
