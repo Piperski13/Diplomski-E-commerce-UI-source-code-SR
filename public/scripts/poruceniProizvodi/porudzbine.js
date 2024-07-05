@@ -41,10 +41,10 @@ function renderOrderSummary(){
               <div class="product-quantity">
                 Količina: ${productOrder.quantity}
               </div>
-              <button class="buy-again-button button-primary js-buy-again"
+              <button class="kupi-ponovo-button button-primary js-kupi-ponovo"
               data-product-id="${matchingProduct.id}">
-                <img class="buy-again-icon" src="slike/ikonice/buy-again.png">
-                <span class="buy-again-message">Kupi ponovo</span>
+                <img class="kupi-ponovo-icon" src="slike/ikonice/kupi-ponovo.png">
+                <span class="kupi-ponovo-message">Kupi ponovo</span>
               </button>
             </div>
 
@@ -89,7 +89,7 @@ function renderOrderSummary(){
   document.querySelector('.js-porudzbine-gird').innerHTML = generatedHTML;
   updateCartQuantity();
 
-  document.querySelectorAll('.js-buy-again').forEach((button)=>{
+  document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
       const productId = button.dataset.productId;
       addToCart(productId);
