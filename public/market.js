@@ -76,7 +76,7 @@ function renderProductsGrid(){
       <div class="product-spacer"></div>
 
       <div class="added-to-cart js-add-cart-${product.id}">
-        <img src="slike/ikonice/checkmark.png">
+        <img src="slike/ikonice/kvacica.png">
         Dodato u korpu
       </div>
 
