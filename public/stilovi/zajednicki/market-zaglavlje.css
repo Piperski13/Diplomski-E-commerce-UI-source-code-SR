@@ -59,7 +59,7 @@
   }
 }
 
-.market-zaglavlje-middle-section {
+.market-zaglavlje-srednja-sekcija {
   flex: 1;
   max-width: 850px;
   margin-left: 10px;
@@ -67,7 +67,7 @@
   display: flex;
 }
 
-.search-bar {
+.traka-za-pretragu {
   flex: 1;
   width: 0;
   font-size: 16px;

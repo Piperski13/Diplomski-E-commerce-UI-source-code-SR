@@ -89,7 +89,7 @@ function renderProductsGrid(){
   document.querySelector('.js-product-container').innerHTML = proizvodiHTML;
 
   function searchBar(){
-    const searchValue = document.querySelector('.js-search-bar').value;
+    const searchValue = document.querySelector('.js-traka-za-pretragu').value;
     const search = searchValue.toLowerCase();
     window.location.href = `market.html?search=${search}`;
   }
@@ -98,7 +98,7 @@ function renderProductsGrid(){
     searchBar();
   });
 
-  document.querySelector('.js-search-bar').addEventListener('keydown',(event)=>{
+  document.querySelector('.js-traka-za-pretragu').addEventListener('keydown',(event)=>{
     if(event.key==='Enter'){
       searchBar();
     }
