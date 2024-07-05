@@ -94,7 +94,7 @@ function renderProductsGrid(){
     window.location.href = `market.html?search=${search}`;
   }
 
-  document.querySelector('.js-search-button').addEventListener('click',()=>{
+  document.querySelector('.js-dugme-za-pretragu').addEventListener('click',()=>{
     searchBar();
   });
 
