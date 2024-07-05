@@ -49,7 +49,7 @@ function renderOrderSummary(){
             </div>
 
             <div class="product-actions">
-              <a href="tracking.html?orderId=${order.id}&productId=${matchingProduct.id}">
+              <a href="pracenje.html?orderId=${order.id}&productId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa
                 </button>
