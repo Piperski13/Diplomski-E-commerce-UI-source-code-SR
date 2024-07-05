@@ -86,7 +86,7 @@ function renderProductsGrid(){
     </div>`
   });
 
-  document.querySelector('.js-product-container').innerHTML = proizvodiHTML;
+  document.querySelector('.js-proizvodi-kontejner').innerHTML = proizvodiHTML;
 
   function searchBar(){
     const searchValue = document.querySelector('.js-traka-za-pretragu').value;
