@@ -107,12 +107,12 @@
   color: white;
 }
 
-.poruceni-text {
+.poruceni-tekst {
   display: block;
   font-size: 13px;
 }
 
-.proizvodi-text {
+.proizvodi-tekst {
   display: block;
   font-size: 15px;
   font-weight: 700;
@@ -129,13 +129,13 @@
   width: 50px;
 }
 
-.cart-text {
+.korpa-tekst {
   margin-top: 12px;
   font-size: 15px;
   font-weight: 700;
 }
 
-.cart-quantity {
+.kolicina-u-kolicima {
   color: rgb(221, 79, 3);
   font-size: 16px;
   font-weight: 700;

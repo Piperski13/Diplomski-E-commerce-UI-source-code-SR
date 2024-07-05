@@ -91,7 +91,7 @@ async function renderTrackingPage(){
     if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
       return;
     }
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = cartQuantity;
   }
 };
 renderTrackingPage();
