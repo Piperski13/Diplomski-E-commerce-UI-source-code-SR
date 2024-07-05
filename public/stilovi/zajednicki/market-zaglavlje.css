@@ -38,21 +38,21 @@
   border: 1px solid white;
 }
 
-.logo-black {
+.beli-logo {
   width: 100px;
   margin-top: 5px;
 }
 
-.logo-black-mobile {
+.beli-logo-telefon {
   display: none;
 }
 
 @media (max-width: 575px) {
-  .logo-black {
+  .beli-logo {
     display: none;
   }
 
-  .logo-black-mobile {
+  .beli-logo-telefon {
     display: block;
     height: 35px;
     margin-top: 5px;

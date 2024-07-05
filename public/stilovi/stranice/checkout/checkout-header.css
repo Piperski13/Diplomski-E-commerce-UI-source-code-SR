@@ -26,12 +26,12 @@
   width: 150px;
 }
 
-.logo-black {
+.beli-logo {
   width: 100px;
   margin-top: 12px;
 }
 
-.logo-black-mobile {
+.beli-logo-telefon {
   display: none;
 }
 
@@ -44,11 +44,11 @@
     width: auto;
   }
 
-  .logo-black {
+  .beli-logo {
     display: none;
   }
 
-  .logo-black-mobile {
+  .beli-logo-telefon {
     display: inline-block;
     height: 35px;
     margin-top: 5px;
