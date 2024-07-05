@@ -90,20 +90,20 @@
   flex-shrink: 0;
 }
 
-.search-icon {
+.ikonica-pretraga {
   height: 22px;
   margin-left: 2px;
   margin-top: 3px;
 }
 
-.market-zaglavlje-right-section {
+.market-zaglavlje-desna-sekcija {
   width: 180px;
   flex-shrink: 0;
   display: flex;
   justify-content: end;
 }
 
-.orders-link {
+.porudzbine-link {
   color: white;
 }
 

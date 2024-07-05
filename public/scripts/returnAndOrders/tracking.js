@@ -45,7 +45,7 @@ async function renderTrackingPage(){
 
   let generatedHTML = `
      <div class="order-tracking">
-        <a class="back-to-orders-link link-primary" href="orders.html">
+        <a class="back-to-porudzbine-link link-primary" href="orders.html">
           Pogledajte sve porudžbine
         </a>
 
