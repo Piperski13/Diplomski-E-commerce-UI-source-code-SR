@@ -91,7 +91,7 @@ function renderProductsGrid(){
   function searchBar(){
     const searchValue = document.querySelector('.js-search-bar').value;
     const search = searchValue.toLowerCase();
-    window.location.href = `amazon.html?search=${search}`;
+    window.location.href = `market.html?search=${search}`;
   }
 
   document.querySelector('.js-search-button').addEventListener('click',()=>{

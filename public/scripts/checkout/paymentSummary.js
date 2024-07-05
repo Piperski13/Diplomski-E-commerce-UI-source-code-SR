@@ -73,7 +73,7 @@ export function renderPaymentSummary(){
         totalAfterTax: totalAfterTax
       };
   
-      const response = await fetch('http://127.0.0.1:3000/amazon.html', {
+      const response = await fetch('http://127.0.0.1:3000/market.html', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

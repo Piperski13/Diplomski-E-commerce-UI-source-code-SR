@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname,'public')));
 const proizvodi = JSON.parse(fs.readFileSync('./backend/proizvodi.json','utf-8'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'amazon.html'));
+  res.sendFile(path.join(__dirname, 'public', 'market.html'));
 });
 
 app.get('/checkout', (req, res) => {
@@ -33,7 +33,7 @@ app.get('/proizvodi',(req,res)=>{
   res.status(200).json(proizvodi)
 });
 
-app.post('/amazon.html',(req,res)=>{  
+app.post('/market.html',(req,res)=>{  
   const currentTime = dayjs().toISOString();
   const { cart, totalAfterTax } = req.body;
   let priceCentsTotal=0;

@@ -15,17 +15,17 @@
   height: 60px;
 }
 
-.market-zaglavlje-left-section {
+.market-zaglavlje-leva-sekcija {
   width: 180px;
 }
 
 @media (max-width: 800px) {
-  .market-zaglavlje-left-section {
+  .market-zaglavlje-leva-sekcija {
     width: unset;
   }
 }
 
-.header-link {
+.zaglavlje-link {
   display: inline-block;
   padding: 6px;
   border-radius: 2px;
@@ -34,7 +34,7 @@
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
-.header-link:hover {
+.zaglavlje-link:hover {
   border: 1px solid white;
 }
 
