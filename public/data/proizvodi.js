@@ -16,7 +16,7 @@ export class Product{
     this.ključneReči = productDetails.ključneReči;
   }
   getStarsUrl(){
-    return `slike/ratings/rating-${this.ocena.zvezde*10}.png`;
+    return `slike/ocene/ocena-${this.ocena.zvezde*10}.png`;
   }
   getRating(){
     return `${this.ocena.broj}`;
