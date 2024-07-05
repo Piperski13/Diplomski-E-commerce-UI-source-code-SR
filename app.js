@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'market.html'));
 });
 
-app.get('/checkout', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'checkout.html'));
+app.get('/naplata', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'naplata.html'));
 });
 
 app.get('/porudzbenice', (req, res) => {

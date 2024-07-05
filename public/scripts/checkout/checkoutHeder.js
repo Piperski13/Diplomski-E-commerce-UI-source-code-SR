@@ -16,7 +16,7 @@ export function renderCheckoutHeader(){
     </div>
 
     <div class="checkout-header-right-section">
-      <img src="slike/ikonice/checkout-lock-icon.png">
+      <img src="slike/ikonice/naplata-kljuc-ikonica.png">
     </div>
   </div>`
   document.querySelector('.js-checkout-header').innerHTML = generatedHTML;
