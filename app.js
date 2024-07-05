@@ -25,8 +25,8 @@ app.get('/naplata', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'naplata.html'));
 });
 
-app.get('/porudzbenice', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'porudzbenice.html'));
+app.get('/porudzbine', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'porudzbine.html'));
 });
 
 app.get('/proizvodi',(req,res)=>{

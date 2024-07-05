@@ -1,5 +1,5 @@
 import {proizvodi,loadProductsFetch} from '../../data/proizvodi.js';
-import {orders} from '../../data/porudzbenice.js';
+import {orders} from '../../data/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
 import {calculateCartQuantity} from "../../data/cart.js"
 
@@ -45,7 +45,7 @@ async function renderTrackingPage(){
 
   let generatedHTML = `
      <div class="order-tracking">
-        <a class="back-to-porudzbine-link link-primary" href="porudzbenice.html">
+        <a class="back-to-porudzbine-link link-primary" href="porudzbine.html">
           Pogledajte sve porudžbine
         </a>
 
