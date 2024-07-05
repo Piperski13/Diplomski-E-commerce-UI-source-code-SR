@@ -83,7 +83,7 @@ async function renderTrackingPage(){
         </div>
       </div>
   `;
-  document.querySelector('.main').innerHTML = generatedHTML;
+  document.querySelector('.glavni-sadrzaj').innerHTML = generatedHTML;
   updateCartQuantity();
 
   function updateCartQuantity(){        

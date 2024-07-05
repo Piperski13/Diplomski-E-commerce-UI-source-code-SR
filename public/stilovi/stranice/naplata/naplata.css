@@ -1,4 +1,4 @@
-.main {
+.glavni-sadrzaj {
   max-width: 1100px;
   padding-left: 30px;
   padding-right: 30px;
@@ -33,7 +33,7 @@
 }
 
 @media (max-width: 1000px) {
-  .main {
+  .glavni-sadrzaj {
     max-width: 500px;
   }
 
