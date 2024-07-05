@@ -223,7 +223,7 @@ export function renderOrderSummary(){
     })
   }
 
-  document.querySelector('.order-summary').innerHTML = checkoutHTML;
+  document.querySelector('.pregled-porudzbine').innerHTML = checkoutHTML;
 
   updateCartQuantity(); // updates cart quantity in header part of the checkout.html
   productQuantityUpdate();  // adds event listeners to update/delete quantity

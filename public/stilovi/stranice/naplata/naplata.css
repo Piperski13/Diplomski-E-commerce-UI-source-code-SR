@@ -20,7 +20,7 @@
   margin-bottom: 18px;
 }
 
-.checkout-grid {
+.naplata-grid {
   display: grid;
   /* Here, 1fr means the first column will take
      up the remaining space in the grid. */
@@ -37,13 +37,13 @@
     max-width: 500px;
   }
 
-  .checkout-grid {
+  .naplata-grid {
     grid-template-columns: 1fr;
   }
 }
 
 .cart-item-container,
-.payment-summary {
+.pregled-naplate {
   border: 1px solid rgb(222, 222, 222);
   border-radius: 4px;
   padding: 18px;
@@ -53,12 +53,12 @@
   margin-bottom: 12px;
 }
 
-.payment-summary {
+.pregled-naplate {
   padding-bottom: 5px;
 }
 
 @media (max-width: 1000px) {
-  .payment-summary {
+  .pregled-naplate {
     /* grid-row: 1 means this element will be placed into row
       1 in the grid. (Normally, the row that an element is
       placed in is determined by the order of the elements in
@@ -162,13 +162,13 @@
   font-size: 15px;
 }
 
-.payment-summary-title {
+.pregled-naplate-title {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 12px;
 }
 
-.payment-summary-row {
+.pregled-naplate-row {
   display: grid;
   /* 1fr auto; means the width of the 2nd column will be
      determined by the elements inside the column (auto).
@@ -179,11 +179,11 @@
   margin-bottom: 9px;
 }
 
-.payment-summary-money {
+.pregled-naplate-money {
   text-align: right;
 }
 
-.subtotal-row .payment-summary-money {
+.subtotal-row .pregled-naplate-money {
   border-top: 1px solid rgb(222, 222, 222);
 }
 
