@@ -5,8 +5,8 @@ export function renderCheckoutHeader(){
     <div class="header-content">
     <div class="naplata-zaglavlje-left-section">
       <a href="/">
-        <img class="beli-logo" src="slike/logo-black.png">
-        <img class="beli-logo-telefon" src="slike/logo-black-mobile.png">
+        <img class="beli-logo" src="slike/crni-logo.png">
+        <img class="beli-logo-telefon" src="slike/ceni-logo-telefon.png">
       </a>
     </div>
 
