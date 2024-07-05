@@ -30,7 +30,7 @@ export function renderPaymentSummary(){
   const taxCents = totalBeforeTax * 0.1;
   const totalAfterTax =  totalBeforeTax + taxCents
   
-  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `$${formatCurrency(shippingCents)}`;
+  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `${formatCurrency(shippingCents)}  <span class="rsd-stil">RSD</span>`;
   generatedHTML = `
   <div class="payment-summary-title">
     Porudžbina:
@@ -38,7 +38,7 @@ export function renderPaymentSummary(){
 
   <div class="payment-summary-row">
     <div>Broj artikala (${cartQuantity}):</div>
-    <div class="payment-summary-money">$${formatCurrency(totalCents)}</div>
+    <div class="payment-summary-money">${formatCurrency(totalCents)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="payment-summary-row">
@@ -48,17 +48,17 @@ export function renderPaymentSummary(){
 
   <div class="payment-summary-row subtotal-row">
     <div>Cena pre PDV-a:</div>
-    <div class="payment-summary-money">$${formatCurrency(totalBeforeTax)}</div>
+    <div class="payment-summary-money">${formatCurrency(totalBeforeTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="payment-summary-row">
     <div>Cena PDV (10%):</div>
-    <div class="payment-summary-money">$${formatCurrency(taxCents)}</div>
+    <div class="payment-summary-money">${formatCurrency(taxCents)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="payment-summary-row total-row">
     <div>Ukupna cena:</div>
-    <div class="payment-summary-money js-test-total-price">$${formatCurrency(totalAfterTax)}</div>
+    <div class="payment-summary-money js-test-total-price">${formatCurrency(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <button class="place-order-button button-primary js-place-order">

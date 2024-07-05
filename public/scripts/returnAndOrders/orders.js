@@ -44,7 +44,7 @@ function renderOrderSummary(){
               <button class="buy-again-button button-primary js-buy-again"
               data-product-id="${matchingProduct.id}">
                 <img class="buy-again-icon" src="slike/ikonice/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
+                <span class="buy-again-message">Kupi ponovo</span>
               </button>
             </div>
 
@@ -71,7 +71,7 @@ function renderOrderSummary(){
               </div>
               <div class="order-total">
                 <div class="order-header-label">Ukupno:</div>
-                <div>$${formatCurrency(order.totalCostCents)}</div>
+                <div>${formatCurrency(order.totalCostCents)} <span class="rsd-stil">RSD</span></div>
               </div>
             </div>
 

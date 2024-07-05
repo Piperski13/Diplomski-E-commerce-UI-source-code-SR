@@ -18,10 +18,10 @@ function renderProductsGrid(){
   if(search){
     filteredProducts = proizvodi.filter((product)=>{  
 
-      const nameMatch = product.name.toLowerCase().includes(search);
+      const nameMatch = product.naziv.toLowerCase().includes(search);
       let keywordMatch = null;
 
-      product.keywords.forEach((keyword)=>{
+      product.ključneReči.forEach((keyword)=>{
         if(keyword.includes(search)){
           keywordMatch = product;
         }
@@ -77,7 +77,7 @@ function renderProductsGrid(){
 
       <div class="added-to-cart js-add-cart-${product.id}">
         <img src="slike/ikonice/checkmark.png">
-        Added
+        Dodato u korpu
       </div>
 
       <button class="add-to-cart-button button-primary js-add-button" data-product-id="${product.id}">

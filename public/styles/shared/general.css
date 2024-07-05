@@ -33,6 +33,10 @@ input, select, button {
   box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
 }
 
+.rsd-stil{
+  font-size: 10px;
+}
+
 .button-primary:hover {
   background-color: #247623;
   border: 1px solid #88bb89;

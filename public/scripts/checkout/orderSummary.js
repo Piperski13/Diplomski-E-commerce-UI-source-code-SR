@@ -95,7 +95,7 @@ export function renderOrderSummary(){
     let generatedHTML='';
     deliveryOptions.forEach((option) =>{
       const formatedDate = calculateDeliveryDate(option.deliveryDays);
-      const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `$${formatCurrency(option.priceCents)} - Dostava`;
+      const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `${formatCurrency(option.priceCents)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === cartItem.deliveryOptionId;
       generatedHTML +=
       `<div class="delivery-option js-delivery-option

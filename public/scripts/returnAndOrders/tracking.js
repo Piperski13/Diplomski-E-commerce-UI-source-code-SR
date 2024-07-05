@@ -54,14 +54,14 @@ async function renderTrackingPage(){
         </div>
 
         <div class="product-info">
-          ${matchingProduct.name}
+          ${matchingProduct.naziv}
         </div>
 
         <div class="product-info">
           Količina: ${matchingOrder.quantity}
         </div>
 
-        <img class="product-image" src="${matchingProduct.image}">
+        <img class="product-image" src="${matchingProduct.slika}">
 
         <div class="progress-labels-container">
           <div class="progress-label ${progressionDelivery <=49 ? 'current-status' : '' }" >

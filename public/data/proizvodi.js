@@ -22,7 +22,7 @@ export class Product{
     return `${this.ocena.broj}`;
   }
   getPrice(){
-    return `$${formatCurrency(this.cenaCentima)}`;
+    return `${formatCurrency(this.cenaCentima)} <span class="rsd-stil">RSD</span>`;
   }
   extraInfoHTML(){
     return '';
