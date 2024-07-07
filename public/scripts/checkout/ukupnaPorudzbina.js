@@ -3,7 +3,7 @@ import {cart,
   calculateCartQuantity,
   updateQuantity,
   updateDeliveryOptions}
-   from "../../data/cart.js";
+   from "../../data/korpa.js";
 import {proizvodi} from "../../data/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
 import {deliveryOptions,calculateDeliveryDate} from "../../data/deliveryOptions.js"
@@ -120,7 +120,7 @@ export function renderovanjeUkupnePorudzbine(){
     return generatedHTML;
   }
   function updateCartQuantity(){ 
-    let cartQuantity = calculateCartQuantity();     //cart.js function that calculates cart quantity
+    let cartQuantity = calculateCartQuantity();     //korpa.js function that calculates cart quantity
     if(cartQuantity === 0){
       document.querySelector('.js-return-to-home-link').innerHTML = ``;
     }
@@ -172,7 +172,7 @@ export function renderovanjeUkupnePorudzbine(){
     });
   }
 
-    //adds event listeners to all Save links and on click removes class that was previously set for container, gets value from input and turns it into a num, and the pass is it in cart.js
+    //adds event listeners to all Save links and on click removes class that was previously set for container, gets value from input and turns it into a num, and the pass is it in korpa.js
     // and finnaly updates the page ( *renderovanjeUkupnePorudzbine() )
   function saveLinkEvent(){
     document.querySelectorAll('.js-save-link').forEach((link)=>{

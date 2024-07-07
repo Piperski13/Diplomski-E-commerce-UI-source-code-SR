@@ -2,7 +2,7 @@ import {orders,removeFromOrders} from '../../data/porudzbine.js';
 import {formatCurrency} from '../../utils/money.js';
 import {renderDateOrder} from '../../utils/date.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../data/proizvodi.js';
-import {addToCart, calculateCartQuantity} from '../../data/cart.js';
+import {addToCart, calculateCartQuantity} from '../../data/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
@@ -108,7 +108,7 @@ function renderovanjeUkupnePorudzbine(){
   })
 
   function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //cart.js function that calculates cart quantity
+    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
     if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
       return;
     }

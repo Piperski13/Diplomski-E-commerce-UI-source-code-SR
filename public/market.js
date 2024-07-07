@@ -1,4 +1,4 @@
-import {cart, addToCart,calculateCartQuantity} from "../data/cart.js"; // imports a const cart from cart.js, created module
+import {cart, addToCart,calculateCartQuantity} from "../data/korpa.js"; // imports a const cart from korpa.js, created module
 import {proizvodi,loadProducts} from "../data/proizvodi.js";
 import {formatCurrency} from "./utils/money.js";
 
@@ -105,7 +105,7 @@ function renderProductsGrid(){
   })
 
   function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //cart.js function that calculates cart quantity
+    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
     if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
       return;
     }

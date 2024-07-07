@@ -1,4 +1,4 @@
-import { calculateCartQuantity, cart } from "../../data/cart.js";
+import { calculateCartQuantity, cart } from "../../data/korpa.js";
 import { proizvodi } from "../../data/proizvodi.js";
 import { formatCurrency } from "../../utils/money.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js"

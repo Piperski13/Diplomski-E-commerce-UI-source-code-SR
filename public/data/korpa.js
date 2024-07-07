@@ -14,7 +14,7 @@ export function addToCart(productId){
   let quantity;
   let quantitySelector;
       
-      cart.forEach((cartItem)=>{              //when button clicked goe trough cart.js[], and if 
+      cart.forEach((cartItem)=>{              //when button clicked goe trough korpa.js[], and if 
         if(productId === cartItem.productId ){    //it exists set item to matching item
           matchingItem = cartItem;
         }

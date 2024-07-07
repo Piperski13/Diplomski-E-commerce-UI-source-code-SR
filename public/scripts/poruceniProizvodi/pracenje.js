@@ -1,7 +1,7 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../data/proizvodi.js';
 import {orders} from '../../data/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
-import {calculateCartQuantity} from "../../data/cart.js"
+import {calculateCartQuantity} from "../../data/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
@@ -87,7 +87,7 @@ async function renderTrackingPage(){
   updateCartQuantity();
 
   function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //cart.js function that calculates cart quantity
+    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
     if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
       return;
     }
