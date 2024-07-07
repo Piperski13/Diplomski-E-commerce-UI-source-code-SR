@@ -30,27 +30,13 @@ export class Product{
 }
 
 export class Clothing extends Product {
-  sizeChartLink;
+  linkVeličinaTabele;
   constructor(productDetails){
     super(productDetails);
-    this.sizeChartLink = productDetails.sizeChartLink;
+    this.linkVeličinaTabele = productDetails.linkVeličinaTabele;
   }
   extraInfoHTML(){
-    return `<a href="${this.sizeChartLink}" target=_blank >Size chart</a>`;
-  }
-}
-export class Appliance extends Product{
-  instructionsLink;
-  warrantyLink;
-
-  constructor(productDetails){
-    super(productDetails);
-    this.instructionsLink = productDetails.instructionsLink;
-    this.warrantyLink = productDetails.warrantyLink;
-  }
-  extraInfoHTML(){
-    return `<a href="${this.instructionsLink}" target=_blank>Instructions link</a>
-            <a href="${this.warrantyLink}" target=_blank>Warranty link</a>`;
+    return `<a href="${this.linkVeličinaTabele}" target=_blank >Size chart</a>`;
   }
 }
 
@@ -61,12 +47,11 @@ export function loadProductsFetch(){
     return response.json();
   }).then((productDetails)=>{
     proizvodi = productDetails.map((productDetails)=>{
-      if(productDetails.type === "clothing"){
+
+      if(productDetails.tip === "odeća"){
         return new Clothing(productDetails);
       }
-      if(productDetails.type === "appliance"){
-        return new Appliance(productDetails);
-      }
+
       return new Product(productDetails);
     });
 
@@ -84,12 +69,11 @@ export function loadProducts(fun){
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load',()=>{
     proizvodi = JSON.parse(xhr.response).map((productDetails)=>{
-      if(productDetails.type === "clothing"){
+      
+      if(productDetails.tip === "odeća"){
         return new Clothing(productDetails);
       }
-      if(productDetails.type === "appliance"){
-        return new Appliance(productDetails);
-      }
+
       return new Product(productDetails);
     });
     fun();
