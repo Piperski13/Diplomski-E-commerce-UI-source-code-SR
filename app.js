@@ -12,21 +12,21 @@ const app = express();
 app.use(express.json()); //middleware
 app.use(cors()); //middleware
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'opstifolder')));
 
 
 const proizvodi = JSON.parse(fs.readFileSync('./backend/proizvodi.json','utf-8'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'market.html'));
+  res.sendFile(path.join(__dirname, 'opstifolder', 'market.html'));
 });
 
 app.get('/naplata', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'naplata.html'));
+  res.sendFile(path.join(__dirname, 'opstifolder', 'naplata.html'));
 });
 
 app.get('/porudzbine', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'porudzbine.html'));
+  res.sendFile(path.join(__dirname, 'opstifolder', 'porudzbine.html'));
 });
 
 app.get('/proizvodi',(req,res)=>{
