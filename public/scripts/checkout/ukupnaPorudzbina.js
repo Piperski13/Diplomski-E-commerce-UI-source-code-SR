@@ -7,9 +7,9 @@ import {cart,
 import {proizvodi} from "../../data/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
 import {deliveryOptions,calculateDeliveryDate} from "../../data/deliveryOptions.js"
-import { renderPaymentSummary } from "./ukupnaNaplata.js";
+import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
-export function renderOrderSummary(){
+export function renderovanjeUkupnePorudzbine(){
   function keyboardEvent(productId){
     document.querySelectorAll('.quantity-imput').forEach((input)=>{
       input.addEventListener('keydown',(event)=>{
@@ -173,7 +173,7 @@ export function renderOrderSummary(){
   }
 
     //adds event listeners to all Save links and on click removes class that was previously set for container, gets value from input and turns it into a num, and the pass is it in cart.js
-    // and finnaly updates the page ( *renderOrderSummary() )
+    // and finnaly updates the page ( *renderovanjeUkupnePorudzbine() )
   function saveLinkEvent(){
     document.querySelectorAll('.js-save-link').forEach((link)=>{
       link.addEventListener('click',()=>{
@@ -190,7 +190,7 @@ export function renderOrderSummary(){
     const container = document.querySelector(`.js-cart-item-container-${productId}`);
     container.remove();
     updateCartQuantity();
-    renderPaymentSummary();
+    renderovanjeUkupneNaplate();
   }
   function updateInput(productId){
     const quantityImput = document.querySelector(`.js-quantity-imput-${productId}`)
@@ -198,17 +198,17 @@ export function renderOrderSummary(){
     if(newQuantity === 0){
       deleteContainer(productId);
       updateQuantity(productId,newQuantity);
-      renderOrderSummary();
-      renderPaymentSummary();
+      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupneNaplate();
     }
     if(newQuantity>=1000 || newQuantity<0){
       alert('Error value');
-      renderOrderSummary();
+      renderovanjeUkupnePorudzbine();
     }
     else{
       updateQuantity(productId,newQuantity);
-      renderOrderSummary();
-      renderPaymentSummary();
+      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupneNaplate();
     }
   }
   function deliveryUpdate(){
@@ -217,8 +217,8 @@ export function renderOrderSummary(){
         const productId = option.dataset.productId;
         const deliveryOptionId = option.dataset.deliveryId;
         updateDeliveryOptions(productId,deliveryOptionId);
-        renderOrderSummary();
-        renderPaymentSummary(); // generates Payment box again
+        renderovanjeUkupnePorudzbine();
+        renderovanjeUkupneNaplate(); // generates Payment box again
       })
     })
   }

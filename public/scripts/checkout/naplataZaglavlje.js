@@ -1,5 +1,5 @@
 
-export function renderCheckoutHeader(){
+export function renderovanjeNaplateZaglavlje(){
   let generatedHTML = '';
   generatedHTML= `
     <div class="header-content">

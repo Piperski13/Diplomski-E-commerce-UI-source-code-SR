@@ -4,7 +4,7 @@ import { formatCurrency } from "../../utils/money.js";
 import { deliveryOptions } from "../../data/deliveryOptions.js"
 import { addOrder } from "../../data/porudzbine.js"
 
-export function renderPaymentSummary(){
+export function renderovanjeUkupneNaplate(){
   let generatedHTML = '';
   let cartQuantity = calculateCartQuantity();
   let totalCents = 0;

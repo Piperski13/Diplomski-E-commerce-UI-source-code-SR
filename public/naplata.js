@@ -1,6 +1,6 @@
-import { renderOrderSummary } from "../scripts/checkout/ukupnaPorudzbina.js";
-import { renderPaymentSummary } from "../scripts/checkout/ukupnaNaplata.js";
-import { renderCheckoutHeader } from "../scripts/checkout/naplataZaglavlje.js";
+import { renderovanjeUkupnePorudzbine } from "../scripts/checkout/ukupnaPorudzbina.js";
+import { renderovanjeUkupneNaplate } from "../scripts/checkout/ukupnaNaplata.js";
+import { renderovanjeNaplateZaglavlje } from "../scripts/checkout/naplataZaglavlje.js";
 import { loadProductsFetch } from "../data/proizvodi.js"
 
 async function loadPage(){
@@ -15,8 +15,8 @@ async function loadPage(){
     console.log(error);
   }
   
-  renderCheckoutHeader();
-  renderOrderSummary();
-  renderPaymentSummary();
+  renderovanjeNaplateZaglavlje();
+  renderovanjeUkupnePorudzbine();
+  renderovanjeUkupneNaplate();
 };
 loadPage();

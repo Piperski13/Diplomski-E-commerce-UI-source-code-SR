@@ -5,12 +5,12 @@ import {loadProducts,loadProductsFetch,proizvodi} from '../../data/proizvodi.js'
 import {addToCart, calculateCartQuantity} from '../../data/cart.js';
 console.log(orders);
 loadProductsFetch().then(()=>{          //fetch, returns promise, method then
-  renderOrderSummary();
+  renderovanjeUkupnePorudzbine();
 });
 
-// loadProducts(renderOrderSummary);    //call back , XMLHttpRequest
+// loadProducts(renderovanjeUkupnePorudzbine);    //call back , XMLHttpRequest
 
-function renderOrderSummary(){
+function renderovanjeUkupnePorudzbine(){
   let generatedHTML = '';
   let generatedDetailsHTML = '';
 
@@ -103,7 +103,7 @@ function renderOrderSummary(){
       removeFromOrders(orderId);
       const container = document.querySelector(`.js-orders-item-container-${orderId}`);
       container.remove();
-      renderOrderSummary();
+      renderovanjeUkupnePorudzbine();
     })
   })
 
