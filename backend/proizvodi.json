@@ -1,8 +1,8 @@
 [
   {
     "id": "77a845b1-16ed-4eac-bdf9-5b591882113d",
-    "slika": "slike/proizvodi/countertop-blender-64-oz.jpg",
-    "naziv": "Blender za radnu površinu - 64oz, 1400 vati",
+    "slika": "slike/proizvodi/blender-za-radnu-povrsinu.jpg",
+    "naziv": "Blender za radnu površinu - 1.8l, 1400 vati",
     "ocena": {
       "zvezde": 4,
       "broj": 3
@@ -16,7 +16,7 @@
   },
   {
     "id": "77919bbe-0e56-475b-adde-4f24dfed3a04",
-    "slika": "slike/proizvodi/luxury-tower-set-6-piece.jpg",
+    "slika": "slike/proizvodi/set-luksuznih-peskira-grafitno-sivi.jpg",
     "naziv": "Set luksuznih peškira - Grafitno sivi",
     "ocena": {
       "zvezde": 4.5,
@@ -32,7 +32,7 @@
   },
   {
     "id": "3fdfe8d6-9a15-4979-b459-585b0d0545b9",
-    "slika": "slike/proizvodi/liquid-laundry-detergent-plain.jpg",
+    "slika": "slike/proizvodi/tecni-deterdzent-za-ves-110-pranja-2.5l.jpg",
     "naziv": "Tečni deterdžent za veš, 110 pranja, 2.5l",
     "ocena": {
       "zvezde": 4.5,
@@ -46,7 +46,7 @@
   },
   {
     "id": "58b4fc92-e98c-42aa-8c55-b6b79996769a",
-    "slika": "slike/proizvodi/knit-athletic-sneakers-gray.jpg",
+    "slika": "slike/proizvodi/vodootporne-pletene-atletske-patike-sive.jpg",
     "naziv": "Vodootporne pletene atletske patike - Sive",
     "ocena": {
       "zvezde": 4,
@@ -61,7 +61,7 @@
   },
   {
     "id": "5968897c-4d27-4872-89f6-5bcb052746d7",
-    "slika": "slike/proizvodi/women-chiffon-beachwear-coverup-black.jpg",
+    "slika": "slike/proizvodi/zenski-sifonski-ogrtac-za-plazu-crni.jpg",
     "naziv": "Ženski šifonski ogrtač za plažu - Crni",
     "ocena": {
       "zvezde": 4.5,
@@ -80,7 +80,7 @@
   },
   {
     "id": "aad29d11-ea98-41ee-9285-b916638cac4a",
-    "slika": "slike/proizvodi/round-sunglasses-black.jpg",
+    "slika": "slike/proizvodi/okrugle-naocare-za-sunce.jpg",
     "naziv": "Okrugle naočare za sunce",
     "ocena": {
       "zvezde": 4.5,
@@ -94,7 +94,7 @@
   },
   {
     "id": "b86ddc8b-3501-4b17-9889-a3bad6fb585f",
-    "slika": "slike/proizvodi/trash-can-with-foot-pedal-50-liter.jpg",
+    "slika": "slike/proizvodi/kanta-za-smece-sa-noznom-pedalom-bruseni-nerdjajuci-celik.jpg",
     "naziv": "Kanta za smeće sa nožnom pedalom - brušeni nerđajući čelik",
     "ocena": {
       "zvezde": 4.5,
@@ -110,7 +110,7 @@
   },
   {
     "id": "19c6a64a-5463-4d45-9af8-e41140a4100c",
-    "slika": "slike/proizvodi/duvet-cover-set-blue-twin.jpg",
+    "slika": "slike/proizvodi/set-prekrivaca-sa-zatvaracem.jpg",
     "naziv": "Set prekrivača sa zatvaračem",
     "ocena": {
       "zvezde": 4,
@@ -127,7 +127,7 @@
   },
   {
     "id": "d2785924-743d-49b3-8f03-ec258e640503",
-    "slika": "slike/proizvodi/women-chunky-beanie-gray.webp",
+    "slika": "slike/proizvodi/zenska-zimska-kapa-siva.webp",
     "naziv": "Ženska zimska kapa - siva",
     "ocena": {
       "zvezde": 5,
@@ -144,7 +144,7 @@
   },
   {
     "id": "ee1f7c56-f977-40a4-9642-12ba5072e2b0",
-    "slika": "slike/proizvodi/men-chino-pants-beige.jpg",
+    "slika": "slike/proizvodi/muske-klasicne-pantalone-od-kepera.jpg",
     "naziv": "Muške klasične pantalone od kepera",
     "ocena": {
       "zvezde": 4.5,
@@ -159,7 +159,7 @@
   },
   {
     "id": "04701903-bc79-49c6-bc11-1af7e3651358",
-    "slika": "slike/proizvodi/women-beach-sandals.jpg",
+    "slika": "slike/proizvodi/zenske-sandale-sa-dva-kaisa-bez.jpg",
     "naziv": "Ženske sandale sa dva kaiša - Bež",
     "ocena": {
       "zvezde": 4.5,
@@ -176,7 +176,7 @@
   },
   {
     "id": "901eb2ca-386d-432e-82f0-6fb1ee7bf969",
-    "slika": "slike/proizvodi/blackout-curtain-set-beige.webp",
+    "slika": "slike/proizvodi/set-zavesa-za-zamracivanje-4-kom-bež.webp",
     "naziv": "Set zavesa za zamračivanje 4-kom - Bež",
     "ocena": {
       "zvezde": 4.5,
@@ -191,7 +191,7 @@
   },
   {
     "id": "82bb68d7-ebc9-476a-989c-c78a40ee5cd9",
-    "slika": "slike/proizvodi/men-slim-fit-summer-shorts-gray.jpg",
+    "slika": "slike/proizvodi/muski-uski-letnji-sortsi.jpg",
     "naziv": "Muški uski letnji šorts",
     "ocena": {
       "zvezde": 4,
@@ -206,7 +206,7 @@
   },
   {
     "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    "slika": "slike/proizvodi/athletic-cotton-socks-6-pairs.jpg",
+    "slika": "slike/proizvodi/crne-i-sive-sportske-pamučne-čarape-6-pari.jpg",
     "naziv": "Crne i sive sportske pamučne čarape - 6 pari",
     "ocena": {
       "zvezde": 4.5,
@@ -221,7 +221,7 @@
   },
   {
     "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    "slika": "slike/proizvodi/intermediate-composite-basketball.jpg",
+    "slika": "slike/proizvodi/kosarkaska-lopta-srednje-velicine.jpg",
     "naziv": "Košarkaška lopta srednje veličine",
     "ocena": {
       "zvezde": 4,
@@ -235,7 +235,7 @@
   },
   {
     "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    "slika": "slike/proizvodi/adults-plain-cotton-tshirt-2-pack-teal.jpg",
+    "slika": "slike/proizvodi/pamučne-majice-za-odrasle-2-komada.jpg",
     "naziv": "Pamučne majice za odrasle - 2 komada",
     "ocena": {
       "zvezde": 4.5,
@@ -252,7 +252,7 @@
   },
   {
     "id": "54e0eccd-8f36-462b-b68a-8182611d9add",
-    "slika": "slike/proizvodi/black-2-slot-toaster.jpg",
+    "slika": "slike/proizvodi/crni-toster-sa-2-proreza.jpg",
     "naziv": "Crni toster sa 2 proreza",
     "ocena": {
       "zvezde": 5,
@@ -267,7 +267,7 @@
   },
   {
     "id": "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    "slika": "slike/proizvodi/6-piece-white-dinner-plate-set.jpg",
+    "slika": "slike/proizvodi/set-od-6-belih-tanjira-za-večeru.jpg",
     "naziv": "Set od 6 belih tanjira za večeru",
     "ocena": {
       "zvezde": 4,
@@ -282,7 +282,7 @@
   },
   {
     "id": "c2a82c5e-aff4-435f-9975-517cfaba2ece",
-    "slika": "slike/proizvodi/electric-glass-and-steel-hot-water-kettle.webp",
+    "slika": "slike/proizvodi/elektricni-cajnik-od-stakla-i-celika.webp",
     "naziv": "Električni čajnik od stakla i čelika - 1.7 litara",
     "ocena": {
       "zvezde": 5,
@@ -297,7 +297,7 @@
   },
   {
     "id": "6b07d4e7-f540-454e-8a1e-363f25dbae7d",
-    "slika": "slike/proizvodi/facial-tissue-2-ply-18-boxes.jpg",
+    "slika": "slike/proizvodi/ultra-meka-maramica-2-slojna.jpg",
     "naziv": "Ultra meka maramica 2-slojna - 18 kutija",
     "ocena": {
       "zvezde": 4,
@@ -313,8 +313,8 @@
   },
   {
     "id": "a82c6bac-3067-4e68-a5ba-d827ac0be010",
-    "slika": "slike/proizvodi/straw-sunhat.webp",
-    "naziv": "Slamnati šešir za sunce",
+    "slika": "slike/proizvodi/sesir-za-sunce-od-slame.webp",
+    "naziv": "Šešir za sunce od slame",
     "ocena": {
       "zvezde": 4,
       "broj": 215
@@ -329,7 +329,7 @@
   },
   {
     "id": "e4f64a65-1377-42bc-89a5-e572d19252e2",
-    "slika": "slike/proizvodi/sky-flower-stud-earrings.webp",
+    "slika": "slike/proizvodi/mindjuse-od-srebra-sa-cvetom.webp",
     "naziv": "Minđuše od srebra sa cvetom",
     "ocena": {
       "zvezde": 4.5,
@@ -344,7 +344,7 @@
   },
   {
     "id": "b0f17cc5-8b40-4ca5-9142-b61fe3d98c85",
-    "slika": "slike/proizvodi/women-stretch-popover-hoodie-black.jpg",
+    "slika": "slike/proizvodi/women-stretch-hoodie.jpg",
     "naziv": "Ženska rastegljiva dukserica sa kapuljačom",
     "ocena": {
       "zvezde": 4.5,
@@ -363,8 +363,8 @@
   },
   {
     "id": "a93a101d-79ef-4cf3-a6cf-6dbe532a1b4a",
-    "slika": "slike/proizvodi/bathroom-rug.jpg",
-    "naziv": "Kupatilski tepih 20 x 31 inča - Sivi",
+    "slika": "slike/proizvodi/tepih-za-kupatilo.jpg",
+    "naziv": "Tepih za kupatilo 40 x 60 cm - Sivi",
     "ocena": {
       "zvezde": 4.5,
       "broj": 119
@@ -378,7 +378,7 @@
   },
   {
     "id": "4f4fbcc2-4e72-45cc-935c-9e13d79cc57f",
-    "slika": "slike/proizvodi/women-knit-ballet-flat-black.jpg",
+    "slika": "slike/proizvodi/ženske-pletene-baletanke.jpg",
     "naziv": "Ženske pletene baletanke",
     "ocena": {
       "zvezde": 4,
@@ -394,7 +394,7 @@
   },
   {
     "id": "8b5a2ee1-6055-422a-a666-b34ba28b76d4",
-    "slika": "slike/proizvodi/men-golf-polo-t-shirt-blue.jpg",
+    "slika": "slike/proizvodi/muska-regular-fit-brzo-suseca-golf-polo-majica.jpg",
     "naziv": "Muška regular-fit brzo sušeća golf polo majica",
     "ocena": {
       "zvezde": 4.5,
@@ -412,7 +412,7 @@
   },
   {
     "id": "1c079479-8586-494f-ab53-219325432536",
-    "slika": "slike/proizvodi/men-athletic-shoes-green.jpg",
+    "slika": "slike/proizvodi/muske-atletske-patike.jpg",
     "naziv": "Muške atletske patike",
     "ocena": {
       "zvezde": 4,
@@ -428,7 +428,7 @@
   },
   {
     "id": "4df68c27-fd59-4a6a-bbd1-e754ddb6d53c",
-    "slika": "slike/proizvodi/men-navigator-sunglasses-brown.jpg",
+    "slika": "slike/proizvodi/muske-pilotske-naocare-za-sunce.jpg",
     "naziv": "Muške pilotske naočare za sunce",
     "ocena": {
       "zvezde": 3.5,
@@ -444,7 +444,7 @@
   },
   {
     "id": "4e37dd03-3b23-4bc6-9ff8-44e112a92c64",
-    "slika": "slike/proizvodi/non-stick-cooking-set-15-pieces.webp",
+    "slika": "slike/proizvodi/set-neprijanjajuceg-posudja-serpe-tiganji-i-pribor-15-komada.webp",
     "naziv": "Set neprijanjajućeg posuđa, šerpe, tiganji i pribor - 15 komada",
     "ocena": {
       "zvezde": 4.5,
@@ -458,7 +458,7 @@
   },
   {
     "id": "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
-    "slika": "slike/proizvodi/vanity-mirror-silver.jpg",
+    "slika": "slike/proizvodi/ogledalo-za-tastinu-sa-teskom-bazom-hrom.jpg",
     "naziv": "Ogledalo za taštinu sa teškom bazom - hrom",
     "ocena": {
       "zvezde": 4.5,
@@ -474,7 +474,7 @@
   },
   {
     "id": "a45cfa0a-66d6-4dc7-9475-e2b01595f7d7",
-    "slika": "slike/proizvodi/women-french-terry-fleece-jogger-camo.jpg",
+    "slika": "slike/proizvodi/zenske-fleece-jogging-pantalone.jpg",
     "naziv": "Ženske fleece jogging pantalone",
     "ocena": {
       "zvezde": 4.5,
@@ -491,7 +491,7 @@
   },
   {
     "id": "d339adf3-e004-4c20-a120-40e8874c66cb",
-    "slika": "slike/proizvodi/double-elongated-twist-french-wire-earrings.webp",
+    "slika": "slike/proizvodi/duple-ovalne-uvijene-nausnice-sa-francuskom-zicom.webp",
     "naziv": "Duple ovalne uvijene naušnice sa francuskom žicom - zlatne",
     "ocena": {
       "zvezde": 4.5,
@@ -505,7 +505,7 @@
   },
   {
     "id": "d37a651a-d501-483b-aae6-a9659b0757a0",
-    "slika": "slike/proizvodi/round-airtight-food-storage-containers.jpg",
+    "slika": "slike/proizvodi/okrugli-hermeticki-kontejneri-za-hranu-5-komada.jpg",
     "naziv": "Okrugli hermetički kontejneri za hranu - 5 komada",
     "ocena": {
       "zvezde": 4,
@@ -520,8 +520,8 @@
   },
   {
     "id": "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
-    "slika": "slike/proizvodi/coffeemaker-with-glass-carafe-black.jpg",
-    "naziv": "Aparat za kafu sa staklenom karafom i ponovljivim filterom - 25 Oz, crna",
+    "slika": "slike/proizvodi/aparat-za-kafu-sa-staklenom-karafom.jpg",
+    "naziv": "Aparat za kafu sa staklenom karafom i ponovljivim filterom - 2.5l, crna",
     "ocena": {
       "zvezde": 4.5,
       "broj": 1211
@@ -535,8 +535,8 @@
   },
   {
     "id": "02e3a47e-dd68-467e-9f71-8bf6f723fdae",
-    "slika": "slike/proizvodi/blackout-curtains-black.jpg",
-    "naziv": "Blackout zavese set 42 x 84-Inč - crna, 2 panela",
+    "slika": "slike/proizvodi/blackout-zavese-set.jpg",
+    "naziv": "Blackout zavese set 84 x 175-cm - crna, 2 panela",
     "ocena": {
       "zvezde": 4.5,
       "broj": 363
@@ -549,7 +549,7 @@
   },
   {
     "id": "8a53b080-6d40-4a65-ab26-b24ecf700bce",
-    "slika": "slike/proizvodi/cotton-bath-towels-teal.webp",
+    "slika": "slike/proizvodi/100-posto-pamucni-peskiri-za-kupanje.webp",
     "naziv": "100% pamučni peškiri za kupanje - 2 komada, svetlo plava",
     "ocena": {
       "zvezde": 4.5,
@@ -564,7 +564,7 @@
   },
   {
     "id": "10ed8504-57db-433c-b0a3-fc71a35c88a1",
-    "slika": "slike/proizvodi/knit-athletic-sneakers-pink.webp",
+    "slika": "slike/proizvodi/vodootporne-pletene-atletske-patike-roze.webp",
     "naziv": "Vodootporne pletene atletske patike - roze",
     "ocena": {
       "zvezde": 4,
@@ -580,7 +580,7 @@
   },
   {
     "id": "36c64692-677f-4f58-b5ec-0dc2cf109e27",
-    "slika": "slike/proizvodi/floral-mixing-bowl-set.jpg",
+    "slika": "slike/proizvodi/set-posuda-za-mesanje-sa-poklopcima.jpg",
     "naziv": "Set posuda za mešanje sa poklopcima - 10 komada, cvetni dizajn",
     "ocena": {
       "zvezde": 5,
@@ -596,7 +596,7 @@
   },
   {
     "id": "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
-    "slika": "slike/proizvodi/kitchen-paper-towels-30-pack.jpg",
+    "slika": "slike/proizvodi/papirni-ubrusi-za-kuhinju.jpg",
     "naziv": "Papirni ubrusi za kuhinju - 2 sloja, 30 pakovanja",
     "ocena": {
       "zvezde": 4.5,
@@ -611,7 +611,7 @@
   },
   {
     "id": "bc2847e9-5323-403f-b7cf-57fde044a955",
-    "slika": "slike/proizvodi/men-cozy-fleece-zip-up-hoodie-red.jpg",
+    "slika": "slike/proizvodi/muski-punozatvoreni-dukserica-sa-kapuljacom.jpg",
     "naziv": "Muški punozatvoreni dukserica sa kapuljačom",
     "ocena": {
       "zvezde": 4.5,
@@ -627,7 +627,7 @@
   },
   {
     "id": "8c9c52b5-5a19-4bcb-a5d1-158a74287c53",
-    "slika": "slike/proizvodi/6-piece-non-stick-baking-set.webp",
+    "slika": "slike/proizvodi/set-od-6-nelepljivih-karbonskih-čeličnih-posuda.webp",
     "naziv": "Set od 6 nelepljivih, karbonskih čeličnih posuda za pečenje",
     "ocena": {
       "zvezde": 4.5,
@@ -641,7 +641,7 @@
   },
   {
     "id": "dd82ca78-a18b-4e2a-9250-31e67412f98d",
-    "slika": "slike/proizvodi/plain-hooded-fleece-sweatshirt-yellow.jpg",
+    "slika": "slike/proizvodi/obicna-dukserica-sa-kapuljacom.jpg",
     "naziv": "Obična dukserica sa kapuljačom",
     "ocena": {
       "zvezde": 4.5,
