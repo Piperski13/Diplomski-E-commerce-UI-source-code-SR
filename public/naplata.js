@@ -1,14 +1,12 @@
 import { renderovanjeUkupnePorudzbine } from "../scripts/checkout/ukupnaPorudzbina.js";
 import { renderovanjeUkupneNaplate } from "../scripts/checkout/ukupnaNaplata.js";
 import { renderovanjeNaplateZaglavlje } from "../scripts/checkout/naplataZaglavlje.js";
-import { loadProductsFetch } from "../data/proizvodi.js"
+import { ucitavanjeProizvoda } from "../data/proizvodi.js"
 
-async function loadPage(){
+async function ucitavanjeStranice(){
   try {
 
-    await Promise.all([
-      loadProductsFetch()
-    ]);
+    await ucitavanjeProizvoda();
     
   } catch (error) {
     console.log('ERROR, try later');
@@ -19,4 +17,4 @@ async function loadPage(){
   renderovanjeUkupnePorudzbine();
   renderovanjeUkupneNaplate();
 };
-loadPage();
+ucitavanjeStranice();

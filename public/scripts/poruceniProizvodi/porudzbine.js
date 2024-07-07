@@ -1,10 +1,10 @@
 import {orders,removeFromOrders} from '../../data/porudzbine.js';
 import {formatCurrency} from '../../utils/money.js';
 import {renderDateOrder} from '../../utils/date.js';
-import {loadProducts,loadProductsFetch,proizvodi} from '../../data/proizvodi.js';
+import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../data/proizvodi.js';
 import {addToCart, calculateCartQuantity} from '../../data/cart.js';
 console.log(orders);
-loadProductsFetch().then(()=>{          //fetch, returns promise, method then
+ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
 });
 

@@ -42,7 +42,7 @@ export class Clothing extends Product {
 
 export let proizvodi = [];
 
-export function loadProductsFetch(){
+export function ucitavanjeProizvoda(){
   const promise = fetch('http://127.0.0.1:3000/proizvodi').then((response)=>{
     return response.json();
   }).then((productDetails)=>{
@@ -69,7 +69,7 @@ export function loadProducts(fun){
   const xhr = new XMLHttpRequest();
   xhr.addEventListener('load',()=>{
     proizvodi = JSON.parse(xhr.response).map((productDetails)=>{
-      
+
       if(productDetails.tip === "odeća"){
         return new Clothing(productDetails);
       }

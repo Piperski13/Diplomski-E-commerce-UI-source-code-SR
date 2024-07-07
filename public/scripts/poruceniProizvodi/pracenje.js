@@ -1,4 +1,4 @@
-import {proizvodi,loadProductsFetch} from '../../data/proizvodi.js';
+import {proizvodi,ucitavanjeProizvoda} from '../../data/proizvodi.js';
 import {orders} from '../../data/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
 import {calculateCartQuantity} from "../../data/cart.js"
@@ -7,12 +7,12 @@ const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
 console.log(url.searchParams.get('productId'));
 
-// loadProductsFetch().then(()=>{
+// ucitavanjeProizvoda().then(()=>{
 //   renderTrackingPage();
 // })
 
 async function renderTrackingPage(){
-  await loadProductsFetch();
+  await ucitavanjeProizvoda();
 
   let matchingProduct;
   let matchingOrder;
