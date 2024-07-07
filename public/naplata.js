@@ -1,6 +1,6 @@
-import { renderOrderSummary } from "../scripts/checkout/orderSummary.js";
-import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
-import { renderCheckoutHeader } from "../scripts/checkout/checkoutHeder.js";
+import { renderOrderSummary } from "../scripts/checkout/ukupnaPorudzbina.js";
+import { renderPaymentSummary } from "../scripts/checkout/ukupnaNaplata.js";
+import { renderCheckoutHeader } from "../scripts/checkout/naplataZaglavlje.js";
 import { loadProductsFetch } from "../data/proizvodi.js"
 
 async function loadPage(){

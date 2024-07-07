@@ -7,7 +7,7 @@ import {cart,
 import {proizvodi} from "../../data/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
 import {deliveryOptions,calculateDeliveryDate} from "../../data/deliveryOptions.js"
-import { renderPaymentSummary } from "./paymentSummary.js";
+import { renderPaymentSummary } from "./ukupnaNaplata.js";
 
 export function renderOrderSummary(){
   function keyboardEvent(productId){
