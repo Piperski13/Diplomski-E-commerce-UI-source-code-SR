@@ -6,7 +6,7 @@ import {cart,
    from "../../data/korpa.js";
 import {proizvodi} from "../../data/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
-import {deliveryOptions,calculateDeliveryDate} from "../../data/deliveryOptions.js"
+import {deliveryOptions,calculateDeliveryDate} from "../../data/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){

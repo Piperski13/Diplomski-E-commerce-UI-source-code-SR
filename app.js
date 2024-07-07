@@ -4,7 +4,7 @@ const cors = require('cors');
 const dayjs = require('dayjs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // id generator package
-const deliveryOptions = require('./backend/deliveryOptions.js');
+const deliveryOptions = require('./backend/opcijePosiljke.js');
 
 const app = express();
 
