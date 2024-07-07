@@ -36,7 +36,7 @@ export class Clothing extends Product {
     this.linkVeličinaTabele = productDetails.linkVeličinaTabele;
   }
   extraInfoHTML(){
-    return `<a href="${this.linkVeličinaTabele}" target=_blank >Size chart</a>`;
+    return `<a href="${this.linkVeličinaTabele}" target=_blank >Dostupne veličine</a>`;
   }
 }
 
