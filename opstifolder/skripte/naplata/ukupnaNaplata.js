@@ -12,7 +12,7 @@ export function renderovanjeUkupneNaplate(){
   korpa.forEach(korpaArtikal => {
     const proizvodId = korpaArtikal.proizvodId;
     const productkolicina = korpaArtikal.kolicina;
-    const deliveryOptionId = korpaArtikal.deliveryOptionId;
+    const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
     proizvodi.forEach(product => {
       if(product.id === proizvodId){
         let priceCents = product.cenaDinari
@@ -21,7 +21,7 @@ export function renderovanjeUkupneNaplate(){
       }
     });
     deliveryOptions.forEach(option => {
-      if(option.id === deliveryOptionId){
+      if(option.id === opcijeDostaveId){
         shippingCents+=option.priceCents *productkolicina;
       }
     });

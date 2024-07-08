@@ -51,7 +51,7 @@ app.post('/market.html',(req,res)=>{
   });
   
   let order = korpa.map(korpaArtikal =>{
-    const itemNumberOption = parseInt(korpaArtikal.deliveryOptionId);
+    const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
     const finalOption = deliveryOptions[itemNumberOption-1];
     const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
     return {

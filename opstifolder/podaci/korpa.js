@@ -20,7 +20,7 @@ export function dodajUKorpu(proizvodId){
         }
       });
                     //gets value of drop down kolicina and stores it
-      let kolicinaString = document.querySelector(`.js-kolicina-selector-${proizvodId}`);
+      let kolicinaString = document.querySelector(`.js-izbor-kolicine-${proizvodId}`);
       if(kolicinaString){
         izborKolicine = kolicinaString.value
         kolicina = Number(izborKolicine);         //DOM retruns string always, so make it num
@@ -35,7 +35,7 @@ export function dodajUKorpu(proizvodId){
         korpa.push({
           proizvodId,
           kolicina,
-          deliveryOptionId: '1'
+          opcijeDostaveId: '1'
         });
       }
   sacuvajUSkladiste();
@@ -64,13 +64,13 @@ export function updatekolicina(proizvodId, newkolicina){
    sacuvajUSkladiste();
 }
 
-export function updateDeliveryOptions(proizvodId,deliveryOptionId){
+export function updateDeliveryOptions(proizvodId,opcijeDostaveId){
   let odgovarajućiArtikal;     
   korpa.forEach((korpaArtikal)=>{          
     if(proizvodId === korpaArtikal.proizvodId ){ 
       odgovarajućiArtikal = korpaArtikal;
     }
   });
-  odgovarajućiArtikal.deliveryOptionId = deliveryOptionId;
+  odgovarajućiArtikal.opcijeDostaveId = opcijeDostaveId;
   sacuvajUSkladiste();
 };

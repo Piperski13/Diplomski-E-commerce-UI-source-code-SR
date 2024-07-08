@@ -32,10 +32,10 @@ export function renderovanjeUkupnePorudzbine(){
       }
     });
 
-    const deliveryOptionId = korpaArtikal.deliveryOptionId;
+    const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
     let matchingDelivery;
     deliveryOptions.forEach(option => {
-      if(option.id === deliveryOptionId){
+      if(option.id === opcijeDostaveId){
         matchingDelivery = option;
       }
     });
@@ -96,7 +96,7 @@ export function renderovanjeUkupnePorudzbine(){
     deliveryOptions.forEach((option) =>{
       const formatedDate = calculateDeliveryDate(option.deliveryDays);
       const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `${formatCurrency(option.priceCents)} <span class="rsd-stil">RSD</span> - Dostava`;
-      const isChecked = option.id === korpaArtikal.deliveryOptionId;
+      const isChecked = option.id === korpaArtikal.opcijeDostaveId;
       generatedHTML +=
       `<div class="delivery-option js-delivery-option
       js-test-delivery-option-${matchingProduct.id}-${option.id}"
@@ -215,8 +215,8 @@ export function renderovanjeUkupnePorudzbine(){
     document.querySelectorAll('.js-delivery-option').forEach(option=>{
       option.addEventListener('click',()=>{
         const proizvodId = option.dataset.proizvodId;
-        const deliveryOptionId = option.dataset.deliveryId;
-        updateDeliveryOptions(proizvodId,deliveryOptionId);
+        const opcijeDostaveId = option.dataset.deliveryId;
+        updateDeliveryOptions(proizvodId,opcijeDostaveId);
         renderovanjeUkupnePorudzbine();
         renderovanjeUkupneNaplate(); // generates Payment box again
       })

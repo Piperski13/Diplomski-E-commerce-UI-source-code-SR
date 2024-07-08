@@ -57,7 +57,7 @@ function renderProductsGrid(){
       </div>
 
       <div class="product-kolicina-container">
-        <select class="js-kolicina-selector-${product.id}">
+        <select class="js-izbor-kolicine-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
