@@ -2,7 +2,7 @@ import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../alatke/rsdFormat.js';
 import {renderDateOrder} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
-import {addToCart, calculateCartQuantity} from '../../podaci/korpa.js';
+import {addTokorpa, calculatekorpaQuantity} from '../../podaci/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
@@ -87,13 +87,13 @@ function renderovanjeUkupnePorudzbine(){
     generatedDetailsHTML = '';
   });
   document.querySelector('.js-porudzbine-gird').innerHTML = generatedHTML;
-  updateCartQuantity();
+  updatekorpaQuantity();
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
       const productId = button.dataset.productId;
-      addToCart(productId);
-      updateCartQuantity();
+      addTokorpa(productId);
+      updatekorpaQuantity();
     })
   })
 
@@ -107,12 +107,12 @@ function renderovanjeUkupnePorudzbine(){
     })
   })
 
-  function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
-    if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
+  function updatekorpaQuantity(){        
+    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
+    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = cartQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
   }
 };
 

@@ -1,4 +1,4 @@
-import {cart, addToCart,calculateCartQuantity} from "../podaci/korpa.js"; // imports a const cart from korpa.js, created module
+import {korpa, addTokorpa,calculatekorpaQuantity} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
 import {formatCurrency} from "./alatke/rsdFormat.js";
 
@@ -6,7 +6,7 @@ loadProducts(renderProductsGrid);
 
 function renderProductsGrid(){
 
-  updateCartQuantity();
+  updatekorpaQuantity();
 
   let proizvodiHTML = '';
 
@@ -75,12 +75,12 @@ function renderProductsGrid(){
 
       <div class="product-spacer"></div>
 
-      <div class="added-to-cart js-add-cart-${product.id}">
+      <div class="added-to-korpa js-add-korpa-${product.id}">
         <img src="slike/ikonice/kvacica.png">
         Dodato u korpu
       </div>
 
-      <button class="add-to-cart-button button-primary js-add-button" data-product-id="${product.id}">
+      <button class="add-to-korpa-button button-primary js-add-button" data-product-id="${product.id}">
         Dodaj u korpu
       </button>
     </div>`
@@ -104,35 +104,35 @@ function renderProductsGrid(){
     }
   })
 
-  function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
-    if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
+  function updatekorpaQuantity(){        
+    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
+    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = cartQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
   }
 
-  function addedToCartGreen(productId,timeoutObject){     // pop up msg function
-    let addMsgElement = document.querySelector(`.js-add-cart-${productId}`);    //target add cart div with opacity 0
-        addMsgElement.classList.add('added-to-cart-clicked');                // and then give it a class with opacity 1
+  function addedTokorpaGreen(productId,timeoutObject){     // pop up msg function
+    let addMsgElement = document.querySelector(`.js-add-korpa-${productId}`);    //target add korpa div with opacity 0
+        addMsgElement.classList.add('added-to-korpa-clicked');                // and then give it a class with opacity 1
         
         if (timeoutObject.timeoutId){               //if true, it means that interval exists, clear it else -> skip it
           clearTimeout(timeoutObject.timeoutId);
         }
         timeoutObject.timeoutId = setTimeout(()=>{        //removes class and return opacity to 0 in 2000ms 
-          addMsgElement.classList.remove('added-to-cart-clicked');      //it also stores interval into timeoutObject
+          addMsgElement.classList.remove('added-to-korpa-clicked');      //it also stores interval into timeoutObject
         },2000);                                      //so if we press it again we can clear interval with if statemant
   }
 
   //adds event listeners to add buttons
   document.querySelectorAll('.js-add-button')
     .forEach((button)=>{      
-      let addedMessageTimeouts = {};                           //create a object for checking interval addedToCartGreen
+      let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
       button.addEventListener('click',()=>{
         const productId = button.dataset.productId;   //on click save data-product-id in a const
-        addToCart(productId);
-        addedToCartGreen(productId,addedMessageTimeouts);  // for a green pop up msg function
-        updateCartQuantity();
+        addTokorpa(productId);
+        addedTokorpaGreen(productId,addedMessageTimeouts);  // for a green pop up msg function
+        updatekorpaQuantity();
       });
   });
 };

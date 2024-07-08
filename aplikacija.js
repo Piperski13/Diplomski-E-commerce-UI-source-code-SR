@@ -35,28 +35,28 @@ app.get('/proizvodi',(req,res)=>{
 
 app.post('/market.html',(req,res)=>{  
   const currentTime = dayjs().toISOString();
-  const { cart, totalAfterTax } = req.body;
+  const { korpa, totalAfterTax } = req.body;
   let priceCentsTotal=0;
   let matchingItem;
-  let newCart=[];
+  let newkorpa=[];
 
-  cart.forEach(item => {
+  korpa.forEach(item => {
     
     proizvodi.forEach(product =>{
       if(product.id === item.productId){
         matchingItem = product;
-        newCart.push(matchingItem);
+        newkorpa.push(matchingItem);
       }
     })
   });
   
-  let order = cart.map(cartItem =>{
-    const itemNumberOption = parseInt(cartItem.deliveryOptionId);
+  let order = korpa.map(korpaItem =>{
+    const itemNumberOption = parseInt(korpaItem.deliveryOptionId);
     const finalOption = deliveryOptions[itemNumberOption-1];
     const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
     return {
-      productId: cartItem.productId,
-      quantity: cartItem.quantity,
+      productId: korpaItem.productId,
+      quantity: korpaItem.quantity,
       estimatedDeliveryTime: estimatedDeliveryTime,
       variation: null
     }

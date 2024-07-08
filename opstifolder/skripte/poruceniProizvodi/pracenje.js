@@ -1,7 +1,7 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {orders} from '../../podaci/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../alatke/datum.js';
-import {calculateCartQuantity} from "../../podaci/korpa.js"
+import {calculatekorpaQuantity} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
@@ -84,14 +84,14 @@ async function renderTrackingPage(){
       </div>
   `;
   document.querySelector('.glavni-sadrzaj').innerHTML = generatedHTML;
-  updateCartQuantity();
+  updatekorpaQuantity();
 
-  function updateCartQuantity(){        
-    let cartQuantity = calculateCartQuantity();   //korpa.js function that calculates cart quantity
-    if(!cartQuantity){          //essentialy break a function if cartQuantity undefined
+  function updatekorpaQuantity(){        
+    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
+    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = cartQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
   }
 };
 renderTrackingPage();

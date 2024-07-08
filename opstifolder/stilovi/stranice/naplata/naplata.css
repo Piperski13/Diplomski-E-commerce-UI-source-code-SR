@@ -42,14 +42,14 @@
   }
 }
 
-.cart-item-container,
+.korpa-item-container,
 .pregled-naplate {
   border: 1px solid rgb(222, 222, 222);
   border-radius: 4px;
   padding: 18px;
 }
 
-.cart-item-container {
+.korpa-item-container {
   margin-bottom: 12px;
 }
 
@@ -76,7 +76,7 @@
   margin-bottom: 22px;
 }
 
-.cart-item-details-grid {
+.korpa-item-details-grid {
   display: grid;
   /* 100px 1fr 1fr; means the 2nd and 3rd column will
      take up half the remaining space in the grid
@@ -86,7 +86,7 @@
 }
 
 @media (max-width: 1000px) {
-  .cart-item-details-grid {
+  .korpa-item-details-grid {
     grid-template-columns: 100px 1fr;
     row-gap: 30px;
   }

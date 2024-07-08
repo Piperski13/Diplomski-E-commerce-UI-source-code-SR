@@ -1,22 +1,22 @@
-export let cart;
+export let korpa;
 loadFromStorage();
 
 export function loadFromStorage(){
-  cart = JSON.parse(localStorage.getItem('cart')) || [];
+  korpa = JSON.parse(localStorage.getItem('korpa')) || [];
 }
 
 function saveToStorage(){
-  localStorage.setItem('cart',JSON.stringify(cart));    
+  localStorage.setItem('korpa',JSON.stringify(korpa));    
 }
 
-export function addToCart(productId){
+export function addTokorpa(productId){
   let matchingItem;           //boolean value
   let quantity;
   let quantitySelector;
       
-      cart.forEach((cartItem)=>{              //when button clicked goe trough korpa.js[], and if 
-        if(productId === cartItem.productId ){    //it exists set item to matching item
-          matchingItem = cartItem;
+      korpa.forEach((korpaItem)=>{              //when button clicked goe trough korpa.js[], and if 
+        if(productId === korpaItem.productId ){    //it exists set item to matching item
+          matchingItem = korpaItem;
         }
       });
                     //gets value of drop down quantity and stores it
@@ -30,9 +30,9 @@ export function addToCart(productId){
       
     
       if(matchingItem){              //if matchingItem exsits its making this statemant true thus
-        matchingItem.quantity+=quantity;     // it only increases its quantity and skips cart.push
+        matchingItem.quantity+=quantity;     // it only increases its quantity and skips korpa.push
       }else{
-        cart.push({
+        korpa.push({
           productId,
           quantity,
           deliveryOptionId: '1'
@@ -40,25 +40,25 @@ export function addToCart(productId){
       }
   saveToStorage();
 }
-export function removeFromCart(productId){
-  let newCart = cart.filter((cartItem) => cartItem.productId !== productId) //returns 
-  cart = newCart;
+export function removeFromkorpa(productId){
+  let newkorpa = korpa.filter((korpaItem) => korpaItem.productId !== productId) //returns 
+  korpa = newkorpa;
   saveToStorage();
 }
 
-export function calculateCartQuantity(){    //calculates cart quantity and retuns its final value
-  let cartQuantity = 0;
+export function calculatekorpaQuantity(){    //calculates korpa quantity and retuns its final value
+  let korpaQuantity = 0;
 
-  cart.forEach(cartItem => {
-    cartQuantity+=cartItem.quantity
+  korpa.forEach(korpaItem => {
+    korpaQuantity+=korpaItem.quantity
   });
-  return cartQuantity;
+  return korpaQuantity;
 }
 
 export function updateQuantity(productId, newQuantity){
-   cart.forEach(cartItem => {
-    if(productId === cartItem.productId ){
-      cartItem.quantity = newQuantity;
+   korpa.forEach(korpaItem => {
+    if(productId === korpaItem.productId ){
+      korpaItem.quantity = newQuantity;
     }
    });
    saveToStorage();
@@ -66,9 +66,9 @@ export function updateQuantity(productId, newQuantity){
 
 export function updateDeliveryOptions(productId,deliveryOptionId){
   let matchingItem;     
-  cart.forEach((cartItem)=>{          
-    if(productId === cartItem.productId ){ 
-      matchingItem = cartItem;
+  korpa.forEach((korpaItem)=>{          
+    if(productId === korpaItem.productId ){ 
+      matchingItem = korpaItem;
     }
   });
   matchingItem.deliveryOptionId = deliveryOptionId;
