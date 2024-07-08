@@ -1,6 +1,6 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {orders} from '../../podaci/porudzbine.js';
-import {renderDateOrderTracking,progressBar} from '../../alatke/datum.js';
+import {pprikaziDatumNarudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
 import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
@@ -41,7 +41,7 @@ async function renderTrackingPage(){
     }
   });
 
-  const progressionDelivery = progressBar(matchingOrderDate.orderTime,matchingOrder.estimatedDeliveryTime);
+  const progressionDelivery = trakaNapretka(matchingOrderDate.orderTime,matchingOrder.estimatedDeliveryTime);
   // console.log(`matchingOrderDate.orderTime: ${matchingOrderDate.orderTime}`);
   // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
   // console.log(`progressionDelivery: ${progressionDelivery}`);
@@ -53,7 +53,7 @@ async function renderTrackingPage(){
         </a>
 
         <div class="delivery-date">
-          Dolazak u: ${renderDateOrderTracking(matchingOrder.estimatedDeliveryTime)}
+          Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.estimatedDeliveryTime)}
         </div>
 
         <div class="product-info">

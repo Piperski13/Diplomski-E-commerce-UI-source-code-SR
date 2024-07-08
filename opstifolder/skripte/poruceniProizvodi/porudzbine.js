@@ -1,6 +1,6 @@
 import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../alatke/rsdFormat.js';
-import {renderDateOrder} from '../../alatke/datum.js';
+import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {dodajUKorpu, izracunajKolicinuKorpe} from '../../podaci/korpa.js';
 console.log(orders);
@@ -36,7 +36,7 @@ function renderovanjeUkupnePorudzbine(){
                 ${matchingProduct.naziv}
               </div>
               <div class="product-delivery-date">
-                Dolazak: ${renderDateOrder(productOrder.estimatedDeliveryTime)}
+                Dolazak: ${prikaziDatumNarudzbine(productOrder.estimatedDeliveryTime)}
               </div>
               <div class="product-kolicina">
                 Količina: ${productOrder.kolicina}
@@ -67,7 +67,7 @@ function renderovanjeUkupnePorudzbine(){
             <div class="order-header-left-section">
               <div class="order-date">
                 <div class="order-header-label">Naručeno datuma:</div>
-                <div>${renderDateOrder(order.orderTime)}</div>
+                <div>${prikaziDatumNarudzbine(order.orderTime)}</div>
               </div>
               <div class="order-total">
                 <div class="order-header-label">Ukupno:</div>
