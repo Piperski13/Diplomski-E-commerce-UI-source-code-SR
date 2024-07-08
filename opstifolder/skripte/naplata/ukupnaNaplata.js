@@ -1,7 +1,7 @@
 import { izracunajKolicinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatCurrency } from "../../alatke/rsdFormat.js";
-import { deliveryOptions } from "../../podaci/opcijePosiljke.js"
+import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
 import { addOrder } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
@@ -15,14 +15,14 @@ export function renderovanjeUkupneNaplate(){
     const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
     proizvodi.forEach(product => {
       if(product.id === proizvodId){
-        let priceCents = product.cenaDinari
-        totalCents += productkolicina * priceCents;
+        let ceneDinari = product.cenaDinari
+        totalCents += productkolicina * ceneDinari;
 
       }
     });
-    deliveryOptions.forEach(option => {
+    opcijeDostave.forEach(option => {
       if(option.id === opcijeDostaveId){
-        shippingCents+=option.priceCents *productkolicina;
+        shippingCents+=option.ceneDinari *productkolicina;
       }
     });
   });

@@ -6,7 +6,7 @@ import {korpa,
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatCurrency} from "../../alatke/rsdFormat.js";
-import {deliveryOptions,calculateDeliveryDate} from "../../podaci/opcijePosiljke.js"
+import {opcijeDostave,calculateDeliveryDate} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
@@ -34,12 +34,12 @@ export function renderovanjeUkupnePorudzbine(){
 
     const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
     let matchingDelivery;
-    deliveryOptions.forEach(option => {
+    opcijeDostave.forEach(option => {
       if(option.id === opcijeDostaveId){
         matchingDelivery = option;
       }
     });
-    const formatedDate = calculateDeliveryDate(matchingDelivery.deliveryDays);
+    const formatedDate = calculateDeliveryDate(matchingDelivery.dostaveDani);
     checkoutHTML += 
     `<div class="js-korpa-item-container-${matchingProduct.id} 
       js-test-korpa-item-container">
@@ -85,17 +85,17 @@ export function renderovanjeUkupnePorudzbine(){
           <div class="delivery-options-title">
             Izaberite opciju isporuke:
           </div>
-          ${deliveryOptionsHTML(matchingProduct,korpaArtikal)}
+          ${opcijeDostaveHTML(matchingProduct,korpaArtikal)}
         </div>
       </div>
     </div>`;
   });
   //generates delivery html
-  function deliveryOptionsHTML(matchingProduct,korpaArtikal){
+  function opcijeDostaveHTML(matchingProduct,korpaArtikal){
     let generatedHTML='';
-    deliveryOptions.forEach((option) =>{
-      const formatedDate = calculateDeliveryDate(option.deliveryDays);
-      const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `${formatCurrency(option.priceCents)} <span class="rsd-stil">RSD</span> - Dostava`;
+    opcijeDostave.forEach((option) =>{
+      const formatedDate = calculateDeliveryDate(option.dostaveDani);
+      const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatCurrency(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === korpaArtikal.opcijeDostaveId;
       generatedHTML +=
       `<div class="delivery-option js-delivery-option

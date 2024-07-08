@@ -4,7 +4,7 @@ const cors = require('cors');
 const dayjs = require('dayjs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // id generator package
-const deliveryOptions = require('./serverskaStrana/opcijePosiljke.js');
+const opcijeDostave = require('./serverskaStrana/opcijePosiljke.js');
 
 const app = express();
 
@@ -36,7 +36,7 @@ app.get('/proizvodi',(req,res)=>{
 app.post('/market.html',(req,res)=>{  
   const currentTime = dayjs().toISOString();
   const { korpa, totalAfterTax } = req.body;
-  let priceCentsTotal=0;
+  let ceneDinariTotal=0;
   let odgovarajućiArtikal;
   let novaKorpa=[];
 
@@ -52,8 +52,8 @@ app.post('/market.html',(req,res)=>{
   
   let order = korpa.map(korpaArtikal =>{
     const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
-    const finalOption = deliveryOptions[itemNumberOption-1];
-    const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
+    const finalOption = opcijeDostave[itemNumberOption-1];
+    const estimatedDeliveryTime = dayjs().add(finalOption.dostaveDani,'days').toISOString();
     return {
       proizvodId: korpaArtikal.proizvodId,
       kolicina: korpaArtikal.kolicina,
