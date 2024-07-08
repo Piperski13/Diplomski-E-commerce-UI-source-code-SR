@@ -2,7 +2,7 @@ import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../alatke/rsdFormat.js';
 import {renderDateOrder} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
-import {dodajUKorpu, calculatekorpakolicina} from '../../podaci/korpa.js';
+import {dodajUKorpu, izracunajKolicinuKorpe} from '../../podaci/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
@@ -108,7 +108,7 @@ function renderovanjeUkupnePorudzbine(){
   })
 
   function updatekorpakolicina(){        
-    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
     if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }

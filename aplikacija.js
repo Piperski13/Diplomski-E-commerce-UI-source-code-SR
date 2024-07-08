@@ -38,14 +38,14 @@ app.post('/market.html',(req,res)=>{
   const { korpa, totalAfterTax } = req.body;
   let priceCentsTotal=0;
   let odgovarajućiArtikal;
-  let newkorpa=[];
+  let novaKorpa=[];
 
   korpa.forEach(item => {
     
     proizvodi.forEach(product =>{
       if(product.id === item.proizvodId){
         odgovarajućiArtikal = product;
-        newkorpa.push(odgovarajućiArtikal);
+        novaKorpa.push(odgovarajućiArtikal);
       }
     })
   });

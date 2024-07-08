@@ -1,4 +1,4 @@
-import { calculatekorpakolicina, korpa } from "../../podaci/korpa.js";
+import { izracunajKolicinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatCurrency } from "../../alatke/rsdFormat.js";
 import { deliveryOptions } from "../../podaci/opcijePosiljke.js"
@@ -6,7 +6,7 @@ import { addOrder } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generatedHTML = '';
-  let korpakolicina = calculatekorpakolicina();
+  let korpakolicina = izracunajKolicinuKorpe();
   let totalCents = 0;
   let shippingCents = 0;
   korpa.forEach(korpaArtikal => {

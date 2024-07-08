@@ -1,7 +1,7 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {orders} from '../../podaci/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../alatke/datum.js';
-import {calculatekorpakolicina} from "../../podaci/korpa.js"
+import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
@@ -87,7 +87,7 @@ async function renderTrackingPage(){
   updatekorpakolicina();
 
   function updatekorpakolicina(){        
-    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
     if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }

@@ -40,13 +40,13 @@ export function dodajUKorpu(proizvodId){
       }
   sacuvajUSkladiste();
 }
-export function removeFromkorpa(proizvodId){
-  let newkorpa = korpa.filter((korpaArtikal) => korpaArtikal.proizvodId !== proizvodId) //returns 
-  korpa = newkorpa;
+export function izbrisiIzKorpe(proizvodId){
+  let novaKorpa = korpa.filter((korpaArtikal) => korpaArtikal.proizvodId !== proizvodId) //returns 
+  korpa = novaKorpa;
   sacuvajUSkladiste();
 }
 
-export function calculatekorpakolicina(){    //calculates korpa kolicina and retuns its final value
+export function izracunajKolicinuKorpe(){    //calculates korpa kolicina and retuns its final value
   let korpakolicina = 0;
 
   korpa.forEach(korpaArtikal => {
@@ -55,10 +55,10 @@ export function calculatekorpakolicina(){    //calculates korpa kolicina and ret
   return korpakolicina;
 }
 
-export function updatekolicina(proizvodId, newkolicina){
+export function azurirajKolicinu(proizvodId, novaKolicina){
    korpa.forEach(korpaArtikal => {
     if(proizvodId === korpaArtikal.proizvodId ){
-      korpaArtikal.kolicina = newkolicina;
+      korpaArtikal.kolicina = novaKolicina;
     }
    });
    sacuvajUSkladiste();

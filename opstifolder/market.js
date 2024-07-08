@@ -1,4 +1,4 @@
-import {korpa, dodajUKorpu,calculatekorpakolicina} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
+import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
 import {formatCurrency} from "./alatke/rsdFormat.js";
 
@@ -105,7 +105,7 @@ function renderProductsGrid(){
   })
 
   function updatekorpakolicina(){        
-    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
     if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }

@@ -1,7 +1,7 @@
 import {korpa,
-  removeFromkorpa,
-  calculatekorpakolicina,
-  updatekolicina,
+  izbrisiIzKorpe,
+  izracunajKolicinuKorpe,
+  azurirajKolicinu,
   updateDeliveryOptions}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
@@ -120,7 +120,7 @@ export function renderovanjeUkupnePorudzbine(){
     return generatedHTML;
   }
   function updatekorpakolicina(){ 
-    let korpakolicina = calculatekorpakolicina();     //korpa.js function that calculates korpa kolicina
+    let korpakolicina = izracunajKolicinuKorpe();     //korpa.js function that calculates korpa kolicina
     if(korpakolicina === 0){
       document.querySelector('.js-return-to-home-link').innerHTML = ``;
     }
@@ -186,7 +186,7 @@ export function renderovanjeUkupnePorudzbine(){
   }
   
   function deleteContainer(proizvodId){
-    removeFromkorpa(proizvodId);
+    izbrisiIzKorpe(proizvodId);
     const container = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
     container.remove();
     updatekorpakolicina();
@@ -194,19 +194,19 @@ export function renderovanjeUkupnePorudzbine(){
   }
   function updateInput(proizvodId){
     const kolicinaImput = document.querySelector(`.js-kolicina-imput-${proizvodId}`)
-    let newkolicina = Number(kolicinaImput.value);
-    if(newkolicina === 0){
+    let novaKolicina = Number(kolicinaImput.value);
+    if(novaKolicina === 0){
       deleteContainer(proizvodId);
-      updatekolicina(proizvodId,newkolicina);
+      azurirajKolicinu(proizvodId,novaKolicina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
-    if(newkolicina>=1000 || newkolicina<0){
+    if(novaKolicina>=1000 || novaKolicina<0){
       alert('Error value');
       renderovanjeUkupnePorudzbine();
     }
     else{
-      updatekolicina(proizvodId,newkolicina);
+      azurirajKolicinu(proizvodId,novaKolicina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
