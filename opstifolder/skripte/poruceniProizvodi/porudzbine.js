@@ -20,7 +20,7 @@ function renderovanjeUkupnePorudzbine(){
       let matchingProduct;
 
       proizvodi.forEach(product => {
-        if(product.id === productOrder.productId){
+        if(product.id === productOrder.proizvodId){
           matchingProduct = product;
         }
       });
@@ -42,14 +42,14 @@ function renderovanjeUkupnePorudzbine(){
                 Količina: ${productOrder.quantity}
               </div>
               <button class="kupi-ponovo-button button-primary js-kupi-ponovo"
-              data-product-id="${matchingProduct.id}">
+              data-proizvod-id="${matchingProduct.id}">
                 <img class="kupi-ponovo-icon" src="slike/ikonice/kupi-ponovo.png">
                 <span class="kupi-ponovo-message">Kupi ponovo</span>
               </button>
             </div>
 
             <div class="product-actions">
-              <a href="pracenje.html?orderId=${order.id}&productId=${matchingProduct.id}">
+              <a href="pracenje.html?orderId=${order.id}&proizvodId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa
                 </button>
@@ -79,7 +79,7 @@ function renderovanjeUkupnePorudzbine(){
               <div class="order-header-label">ID Porudžbine:</div>
               <div>${order.id}</div>
             </div>
-            <button class="remove-order js-remove-order" data-product-id="${order.id}">X</button>
+            <button class="remove-order js-remove-order" data-proizvod-id="${order.id}">X</button>
           </div>
           ${returnGeneratedDetails(generatedDetailsHTML)}
         </div>
@@ -91,15 +91,15 @@ function renderovanjeUkupnePorudzbine(){
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
-      const productId = button.dataset.productId;
-      dodajUKorpu(productId);
+      const proizvodId = button.dataset.proizvodId;
+      dodajUKorpu(proizvodId);
       updatekorpaQuantity();
     })
   })
 
   document.querySelectorAll('.js-remove-order').forEach((button)=>{
     button.addEventListener('click',()=>{
-      const orderId = button.dataset.productId;
+      const orderId = button.dataset.proizvodId;
       removeFromOrders(orderId);
       const container = document.querySelector(`.js-orders-item-container-${orderId}`);
       container.remove();
@@ -118,6 +118,6 @@ function renderovanjeUkupnePorudzbine(){
 
 console.log(orders); // number of orders
 // console.log(orders[1].proizvodi); //index 1 all proizvodi array
-// console.log(orders[0].proizvodi[0].productId);
+// console.log(orders[0].proizvodi[0].proizvodId);
 
 

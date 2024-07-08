@@ -10,24 +10,24 @@ import {deliveryOptions,calculateDeliveryDate} from "../../podaci/opcijePosiljke
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
-  function keyboardEvent(productId){
+  function keyboardEvent(proizvodId){
     document.querySelectorAll('.quantity-imput').forEach((input)=>{
       input.addEventListener('keydown',(event)=>{
         if(event.key==='Enter'){
-          const itemContainer = document.querySelector(`.js-korpa-item-container-${productId}`);
+          const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
           itemContainer.classList.remove('is-editing-quantity');
-          updateInput(productId);
+          updateInput(proizvodId);
         }
       });
     });
   };
   let checkoutHTML = '';
   korpa.forEach(korpaItem => {
-    const productId = korpaItem.productId;
+    const proizvodId = korpaItem.proizvodId;
     let matchingProduct;
 
     proizvodi.forEach(product => {
-      if(product.id === productId){
+      if(product.id === proizvodId){
         matchingProduct = product;
       }
     });
@@ -66,16 +66,16 @@ export function renderovanjeUkupnePorudzbine(){
               </span>
             </span>
             <span class="update-quantity-link link-primary js-update-link" 
-            data-product-id="${matchingProduct.id}">
+            data-proizvod-id="${matchingProduct.id}">
               Ažuriraj
             </span>
             <input type="text" class="quantity-imput js-quantity-imput-${matchingProduct.id}">
             <span class="save-quantity-link link-primary js-save-link"
-            data-product-id="${matchingProduct.id}">Save</span>
+            data-proizvod-id="${matchingProduct.id}">Save</span>
 
             <span class="delete-quantity-link link-primary js-delete-link 
             js-delete-test-${matchingProduct.id}" 
-            data-product-id="${matchingProduct.id}">
+            data-proizvod-id="${matchingProduct.id}">
               Obriši
             </span>
           </div>
@@ -100,7 +100,7 @@ export function renderovanjeUkupnePorudzbine(){
       generatedHTML +=
       `<div class="delivery-option js-delivery-option
       js-test-delivery-option-${matchingProduct.id}-${option.id}"
-      data-product-id="${matchingProduct.id}"
+      data-proizvod-id="${matchingProduct.id}"
       data-delivery-id="${option.id}">
         <input type="radio"
           ${isChecked ? 'checked' : ''}
@@ -139,7 +139,7 @@ export function renderovanjeUkupnePorudzbine(){
     //event Listener for a delete button
     document.querySelectorAll('.js-delete-link').forEach((link)=>{
       link.addEventListener('click',()=>{
-        const productId = link.dataset.productId;
+        const proizvodId = link.dataset.proizvodId;
         const confirmWindow = document.getElementById('potvrdi-brisanje');
         confirmWindow.classList.toggle('potvrdi-skriveno');
 
@@ -148,7 +148,7 @@ export function renderovanjeUkupnePorudzbine(){
           confirmWindow.classList.toggle('potvrdi-skriveno');
           confirmYes.removeEventListener('click',handleConfirmYes);
           confirmNo.removeEventListener('click',handleConfirmNo);
-          deleteContainer(productId);
+          deleteContainer(proizvodId);
         }
         function handleConfirmNo(){
           confirmWindow.classList.toggle('potvrdi-skriveno');
@@ -164,10 +164,10 @@ export function renderovanjeUkupnePorudzbine(){
     //event Listener for a update button
     document.querySelectorAll('.js-update-link').forEach((link)=>{
       link.addEventListener('click',()=>{
-        const productId = link.dataset.productId;
-        const itemContainer = document.querySelector(`.js-korpa-item-container-${productId}`);
+        const proizvodId = link.dataset.proizvodId;
+        const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
         itemContainer.classList.add('is-editing-quantity');
-        keyboardEvent(productId);
+        keyboardEvent(proizvodId);
       });
     });
   }
@@ -177,27 +177,27 @@ export function renderovanjeUkupnePorudzbine(){
   function saveLinkEvent(){
     document.querySelectorAll('.js-save-link').forEach((link)=>{
       link.addEventListener('click',()=>{
-        const productId = link.dataset.productId;
-        const itemContainer = document.querySelector(`.js-korpa-item-container-${productId}`);
+        const proizvodId = link.dataset.proizvodId;
+        const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
         itemContainer.classList.remove('is-editing-quantity');
-        updateInput(productId);
+        updateInput(proizvodId);
       });
     });
   }
   
-  function deleteContainer(productId){
-    removeFromkorpa(productId);
-    const container = document.querySelector(`.js-korpa-item-container-${productId}`);
+  function deleteContainer(proizvodId){
+    removeFromkorpa(proizvodId);
+    const container = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
     container.remove();
     updatekorpaQuantity();
     renderovanjeUkupneNaplate();
   }
-  function updateInput(productId){
-    const quantityImput = document.querySelector(`.js-quantity-imput-${productId}`)
+  function updateInput(proizvodId){
+    const quantityImput = document.querySelector(`.js-quantity-imput-${proizvodId}`)
     let newQuantity = Number(quantityImput.value);
     if(newQuantity === 0){
-      deleteContainer(productId);
-      updateQuantity(productId,newQuantity);
+      deleteContainer(proizvodId);
+      updateQuantity(proizvodId,newQuantity);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
@@ -206,7 +206,7 @@ export function renderovanjeUkupnePorudzbine(){
       renderovanjeUkupnePorudzbine();
     }
     else{
-      updateQuantity(productId,newQuantity);
+      updateQuantity(proizvodId,newQuantity);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
@@ -214,9 +214,9 @@ export function renderovanjeUkupnePorudzbine(){
   function deliveryUpdate(){
     document.querySelectorAll('.js-delivery-option').forEach(option=>{
       option.addEventListener('click',()=>{
-        const productId = option.dataset.productId;
+        const proizvodId = option.dataset.proizvodId;
         const deliveryOptionId = option.dataset.deliveryId;
-        updateDeliveryOptions(productId,deliveryOptionId);
+        updateDeliveryOptions(proizvodId,deliveryOptionId);
         renderovanjeUkupnePorudzbine();
         renderovanjeUkupneNaplate(); // generates Payment box again
       })

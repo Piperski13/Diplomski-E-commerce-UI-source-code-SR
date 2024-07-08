@@ -5,7 +5,7 @@ import {calculatekorpaQuantity} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
-console.log(url.searchParams.get('productId'));
+console.log(url.searchParams.get('proizvodId'));
 
 // ucitavanjeProizvoda().then(()=>{
 //   renderTrackingPage();
@@ -19,7 +19,7 @@ async function renderTrackingPage(){
   let matchingOrderDate;
 
   const madeOrderId = url.searchParams.get('orderId');
-  const productOrderId = url.searchParams.get('productId');
+  const productOrderId = url.searchParams.get('proizvodId');
 
   orders.forEach(order => {
     if(order.id === madeOrderId){
@@ -28,7 +28,7 @@ async function renderTrackingPage(){
       matchingOrderDate = order;
 
       matchingOrder.proizvodi.forEach(productOrder => {
-        if(productOrder.productId === productOrderId){
+        if(productOrder.proizvodId === productOrderId){
           matchingOrder = productOrder;
         }
       });

@@ -80,7 +80,7 @@ function renderProductsGrid(){
         Dodato u korpu
       </div>
 
-      <button class="add-to-korpa-button button-primary js-add-button" data-product-id="${product.id}">
+      <button class="add-to-korpa-button button-primary js-add-button" data-proizvod-id="${product.id}">
         Dodaj u korpu
       </button>
     </div>`
@@ -112,8 +112,8 @@ function renderProductsGrid(){
     document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
   }
 
-  function addedTokorpaGreen(productId,timeoutObject){     // pop up msg function
-    let addMsgElement = document.querySelector(`.js-add-korpa-${productId}`);    //target add korpa div with opacity 0
+  function addedTokorpaGreen(proizvodId,timeoutObject){     // pop up msg function
+    let addMsgElement = document.querySelector(`.js-add-korpa-${proizvodId}`);    //target add korpa div with opacity 0
         addMsgElement.classList.add('added-to-korpa-clicked');                // and then give it a class with opacity 1
         
         if (timeoutObject.timeoutId){               //if true, it means that interval exists, clear it else -> skip it
@@ -129,9 +129,10 @@ function renderProductsGrid(){
     .forEach((button)=>{      
       let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
       button.addEventListener('click',()=>{
-        const productId = button.dataset.productId;   //on click save data-product-id in a const
-        dodajUKorpu(productId);
-        addedTokorpaGreen(productId,addedMessageTimeouts);  // for a green pop up msg function
+        const proizvodId = button.dataset.proizvodId;   //on click save data-product-id in a const
+        console.log(proizvodId);
+        dodajUKorpu(proizvodId);
+        addedTokorpaGreen(proizvodId,addedMessageTimeouts);  // for a green pop up msg function
         updatekorpaQuantity();
       });
   });

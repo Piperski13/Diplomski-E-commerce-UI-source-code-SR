@@ -43,7 +43,7 @@ app.post('/market.html',(req,res)=>{
   korpa.forEach(item => {
     
     proizvodi.forEach(product =>{
-      if(product.id === item.productId){
+      if(product.id === item.proizvodId){
         matchingItem = product;
         newkorpa.push(matchingItem);
       }
@@ -55,7 +55,7 @@ app.post('/market.html',(req,res)=>{
     const finalOption = deliveryOptions[itemNumberOption-1];
     const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
     return {
-      productId: korpaItem.productId,
+      proizvodId: korpaItem.proizvodId,
       quantity: korpaItem.quantity,
       estimatedDeliveryTime: estimatedDeliveryTime,
       variation: null
