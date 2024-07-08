@@ -4,7 +4,7 @@ export class Product{
   slika;
   naziv;
   ocena;
-  cenaCentima;
+  cenaDinari;
   ključneReči;
 
   constructor(productDetails){
@@ -12,7 +12,7 @@ export class Product{
     this.slika = productDetails.slika;
     this.naziv = productDetails.naziv
     this.ocena = productDetails.ocena;
-    this.cenaCentima = productDetails.cenaCentima;
+    this.cenaDinari = productDetails.cenaDinari;
     this.ključneReči = productDetails.ključneReči;
   }
   getStarsUrl(){
@@ -22,7 +22,7 @@ export class Product{
     return `${this.ocena.broj}`;
   }
   getPrice(){
-    return `${formatCurrency(this.cenaCentima)} <span class="rsd-stil">RSD</span>`;
+    return `${formatCurrency(this.cenaDinari)} <span class="rsd-stil">RSD</span>`;
   }
   extraInfoHTML(){
     return '';

@@ -15,7 +15,7 @@ export function renderovanjeUkupneNaplate(){
     const deliveryOptionId = cartItem.deliveryOptionId;
     proizvodi.forEach(product => {
       if(product.id === productId){
-        let priceCents = product.cenaCentima
+        let priceCents = product.cenaDinari
         totalCents += productQuantity * priceCents;
 
       }
