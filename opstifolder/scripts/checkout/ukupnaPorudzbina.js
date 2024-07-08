@@ -3,10 +3,10 @@ import {cart,
   calculateCartQuantity,
   updateQuantity,
   updateDeliveryOptions}
-   from "../../data/korpa.js";
-import {proizvodi} from "../../data/proizvodi.js"
+   from "../../podaci/korpa.js";
+import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatCurrency} from "../../utils/money.js";
-import {deliveryOptions,calculateDeliveryDate} from "../../data/opcijePosiljke.js"
+import {deliveryOptions,calculateDeliveryDate} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){

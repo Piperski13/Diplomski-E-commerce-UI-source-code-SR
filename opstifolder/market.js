@@ -1,5 +1,5 @@
-import {cart, addToCart,calculateCartQuantity} from "../data/korpa.js"; // imports a const cart from korpa.js, created module
-import {proizvodi,loadProducts} from "../data/proizvodi.js";
+import {cart, addToCart,calculateCartQuantity} from "../podaci/korpa.js"; // imports a const cart from korpa.js, created module
+import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
 import {formatCurrency} from "./utils/money.js";
 
 loadProducts(renderProductsGrid);

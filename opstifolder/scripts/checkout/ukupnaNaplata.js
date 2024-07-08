@@ -1,8 +1,8 @@
-import { calculateCartQuantity, cart } from "../../data/korpa.js";
-import { proizvodi } from "../../data/proizvodi.js";
+import { calculateCartQuantity, cart } from "../../podaci/korpa.js";
+import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatCurrency } from "../../utils/money.js";
-import { deliveryOptions } from "../../data/opcijePosiljke.js"
-import { addOrder } from "../../data/porudzbine.js"
+import { deliveryOptions } from "../../podaci/opcijePosiljke.js"
+import { addOrder } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generatedHTML = '';

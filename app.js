@@ -4,7 +4,7 @@ const cors = require('cors');
 const dayjs = require('dayjs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // id generator package
-const deliveryOptions = require('./backend/opcijePosiljke.js');
+const deliveryOptions = require('./serverskaStrana/opcijePosiljke.js');
 
 const app = express();
 
@@ -12,21 +12,21 @@ const app = express();
 app.use(express.json()); //middleware
 app.use(cors()); //middleware
 
-app.use(express.static(path.join(__dirname,'opstifolder')));
+app.use(express.static(path.join(__dirname,'opstiFolder')));
 
 
-const proizvodi = JSON.parse(fs.readFileSync('./backend/proizvodi.json','utf-8'));
+const proizvodi = JSON.parse(fs.readFileSync('./serverskaStrana/proizvodi.json','utf-8'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'opstifolder', 'market.html'));
+  res.sendFile(path.join(__dirname, 'opstiFolder', 'market.html'));
 });
 
 app.get('/naplata', (req, res) => {
-  res.sendFile(path.join(__dirname, 'opstifolder', 'naplata.html'));
+  res.sendFile(path.join(__dirname, 'opstiFolder', 'naplata.html'));
 });
 
 app.get('/porudzbine', (req, res) => {
-  res.sendFile(path.join(__dirname, 'opstifolder', 'porudzbine.html'));
+  res.sendFile(path.join(__dirname, 'opstiFolder', 'porudzbine.html'));
 });
 
 app.get('/proizvodi',(req,res)=>{

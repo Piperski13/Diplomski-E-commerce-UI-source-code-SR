@@ -1,8 +1,8 @@
-import {orders,removeFromOrders} from '../../data/porudzbine.js';
+import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../utils/money.js';
 import {renderDateOrder} from '../../utils/date.js';
-import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../data/proizvodi.js';
-import {addToCart, calculateCartQuantity} from '../../data/korpa.js';
+import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
+import {addToCart, calculateCartQuantity} from '../../podaci/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();

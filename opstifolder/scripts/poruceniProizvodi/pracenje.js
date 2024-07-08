@@ -1,7 +1,7 @@
-import {proizvodi,ucitavanjeProizvoda} from '../../data/proizvodi.js';
-import {orders} from '../../data/porudzbine.js';
+import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
+import {orders} from '../../podaci/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
-import {calculateCartQuantity} from "../../data/korpa.js"
+import {calculateCartQuantity} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));

@@ -1,7 +1,7 @@
 import { renderovanjeUkupnePorudzbine } from "../scripts/checkout/ukupnaPorudzbina.js";
 import { renderovanjeUkupneNaplate } from "../scripts/checkout/ukupnaNaplata.js";
 import { renderovanjeNaplateZaglavlje } from "../scripts/checkout/naplataZaglavlje.js";
-import { ucitavanjeProizvoda } from "../data/proizvodi.js"
+import { ucitavanjeProizvoda } from "../podaci/proizvodi.js"
 
 async function ucitavanjeStranice(){
   try {
