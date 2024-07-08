@@ -74,11 +74,9 @@ function izracunajDatumDostave(opcijaDostave){
     }
   }
 
-  const datumNiz = datumIsporuke.format(
-    'dddd, MMMM D'
-  );
+  const isoFormattedDate = datumIsporuke.toISOString();
 
-  return datumNiz;
+  return isoFormattedDate;
 }
 
 const port = 3000;

@@ -42,11 +42,14 @@ async function renderTrackingPage(){
   });
 
   const progressionDelivery = progressBar(matchingOrderDate.orderTime,matchingOrder.estimatedDeliveryTime);
+  // console.log(`matchingOrderDate.orderTime: ${matchingOrderDate.orderTime}`);
+  // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
+  // console.log(`progressionDelivery: ${progressionDelivery}`);
 
   let generatedHTML = `
      <div class="order-tracking">
         <a class="back-to-porudzbine-link link-primary" href="porudzbine.html">
-          Pogledajte sve porudžbine
+          Pogledajte sve porudžbine 
         </a>
 
         <div class="delivery-date">
