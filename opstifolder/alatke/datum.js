@@ -3,20 +3,20 @@ import sr from 'https://unpkg.com/dayjs@1.11.10/esm/locale/sr.js';
 
 dayjs.locale(sr);
 
-export function prikaziDatumNarudzbine(orderDate){
-  let dataString = dayjs(orderDate);
-  const dataStringFormat = dataString.format(
+export function prikaziDatumNarudzbine(datumPorudzbine){
+  let podaciString = dayjs(datumPorudzbine);
+  const podaciStringFormat = podaciString.format(
     'MMMM D'
   );
-return dataStringFormat;
+return podaciStringFormat;
 };
 
-export function pprikaziDatumNarudzbinePracenje(orderDate){
-  let dataString = dayjs(orderDate);
-  const dataStringFormat = dataString.format(
+export function pprikaziDatumNarudzbinePracenje(datumPorudzbine){
+  let podaciString = dayjs(datumPorudzbine);
+  const podaciStringFormat = podaciString.format(
     'dddd, MMMM D'
   );
-return dataStringFormat;
+return podaciStringFormat;
 };
 
 export function trakaNapretka(order,delivery){

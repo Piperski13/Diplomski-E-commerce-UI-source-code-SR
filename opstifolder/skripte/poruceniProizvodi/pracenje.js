@@ -16,7 +16,7 @@ async function renderTrackingPage(){
 
   let matchingProduct;
   let matchingOrder;
-  let matchingOrderDate;
+  let matchingdatumPorudzbine;
 
   const madeOrderId = url.searchParams.get('orderId');
   const productOrderId = url.searchParams.get('proizvodId');
@@ -25,7 +25,7 @@ async function renderTrackingPage(){
     if(order.id === madeOrderId){
 
       matchingOrder = order;
-      matchingOrderDate = order;
+      matchingdatumPorudzbine = order;
 
       matchingOrder.proizvodi.forEach(productOrder => {
         if(productOrder.proizvodId === productOrderId){
@@ -41,8 +41,8 @@ async function renderTrackingPage(){
     }
   });
 
-  const progressionDelivery = trakaNapretka(matchingOrderDate.orderTime,matchingOrder.estimatedDeliveryTime);
-  // console.log(`matchingOrderDate.orderTime: ${matchingOrderDate.orderTime}`);
+  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.orderTime,matchingOrder.estimatedDeliveryTime);
+  // console.log(`matchingdatumPorudzbine.orderTime: ${matchingdatumPorudzbine.orderTime}`);
   // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
   // console.log(`progressionDelivery: ${progressionDelivery}`);
 
