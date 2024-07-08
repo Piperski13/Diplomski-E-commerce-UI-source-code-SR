@@ -9,10 +9,10 @@ export function renderovanjeUkupneNaplate(){
   let korpakolicina = calculatekorpakolicina();
   let totalCents = 0;
   let shippingCents = 0;
-  korpa.forEach(korpaItem => {
-    const proizvodId = korpaItem.proizvodId;
-    const productkolicina = korpaItem.kolicina;
-    const deliveryOptionId = korpaItem.deliveryOptionId;
+  korpa.forEach(korpaArtikal => {
+    const proizvodId = korpaArtikal.proizvodId;
+    const productkolicina = korpaArtikal.kolicina;
+    const deliveryOptionId = korpaArtikal.deliveryOptionId;
     proizvodi.forEach(product => {
       if(product.id === proizvodId){
         let priceCents = product.cenaDinari

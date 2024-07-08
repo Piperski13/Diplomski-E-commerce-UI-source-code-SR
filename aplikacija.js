@@ -50,13 +50,13 @@ app.post('/market.html',(req,res)=>{
     })
   });
   
-  let order = korpa.map(korpaItem =>{
-    const itemNumberOption = parseInt(korpaItem.deliveryOptionId);
+  let order = korpa.map(korpaArtikal =>{
+    const itemNumberOption = parseInt(korpaArtikal.deliveryOptionId);
     const finalOption = deliveryOptions[itemNumberOption-1];
     const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
     return {
-      proizvodId: korpaItem.proizvodId,
-      kolicina: korpaItem.kolicina,
+      proizvodId: korpaArtikal.proizvodId,
+      kolicina: korpaArtikal.kolicina,
       estimatedDeliveryTime: estimatedDeliveryTime,
       variation: null
     }

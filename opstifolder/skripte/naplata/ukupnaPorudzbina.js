@@ -22,8 +22,8 @@ export function renderovanjeUkupnePorudzbine(){
     });
   };
   let checkoutHTML = '';
-  korpa.forEach(korpaItem => {
-    const proizvodId = korpaItem.proizvodId;
+  korpa.forEach(korpaArtikal => {
+    const proizvodId = korpaArtikal.proizvodId;
     let matchingProduct;
 
     proizvodi.forEach(product => {
@@ -32,7 +32,7 @@ export function renderovanjeUkupnePorudzbine(){
       }
     });
 
-    const deliveryOptionId = korpaItem.deliveryOptionId;
+    const deliveryOptionId = korpaArtikal.deliveryOptionId;
     let matchingDelivery;
     deliveryOptions.forEach(option => {
       if(option.id === deliveryOptionId){
@@ -62,7 +62,7 @@ export function renderovanjeUkupnePorudzbine(){
           <div class="product-kolicina">
             <span class="js-test-product-kolicina-${matchingProduct.id}">
               Količina: <span class="kolicina-label">
-              ${korpaItem.kolicina}
+              ${korpaArtikal.kolicina}
               </span>
             </span>
             <span class="update-kolicina-link link-primary js-update-link" 
@@ -85,18 +85,18 @@ export function renderovanjeUkupnePorudzbine(){
           <div class="delivery-options-title">
             Izaberite opciju isporuke:
           </div>
-          ${deliveryOptionsHTML(matchingProduct,korpaItem)}
+          ${deliveryOptionsHTML(matchingProduct,korpaArtikal)}
         </div>
       </div>
     </div>`;
   });
   //generates delivery html
-  function deliveryOptionsHTML(matchingProduct,korpaItem){
+  function deliveryOptionsHTML(matchingProduct,korpaArtikal){
     let generatedHTML='';
     deliveryOptions.forEach((option) =>{
       const formatedDate = calculateDeliveryDate(option.deliveryDays);
       const priceStrings = option.priceCents === 0 ? 'Besplatna dostava' : `${formatCurrency(option.priceCents)} <span class="rsd-stil">RSD</span> - Dostava`;
-      const isChecked = option.id === korpaItem.deliveryOptionId;
+      const isChecked = option.id === korpaArtikal.deliveryOptionId;
       generatedHTML +=
       `<div class="delivery-option js-delivery-option
       js-test-delivery-option-${matchingProduct.id}-${option.id}"
