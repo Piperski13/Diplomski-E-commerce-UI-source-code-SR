@@ -2,7 +2,7 @@ import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../alatke/rsdFormat.js';
 import {renderDateOrder} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
-import {dodajUKorpu, calculatekorpaQuantity} from '../../podaci/korpa.js';
+import {dodajUKorpu, calculatekorpakolicina} from '../../podaci/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
@@ -38,8 +38,8 @@ function renderovanjeUkupnePorudzbine(){
               <div class="product-delivery-date">
                 Dolazak: ${renderDateOrder(productOrder.estimatedDeliveryTime)}
               </div>
-              <div class="product-quantity">
-                Količina: ${productOrder.quantity}
+              <div class="product-kolicina">
+                Količina: ${productOrder.kolicina}
               </div>
               <button class="kupi-ponovo-button button-primary js-kupi-ponovo"
               data-proizvod-id="${matchingProduct.id}">
@@ -87,13 +87,13 @@ function renderovanjeUkupnePorudzbine(){
     generatedDetailsHTML = '';
   });
   document.querySelector('.js-porudzbine-gird').innerHTML = generatedHTML;
-  updatekorpaQuantity();
+  updatekorpakolicina();
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
       const proizvodId = button.dataset.proizvodId;
       dodajUKorpu(proizvodId);
-      updatekorpaQuantity();
+      updatekorpakolicina();
     })
   })
 
@@ -107,12 +107,12 @@ function renderovanjeUkupnePorudzbine(){
     })
   })
 
-  function updatekorpaQuantity(){        
-    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
-    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
+  function updatekorpakolicina(){        
+    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
   }
 };
 

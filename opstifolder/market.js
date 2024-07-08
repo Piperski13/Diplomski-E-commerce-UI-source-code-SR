@@ -1,4 +1,4 @@
-import {korpa, dodajUKorpu,calculatekorpaQuantity} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
+import {korpa, dodajUKorpu,calculatekorpakolicina} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
 import {formatCurrency} from "./alatke/rsdFormat.js";
 
@@ -6,7 +6,7 @@ loadProducts(renderProductsGrid);
 
 function renderProductsGrid(){
 
-  updatekorpaQuantity();
+  updatekorpakolicina();
 
   let proizvodiHTML = '';
 
@@ -56,8 +56,8 @@ function renderProductsGrid(){
         ${product.getPrice()}
       </div>
 
-      <div class="product-quantity-container">
-        <select class="js-quantity-selector-${product.id}">
+      <div class="product-kolicina-container">
+        <select class="js-kolicina-selector-${product.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -104,12 +104,12 @@ function renderProductsGrid(){
     }
   })
 
-  function updatekorpaQuantity(){        
-    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
-    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
+  function updatekorpakolicina(){        
+    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
   }
 
   function addedTokorpaGreen(proizvodId,timeoutObject){     // pop up msg function
@@ -133,7 +133,7 @@ function renderProductsGrid(){
         console.log(proizvodId);
         dodajUKorpu(proizvodId);
         addedTokorpaGreen(proizvodId,addedMessageTimeouts);  // for a green pop up msg function
-        updatekorpaQuantity();
+        updatekorpakolicina();
       });
   });
 };

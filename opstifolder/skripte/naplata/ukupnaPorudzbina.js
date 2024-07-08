@@ -1,7 +1,7 @@
 import {korpa,
   removeFromkorpa,
-  calculatekorpaQuantity,
-  updateQuantity,
+  calculatekorpakolicina,
+  updatekolicina,
   updateDeliveryOptions}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
@@ -11,11 +11,11 @@ import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
   function keyboardEvent(proizvodId){
-    document.querySelectorAll('.quantity-imput').forEach((input)=>{
+    document.querySelectorAll('.kolicina-imput').forEach((input)=>{
       input.addEventListener('keydown',(event)=>{
         if(event.key==='Enter'){
           const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-          itemContainer.classList.remove('is-editing-quantity');
+          itemContainer.classList.remove('is-editing-kolicina');
           updateInput(proizvodId);
         }
       });
@@ -59,21 +59,21 @@ export function renderovanjeUkupnePorudzbine(){
           <div class="product-price js-test-product-price-${matchingProduct.id}">
             ${matchingProduct.getPrice()}
           </div>
-          <div class="product-quantity">
-            <span class="js-test-product-quantity-${matchingProduct.id}">
-              Količina: <span class="quantity-label">
-              ${korpaItem.quantity}
+          <div class="product-kolicina">
+            <span class="js-test-product-kolicina-${matchingProduct.id}">
+              Količina: <span class="kolicina-label">
+              ${korpaItem.kolicina}
               </span>
             </span>
-            <span class="update-quantity-link link-primary js-update-link" 
+            <span class="update-kolicina-link link-primary js-update-link" 
             data-proizvod-id="${matchingProduct.id}">
               Ažuriraj
             </span>
-            <input type="text" class="quantity-imput js-quantity-imput-${matchingProduct.id}">
-            <span class="save-quantity-link link-primary js-save-link"
+            <input type="text" class="kolicina-imput js-kolicina-imput-${matchingProduct.id}">
+            <span class="save-kolicina-link link-primary js-save-link"
             data-proizvod-id="${matchingProduct.id}">Save</span>
 
-            <span class="delete-quantity-link link-primary js-delete-link 
+            <span class="delete-kolicina-link link-primary js-delete-link 
             js-delete-test-${matchingProduct.id}" 
             data-proizvod-id="${matchingProduct.id}">
               Obriši
@@ -119,20 +119,20 @@ export function renderovanjeUkupnePorudzbine(){
     })
     return generatedHTML;
   }
-  function updatekorpaQuantity(){ 
-    let korpaQuantity = calculatekorpaQuantity();     //korpa.js function that calculates korpa quantity
-    if(korpaQuantity === 0){
+  function updatekorpakolicina(){ 
+    let korpakolicina = calculatekorpakolicina();     //korpa.js function that calculates korpa kolicina
+    if(korpakolicina === 0){
       document.querySelector('.js-return-to-home-link').innerHTML = ``;
     }
-    else if(korpaQuantity === 1){
-      document.querySelector('.js-return-to-home-link').innerHTML = `${korpaQuantity} artikal`;
+    else if(korpakolicina === 1){
+      document.querySelector('.js-return-to-home-link').innerHTML = `${korpakolicina} artikal`;
     }
     else{
-      document.querySelector('.js-return-to-home-link').innerHTML = `${korpaQuantity} artikla`;
+      document.querySelector('.js-return-to-home-link').innerHTML = `${korpakolicina} artikla`;
     }
   };
 
-  function productQuantityUpdate(){
+  function productkolicinaUpdate(){
     const confirmYes = document.querySelector('.potvrdi-prozor-da');
     const confirmNo = document.querySelector('.potvrdi-prozor-ne');
 
@@ -166,7 +166,7 @@ export function renderovanjeUkupnePorudzbine(){
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
         const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-        itemContainer.classList.add('is-editing-quantity');
+        itemContainer.classList.add('is-editing-kolicina');
         keyboardEvent(proizvodId);
       });
     });
@@ -179,7 +179,7 @@ export function renderovanjeUkupnePorudzbine(){
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
         const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-        itemContainer.classList.remove('is-editing-quantity');
+        itemContainer.classList.remove('is-editing-kolicina');
         updateInput(proizvodId);
       });
     });
@@ -189,24 +189,24 @@ export function renderovanjeUkupnePorudzbine(){
     removeFromkorpa(proizvodId);
     const container = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
     container.remove();
-    updatekorpaQuantity();
+    updatekorpakolicina();
     renderovanjeUkupneNaplate();
   }
   function updateInput(proizvodId){
-    const quantityImput = document.querySelector(`.js-quantity-imput-${proizvodId}`)
-    let newQuantity = Number(quantityImput.value);
-    if(newQuantity === 0){
+    const kolicinaImput = document.querySelector(`.js-kolicina-imput-${proizvodId}`)
+    let newkolicina = Number(kolicinaImput.value);
+    if(newkolicina === 0){
       deleteContainer(proizvodId);
-      updateQuantity(proizvodId,newQuantity);
+      updatekolicina(proizvodId,newkolicina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
-    if(newQuantity>=1000 || newQuantity<0){
+    if(newkolicina>=1000 || newkolicina<0){
       alert('Error value');
       renderovanjeUkupnePorudzbine();
     }
     else{
-      updateQuantity(proizvodId,newQuantity);
+      updatekolicina(proizvodId,newkolicina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
@@ -225,8 +225,8 @@ export function renderovanjeUkupnePorudzbine(){
 
   document.querySelector('.pregled-porudzbine').innerHTML = checkoutHTML;
 
-  updatekorpaQuantity(); // updates korpa quantity in header part of the checkout.html
-  productQuantityUpdate();  // adds event listeners to update/delete quantity
+  updatekorpakolicina(); // updates korpa kolicina in header part of the checkout.html
+  productkolicinaUpdate();  // adds event listeners to update/delete kolicina
   saveLinkEvent();        // adds event listeners to save button that gets created on click update
   deliveryUpdate(); // adds interactive radio buttens / dates
 }

@@ -1,7 +1,7 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {orders} from '../../podaci/porudzbine.js';
 import {renderDateOrderTracking,progressBar} from '../../alatke/datum.js';
-import {calculatekorpaQuantity} from "../../podaci/korpa.js"
+import {calculatekorpakolicina} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('orderId'));
@@ -58,7 +58,7 @@ async function renderTrackingPage(){
         </div>
 
         <div class="product-info">
-          Količina: ${matchingOrder.quantity}
+          Količina: ${matchingOrder.kolicina}
         </div>
 
         <img class="product-image" src="${matchingProduct.slika}">
@@ -84,14 +84,14 @@ async function renderTrackingPage(){
       </div>
   `;
   document.querySelector('.glavni-sadrzaj').innerHTML = generatedHTML;
-  updatekorpaQuantity();
+  updatekorpakolicina();
 
-  function updatekorpaQuantity(){        
-    let korpaQuantity = calculatekorpaQuantity();   //korpa.js function that calculates korpa quantity
-    if(!korpaQuantity){          //essentialy break a function if korpaQuantity undefined
+  function updatekorpakolicina(){        
+    let korpakolicina = calculatekorpakolicina();   //korpa.js function that calculates korpa kolicina
+    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaQuantity;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
   }
 };
 renderTrackingPage();

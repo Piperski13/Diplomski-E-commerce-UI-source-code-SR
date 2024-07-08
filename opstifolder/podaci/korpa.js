@@ -10,31 +10,31 @@ function sacuvajUSkladiste(){
 }
 
 export function dodajUKorpu(proizvodId){
-  let matchingItem;           //boolean value
-  let quantity;
-  let quantitySelector;
+  let odgovarajućiArtikal;           //boolean value
+  let kolicina;
+  let kolicinaSelector;
       
       korpa.forEach((korpaItem)=>{              //when button clicked goe trough korpa.js[], and if 
         if(proizvodId === korpaItem.proizvodId ){    //it exists set item to matching item
-          matchingItem = korpaItem;
+          odgovarajućiArtikal = korpaItem;
         }
       });
-                    //gets value of drop down quantity and stores it
-      let quantityString = document.querySelector(`.js-quantity-selector-${proizvodId}`);
-      if(quantityString){
-        quantitySelector = quantityString.value
-        quantity = Number(quantitySelector);         //DOM retruns string always, so make it num
+                    //gets value of drop down kolicina and stores it
+      let kolicinaString = document.querySelector(`.js-kolicina-selector-${proizvodId}`);
+      if(kolicinaString){
+        kolicinaSelector = kolicinaString.value
+        kolicina = Number(kolicinaSelector);         //DOM retruns string always, so make it num
       }else{
-        quantity=1;
+        kolicina=1;
       }
       
     
-      if(matchingItem){              //if matchingItem exsits its making this statemant true thus
-        matchingItem.quantity+=quantity;     // it only increases its quantity and skips korpa.push
+      if(odgovarajućiArtikal){              //if odgovarajućiArtikal exsits its making this statemant true thus
+        odgovarajućiArtikal.kolicina+=kolicina;     // it only increases its kolicina and skips korpa.push
       }else{
         korpa.push({
           proizvodId,
-          quantity,
+          kolicina,
           deliveryOptionId: '1'
         });
       }
@@ -46,31 +46,31 @@ export function removeFromkorpa(proizvodId){
   sacuvajUSkladiste();
 }
 
-export function calculatekorpaQuantity(){    //calculates korpa quantity and retuns its final value
-  let korpaQuantity = 0;
+export function calculatekorpakolicina(){    //calculates korpa kolicina and retuns its final value
+  let korpakolicina = 0;
 
   korpa.forEach(korpaItem => {
-    korpaQuantity+=korpaItem.quantity
+    korpakolicina+=korpaItem.kolicina
   });
-  return korpaQuantity;
+  return korpakolicina;
 }
 
-export function updateQuantity(proizvodId, newQuantity){
+export function updatekolicina(proizvodId, newkolicina){
    korpa.forEach(korpaItem => {
     if(proizvodId === korpaItem.proizvodId ){
-      korpaItem.quantity = newQuantity;
+      korpaItem.kolicina = newkolicina;
     }
    });
    sacuvajUSkladiste();
 }
 
 export function updateDeliveryOptions(proizvodId,deliveryOptionId){
-  let matchingItem;     
+  let odgovarajućiArtikal;     
   korpa.forEach((korpaItem)=>{          
     if(proizvodId === korpaItem.proizvodId ){ 
-      matchingItem = korpaItem;
+      odgovarajućiArtikal = korpaItem;
     }
   });
-  matchingItem.deliveryOptionId = deliveryOptionId;
+  odgovarajućiArtikal.deliveryOptionId = deliveryOptionId;
   sacuvajUSkladiste();
 };

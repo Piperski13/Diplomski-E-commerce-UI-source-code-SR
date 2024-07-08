@@ -37,15 +37,15 @@ app.post('/market.html',(req,res)=>{
   const currentTime = dayjs().toISOString();
   const { korpa, totalAfterTax } = req.body;
   let priceCentsTotal=0;
-  let matchingItem;
+  let odgovarajućiArtikal;
   let newkorpa=[];
 
   korpa.forEach(item => {
     
     proizvodi.forEach(product =>{
       if(product.id === item.proizvodId){
-        matchingItem = product;
-        newkorpa.push(matchingItem);
+        odgovarajućiArtikal = product;
+        newkorpa.push(odgovarajućiArtikal);
       }
     })
   });
@@ -56,7 +56,7 @@ app.post('/market.html',(req,res)=>{
     const estimatedDeliveryTime = dayjs().add(finalOption.deliveryDays,'days').toISOString();
     return {
       proizvodId: korpaItem.proizvodId,
-      quantity: korpaItem.quantity,
+      kolicina: korpaItem.kolicina,
       estimatedDeliveryTime: estimatedDeliveryTime,
       variation: null
     }
