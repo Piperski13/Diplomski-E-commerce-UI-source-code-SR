@@ -21,25 +21,25 @@ export const opcijeDostave = [
   }
 ];
 
-function isWeekend(date) {
-  const dayOfWeek = date.format('dddd');
-  return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
+function daLiJeVikend(datum) {
+  const danUNedelju = datum.format('dddd');
+  return danUNedelju === 'Subota' || danUNedelju === 'Nedelja';
 }
 //if its weekend skip it and return the value of delivery date 
-export function calculateDeliveryDate(deliveryOption){
-  let remainingDays = deliveryOption; //its equal to 7 or 3 or 1
-  let deliveryDate = dayjs();
-  while (remainingDays > 0) {
-    deliveryDate = deliveryDate.add(1, 'day');
+export function izracunajDatumDostave(opcijaDostave){
+  let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
+  let datumIsporuke = dayjs();
+  while (preostaliDani > 0) {
+    datumIsporuke = datumIsporuke.add(1, 'day');
 
-    if (!isWeekend(deliveryDate)) {
-      remainingDays--;
+    if (!daLiJeVikend(datumIsporuke)) {
+      preostaliDani--;
     }
   }
 
-  const dateString = deliveryDate.format(
+  const datumNiz = datumIsporuke.format(
     'dddd, MMMM D'
   );
 
-  return dateString;
+  return datumNiz;
 }

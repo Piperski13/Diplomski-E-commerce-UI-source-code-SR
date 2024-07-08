@@ -6,7 +6,7 @@ import {korpa,
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatCurrency} from "../../alatke/rsdFormat.js";
-import {opcijeDostave,calculateDeliveryDate} from "../../podaci/opcijePosiljke.js"
+import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
@@ -39,7 +39,7 @@ export function renderovanjeUkupnePorudzbine(){
         matchingDelivery = option;
       }
     });
-    const formatedDate = calculateDeliveryDate(matchingDelivery.dostaveDani);
+    const formatedDate = izracunajDatumDostave(matchingDelivery.dostaveDani);
     checkoutHTML += 
     `<div class="js-korpa-item-container-${matchingProduct.id} 
       js-test-korpa-item-container">
@@ -94,7 +94,7 @@ export function renderovanjeUkupnePorudzbine(){
   function opcijeDostaveHTML(matchingProduct,korpaArtikal){
     let generatedHTML='';
     opcijeDostave.forEach((option) =>{
-      const formatedDate = calculateDeliveryDate(option.dostaveDani);
+      const formatedDate = izracunajDatumDostave(option.dostaveDani);
       const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatCurrency(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === korpaArtikal.opcijeDostaveId;
       generatedHTML +=

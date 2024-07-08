@@ -36,24 +36,11 @@ app.get('/proizvodi',(req,res)=>{
 app.post('/market.html',(req,res)=>{  
   const currentTime = dayjs().toISOString();
   const { korpa, totalAfterTax } = req.body;
-  let ceneDinariTotal=0;
-  let odgovarajućiArtikal;
-  let novaKorpa=[];
 
-  korpa.forEach(item => {
-    
-    proizvodi.forEach(product =>{
-      if(product.id === item.proizvodId){
-        odgovarajućiArtikal = product;
-        novaKorpa.push(odgovarajućiArtikal);
-      }
-    })
-  });
-  
   let order = korpa.map(korpaArtikal =>{
     const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
     const finalOption = opcijeDostave[itemNumberOption-1];
-    const estimatedDeliveryTime = dayjs().add(finalOption.dostaveDani,'days').toISOString();
+    const estimatedDeliveryTime = izracunajDatumDostave(finalOption.dostaveDani);
     return {
       proizvodId: korpaArtikal.proizvodId,
       kolicina: korpaArtikal.kolicina,
@@ -69,6 +56,30 @@ app.post('/market.html',(req,res)=>{
     proizvodi: order
   })         
 });
+
+
+function daLiJeVikend(datum) {
+  const danUNedelju = datum.format('dddd');
+  return danUNedelju === 'Saturday' || danUNedelju === 'Sunday';
+}
+//if its weekend skip it and return the value of delivery date 
+function izracunajDatumDostave(opcijaDostave){
+  let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
+  let datumIsporuke = dayjs();
+  while (preostaliDani > 0) {
+    datumIsporuke = datumIsporuke.add(1, 'day');
+
+    if (!daLiJeVikend(datumIsporuke)) {
+      preostaliDani--;
+    }
+  }
+
+  const datumNiz = datumIsporuke.format(
+    'dddd, MMMM D'
+  );
+
+  return datumNiz;
+}
 
 const port = 3000;
 app.listen(port,()=>{
