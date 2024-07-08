@@ -64,7 +64,7 @@ export function azurirajKolicinu(proizvodId, novaKolicina){
    sacuvajUSkladiste();
 }
 
-export function updateDeliveryOptions(proizvodId,opcijeDostaveId){
+export function azurirajOpcijeDostave(proizvodId,opcijeDostaveId){
   let odgovarajućiArtikal;     
   korpa.forEach((korpaArtikal)=>{          
     if(proizvodId === korpaArtikal.proizvodId ){ 

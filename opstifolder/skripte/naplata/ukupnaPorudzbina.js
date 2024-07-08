@@ -2,7 +2,7 @@ import {korpa,
   izbrisiIzKorpe,
   izracunajKolicinuKorpe,
   azurirajKolicinu,
-  updateDeliveryOptions}
+  azurirajOpcijeDostave}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatCurrency} from "../../alatke/rsdFormat.js";
@@ -216,7 +216,7 @@ export function renderovanjeUkupnePorudzbine(){
       option.addEventListener('click',()=>{
         const proizvodId = option.dataset.proizvodId;
         const opcijeDostaveId = option.dataset.deliveryId;
-        updateDeliveryOptions(proizvodId,opcijeDostaveId);
+        azurirajOpcijeDostave(proizvodId,opcijeDostaveId);
         renderovanjeUkupnePorudzbine();
         renderovanjeUkupneNaplate(); // generates Payment box again
       })
