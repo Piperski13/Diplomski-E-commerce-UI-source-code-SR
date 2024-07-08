@@ -1,4 +1,4 @@
-import {formatCurrency} from "../utils/money.js";
+import {formatCurrency} from "../alatke/rsdFormat.js";
 export class Product{
   id;
   slika;

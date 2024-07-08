@@ -5,7 +5,7 @@ import {cart,
   updateDeliveryOptions}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
-import {formatCurrency} from "../../utils/money.js";
+import {formatCurrency} from "../../alatke/rsdFormat.js";
 import {deliveryOptions,calculateDeliveryDate} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 

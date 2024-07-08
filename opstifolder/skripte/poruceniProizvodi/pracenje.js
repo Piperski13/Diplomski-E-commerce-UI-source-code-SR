@@ -1,6 +1,6 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {orders} from '../../podaci/porudzbine.js';
-import {renderDateOrderTracking,progressBar} from '../../utils/date.js';
+import {renderDateOrderTracking,progressBar} from '../../alatke/date.js';
 import {calculateCartQuantity} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);

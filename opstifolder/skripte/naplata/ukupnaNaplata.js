@@ -1,6 +1,6 @@
 import { calculateCartQuantity, cart } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
-import { formatCurrency } from "../../utils/money.js";
+import { formatCurrency } from "../../alatke/rsdFormat.js";
 import { deliveryOptions } from "../../podaci/opcijePosiljke.js"
 import { addOrder } from "../../podaci/porudzbine.js"
 

@@ -1,6 +1,6 @@
 import {cart, addToCart,calculateCartQuantity} from "../podaci/korpa.js"; // imports a const cart from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
-import {formatCurrency} from "./utils/money.js";
+import {formatCurrency} from "./alatke/rsdFormat.js";
 
 loadProducts(renderProductsGrid);
 

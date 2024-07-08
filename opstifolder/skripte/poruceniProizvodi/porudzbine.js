@@ -1,6 +1,6 @@
 import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
-import {formatCurrency} from '../../utils/money.js';
-import {renderDateOrder} from '../../utils/date.js';
+import {formatCurrency} from '../../alatke/rsdFormat.js';
+import {renderDateOrder} from '../../alatke/date.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {addToCart, calculateCartQuantity} from '../../podaci/korpa.js';
 console.log(orders);
