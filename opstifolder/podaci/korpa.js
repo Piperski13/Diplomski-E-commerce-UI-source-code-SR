@@ -1,15 +1,15 @@
 export let korpa;
-loadFromStorage();
+ucitajIzSkladista();
 
-export function loadFromStorage(){
+export function ucitajIzSkladista(){
   korpa = JSON.parse(localStorage.getItem('korpa')) || [];
 }
 
-function saveToStorage(){
+function sacuvajUSkladiste(){
   localStorage.setItem('korpa',JSON.stringify(korpa));    
 }
 
-export function addTokorpa(productId){
+export function dodajUKorpu(productId){
   let matchingItem;           //boolean value
   let quantity;
   let quantitySelector;
@@ -38,12 +38,12 @@ export function addTokorpa(productId){
           deliveryOptionId: '1'
         });
       }
-  saveToStorage();
+  sacuvajUSkladiste();
 }
 export function removeFromkorpa(productId){
   let newkorpa = korpa.filter((korpaItem) => korpaItem.productId !== productId) //returns 
   korpa = newkorpa;
-  saveToStorage();
+  sacuvajUSkladiste();
 }
 
 export function calculatekorpaQuantity(){    //calculates korpa quantity and retuns its final value
@@ -61,7 +61,7 @@ export function updateQuantity(productId, newQuantity){
       korpaItem.quantity = newQuantity;
     }
    });
-   saveToStorage();
+   sacuvajUSkladiste();
 }
 
 export function updateDeliveryOptions(productId,deliveryOptionId){
@@ -72,5 +72,5 @@ export function updateDeliveryOptions(productId,deliveryOptionId){
     }
   });
   matchingItem.deliveryOptionId = deliveryOptionId;
-  saveToStorage();
+  sacuvajUSkladiste();
 };

@@ -1,4 +1,4 @@
-import {korpa, addTokorpa,calculatekorpaQuantity} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
+import {korpa, dodajUKorpu,calculatekorpaQuantity} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
 import {formatCurrency} from "./alatke/rsdFormat.js";
 
@@ -130,7 +130,7 @@ function renderProductsGrid(){
       let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
       button.addEventListener('click',()=>{
         const productId = button.dataset.productId;   //on click save data-product-id in a const
-        addTokorpa(productId);
+        dodajUKorpu(productId);
         addedTokorpaGreen(productId,addedMessageTimeouts);  // for a green pop up msg function
         updatekorpaQuantity();
       });

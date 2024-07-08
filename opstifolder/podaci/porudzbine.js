@@ -2,15 +2,15 @@ export let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 export function addOrder(order){
   orders.unshift(order);
-  saveToStorage();
+  sacuvajUSkladiste();
 };
 
 export function removeFromOrders(orderId){
   let newOrders = orders.filter((orderItem) => orderItem.id !== orderId) //returns 
   orders = newOrders;
-  saveToStorage();
+  sacuvajUSkladiste();
 }
 
-function saveToStorage(){
+function sacuvajUSkladiste(){
   localStorage.setItem('orders',JSON.stringify(orders));
 }

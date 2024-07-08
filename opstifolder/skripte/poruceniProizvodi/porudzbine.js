@@ -2,7 +2,7 @@ import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
 import {formatCurrency} from '../../alatke/rsdFormat.js';
 import {renderDateOrder} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
-import {addTokorpa, calculatekorpaQuantity} from '../../podaci/korpa.js';
+import {dodajUKorpu, calculatekorpaQuantity} from '../../podaci/korpa.js';
 console.log(orders);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
@@ -92,7 +92,7 @@ function renderovanjeUkupnePorudzbine(){
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
       const productId = button.dataset.productId;
-      addTokorpa(productId);
+      dodajUKorpu(productId);
       updatekorpaQuantity();
     })
   })
