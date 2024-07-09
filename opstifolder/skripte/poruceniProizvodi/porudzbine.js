@@ -67,7 +67,7 @@ function renderovanjeUkupnePorudzbine(){
             <div class="porucbina-header-left-section">
               <div class="porucbina-date">
                 <div class="porucbina-header-label">Naručeno datuma:</div>
-                <div>${prikaziDatumNarudzbine(porucbina.orderTime)}</div>
+                <div>${prikaziDatumNarudzbine(porucbina.vremePorudzbine)}</div>
               </div>
               <div class="porucbina-total">
                 <div class="porucbina-header-label">Ukupno:</div>

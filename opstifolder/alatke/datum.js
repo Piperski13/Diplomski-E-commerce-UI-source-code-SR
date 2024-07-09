@@ -20,9 +20,9 @@ return podaciStringFormat;
 };
 // orders i dostava rename lome porucbina opcije na porucbina renderovanju
 export function trakaNapretka(porucbina,dostava){
-  let currentTime = dayjs();
-  let orderTime = dayjs(porucbina);
-  let deliveryTime = dayjs(dostava);
-  const percentProggress = (currentTime - orderTime) / (deliveryTime - orderTime) * 100;
-  return percentProggress;
+  let trenutnoVreme = dayjs();
+  let vremePorudzbine = dayjs(porucbina);
+  let vremeDostave = dayjs(dostava);
+  const procenatNapretka = (trenutnoVreme - vremePorudzbine) / (vremeDostave - vremePorudzbine) * 100;
+  return procenatNapretka;
 }

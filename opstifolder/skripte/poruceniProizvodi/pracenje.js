@@ -41,8 +41,8 @@ async function renderTrackingPage(){
     }
   });
 
-  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.orderTime,matchingOrder.estimatedDeliveryTime);
-  // console.log(`matchingdatumPorudzbine.orderTime: ${matchingdatumPorudzbine.orderTime}`);
+  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.vremePorudzbine,matchingOrder.estimatedDeliveryTime);
+  // console.log(`matchingdatumPorudzbine.vremePorudzbine: ${matchingdatumPorudzbine.vremePorudzbine}`);
   // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
   // console.log(`progressionDelivery: ${progressionDelivery}`);
 
