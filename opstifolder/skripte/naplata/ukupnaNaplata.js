@@ -61,12 +61,12 @@ export function renderovanjeUkupneNaplate(){
     <div class="pregled-naplate-money js-test-total-price">${formatCurrency(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <button class="place-order-button button-primary js-place-order">
+  <button class="place-porucbina-button button-primary js-place-porucbina">
     Poruči
   </button>`;
   document.querySelector('.js-pregled-naplate').innerHTML= generatedHTML;
   
-  document.querySelector('.js-place-order').addEventListener('click', async () => {
+  document.querySelector('.js-place-porucbina').addEventListener('click', async () => {
     try {
       const payload = {
         korpa: korpa,
@@ -81,8 +81,8 @@ export function renderovanjeUkupneNaplate(){
         body: JSON.stringify(payload)
       });
   
-      const order = await response.json();
-      addOrder(order);
+      const porucbina = await response.json();
+      addOrder(porucbina);
   
     } catch (error) {
       console.log('Unexpected error, try again later.');

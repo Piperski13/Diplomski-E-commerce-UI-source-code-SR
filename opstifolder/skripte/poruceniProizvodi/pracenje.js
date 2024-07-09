@@ -21,11 +21,11 @@ async function renderTrackingPage(){
   const madeOrderId = url.searchParams.get('orderId');
   const productOrderId = url.searchParams.get('proizvodId');
 
-  orders.forEach(order => {
-    if(order.id === madeOrderId){
+  orders.forEach(porucbina => {
+    if(porucbina.id === madeOrderId){
 
-      matchingOrder = order;
-      matchingdatumPorudzbine = order;
+      matchingOrder = porucbina;
+      matchingdatumPorudzbine = porucbina;
 
       matchingOrder.proizvodi.forEach(productOrder => {
         if(productOrder.proizvodId === productOrderId){
@@ -47,12 +47,12 @@ async function renderTrackingPage(){
   // console.log(`progressionDelivery: ${progressionDelivery}`);
 
   let generatedHTML = `
-     <div class="order-tracking">
+     <div class="porucbina-tracking">
         <a class="back-to-porudzbine-link link-primary" href="porudzbine.html">
           Pogledajte sve porudžbine 
         </a>
 
-        <div class="delivery-date">
+        <div class="dostava-date">
           Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.estimatedDeliveryTime)}
         </div>
 

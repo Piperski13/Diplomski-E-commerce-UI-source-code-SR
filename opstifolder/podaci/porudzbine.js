@@ -1,7 +1,7 @@
 export let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-export function addOrder(order){
-  orders.unshift(order);
+export function addOrder(porucbina){
+  orders.unshift(porucbina);
   sacuvajUSkladiste();
 };
 

@@ -44,7 +44,7 @@ export function renderovanjeUkupnePorudzbine(){
     `<div class="js-korpa-item-container-${matchingProduct.id} 
       js-test-korpa-item-container">
 
-        <div class="delivery-date">
+        <div class="dostava-date">
           Datum isporuke: ${formatedDate}
         </div>
 
@@ -81,8 +81,8 @@ export function renderovanjeUkupnePorudzbine(){
           </div>
         </div>
 
-        <div class="delivery-options">
-          <div class="delivery-options-title">
+        <div class="dostava-options">
+          <div class="dostava-options-title">
             Izaberite opciju isporuke:
           </div>
           ${opcijeDostaveHTML(matchingProduct,korpaArtikal)}
@@ -90,7 +90,7 @@ export function renderovanjeUkupnePorudzbine(){
       </div>
     </div>`;
   });
-  //generates delivery html
+  //generates dostava html
   function opcijeDostaveHTML(matchingProduct,korpaArtikal){
     let generatedHTML='';
     opcijeDostave.forEach((option) =>{
@@ -98,20 +98,20 @@ export function renderovanjeUkupnePorudzbine(){
       const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatCurrency(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === korpaArtikal.opcijeDostaveId;
       generatedHTML +=
-      `<div class="delivery-option js-delivery-option
-      js-test-delivery-option-${matchingProduct.id}-${option.id}"
+      `<div class="dostava-option js-dostava-option
+      js-test-dostava-option-${matchingProduct.id}-${option.id}"
       data-proizvod-id="${matchingProduct.id}"
-      data-delivery-id="${option.id}">
+      data-dostava-id="${option.id}">
         <input type="radio"
           ${isChecked ? 'checked' : ''}
-          class="delivery-option-input 
-          js-test-delivery-option-input-${matchingProduct.id}-${option.id}"
-          name="delivery-option-${matchingProduct.id}">
+          class="dostava-option-input 
+          js-test-dostava-option-input-${matchingProduct.id}-${option.id}"
+          name="dostava-option-${matchingProduct.id}">
         <div>
-          <div class="delivery-option-date">
+          <div class="dostava-option-date">
             ${formatedDate}
           </div>
-          <div class="delivery-option-price">
+          <div class="dostava-option-price">
             ${priceStrings}
           </div>
         </div>
@@ -212,10 +212,10 @@ export function renderovanjeUkupnePorudzbine(){
     }
   }
   function deliveryUpdate(){
-    document.querySelectorAll('.js-delivery-option').forEach(option=>{
+    document.querySelectorAll('.js-dostava-option').forEach(option=>{
       option.addEventListener('click',()=>{
         const proizvodId = option.dataset.proizvodId;
-        const opcijeDostaveId = option.dataset.deliveryId;
+        const opcijeDostaveId = option.dataset.dostavaId;
         azurirajOpcijeDostave(proizvodId,opcijeDostaveId);
         renderovanjeUkupnePorudzbine();
         renderovanjeUkupneNaplate(); // generates Payment box again

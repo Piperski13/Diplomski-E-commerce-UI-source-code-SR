@@ -18,11 +18,11 @@ export function pprikaziDatumNarudzbinePracenje(datumPorudzbine){
   );
 return podaciStringFormat;
 };
-
-export function trakaNapretka(order,delivery){
+// orders i dostava rename lome porucbina opcije na porucbina renderovanju
+export function trakaNapretka(porucbina,dostava){
   let currentTime = dayjs();
-  let orderTime = dayjs(order);
-  let deliveryTime = dayjs(delivery);
+  let orderTime = dayjs(porucbina);
+  let deliveryTime = dayjs(dostava);
   const percentProggress = (currentTime - orderTime) / (deliveryTime - orderTime) * 100;
   return percentProggress;
 }

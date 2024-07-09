@@ -37,7 +37,7 @@ app.post('/market.html',(req,res)=>{
   const currentTime = dayjs().toISOString();
   const { korpa, totalAfterTax } = req.body;
 
-  let order = korpa.map(korpaArtikal =>{
+  let porucbina = korpa.map(korpaArtikal =>{
     const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
     const finalOption = opcijeDostave[itemNumberOption-1];
     const estimatedDeliveryTime = izracunajDatumDostave(finalOption.dostaveDani);
@@ -53,7 +53,7 @@ app.post('/market.html',(req,res)=>{
     id: uuidv4(),
     orderTime: currentTime,
     totalCostCents: totalAfterTax,
-    proizvodi: order
+    proizvodi: porucbina
   })         
 });
 
@@ -62,7 +62,7 @@ function daLiJeVikend(datum) {
   const danUNedelju = datum.format('dddd');
   return danUNedelju === 'Saturday' || danUNedelju === 'Sunday';
 }
-//if its weekend skip it and return the value of delivery date 
+//if its weekend skip it and return the value of dostava date 
 function izracunajDatumDostave(opcijaDostave){
   let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
   let datumIsporuke = dayjs();

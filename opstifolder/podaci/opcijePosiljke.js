@@ -25,7 +25,7 @@ function daLiJeVikend(datum) {
   const danUNedelju = datum.format('dddd');
   return danUNedelju === 'Subota' || danUNedelju === 'Nedelja';
 }
-//if its weekend skip it and return the value of delivery date 
+//if its weekend skip it and return the value of dostava date 
 export function izracunajDatumDostave(opcijaDostave){
   let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
   let datumIsporuke = dayjs();
