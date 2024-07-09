@@ -1,59 +1,52 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {porudzbine} from '../../podaci/porudzbine.js';
-import {pprikaziDatumNarudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
+import {prikaziDatumPorudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
 import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('porudzbinaId'));
 console.log(url.searchParams.get('proizvodId'));
 
-// ucitavanjeProizvoda().then(()=>{
-//   renderTrackingPage();
-// })
-
-async function renderTrackingPage(){
+async function renderujStranicuZaPracenje(){
   await ucitavanjeProizvoda();
 
   let odgovarajuciProizvod;
-  let matchingOrder;
-  let matchingdatumPorudzbine;
+  let odgovarajucaPorudzbina;
+  let odgovarajuciDatumPorudzbine;
 
-  const madeOrderId = url.searchParams.get('porudzbinaId');
-  const productOrderId = url.searchParams.get('proizvodId');
+  const obradjenaPorudzbinaId = url.searchParams.get('porudzbinaId');
+  const poruceniProizvodId = url.searchParams.get('proizvodId');
 
   porudzbine.forEach(porudzbina => {
-    if(porudzbina.id === madeOrderId){
+    if(porudzbina.id === obradjenaPorudzbinaId){
 
-      matchingOrder = porudzbina;
-      matchingdatumPorudzbine = porudzbina;
+      odgovarajucaPorudzbina = porudzbina;
+      odgovarajuciDatumPorudzbine = porudzbina;
 
-      matchingOrder.proizvodi.forEach(porucenProizvod => {
-        if(porucenProizvod.proizvodId === productOrderId){
-          matchingOrder = porucenProizvod;
+      odgovarajucaPorudzbina.proizvodi.forEach(porucenProizvod => {
+        if(porucenProizvod.proizvodId === poruceniProizvodId){
+          odgovarajucaPorudzbina = porucenProizvod;
         }
       });
     }
   });
     
   proizvodi.forEach(proizvod => {
-    if(proizvod.id === productOrderId ){
+    if(proizvod.id === poruceniProizvodId ){
       odgovarajuciProizvod = proizvod;
     }
   });
 
-  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.vremePorudzbine,matchingOrder.procenjenoVremeIsporuke);
-  // console.log(`matchingdatumPorudzbine.vremePorudzbine: ${matchingdatumPorudzbine.vremePorudzbine}`);
-  // console.log(`matchingOrder.procenjenoVremeIsporuke: ${matchingOrder.procenjenoVremeIsporuke}`);
-  // console.log(`progressionDelivery: ${progressionDelivery}`);
+  const napredakDostave = trakaNapretka(odgovarajuciDatumPorudzbine.vremePorudzbine,odgovarajucaPorudzbina.procenjenoVremeIsporuke);
 
   let generisaniHTML = `
-     <div class="porudzbina-tracking">
-        <a class="back-to-porudzbine-link link-primarni" href="porudzbine.html">
+     <div class="porudzbina-pracenje">
+        <a class="povratak-na-porudzbine-link link-primarni" href="porudzbine.html">
           Pogledajte sve porudžbine 
         </a>
 
         <div class="dostava-datum">
-          Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.procenjenoVremeIsporuke)}
+          Dolazak u: ${prikaziDatumPorudzbinePracenje(odgovarajucaPorudzbina.procenjenoVremeIsporuke)}
         </div>
 
         <div class="proizvod-info">
@@ -61,28 +54,28 @@ async function renderTrackingPage(){
         </div>
 
         <div class="proizvod-info">
-          Količina: ${matchingOrder.kolicina}
+          Količina: ${odgovarajucaPorudzbina.kolicina}
         </div>
 
         <img class="proizvod-slika" src="${odgovarajuciProizvod.slika}">
 
-        <div class="progress-labels-container">
-          <div class="progress-label ${progressionDelivery <=49 ? 'current-status' : '' }" >
+        <div class="progress-labels-kontejner">
+          <div class="napredak-label ${napredakDostave <=49 ? 'trenutni-status' : '' }" >
             Priprema
           </div>
-          <div class="progress-label 
-          ${progressionDelivery >49 && progressionDelivery <=99 ? 'current-status' : '' }">
+          <div class="napredak-label 
+          ${napredakDostave >49 && napredakDostave <=99 ? 'trenutni-status' : '' }">
             Isporučen
           </div>
-          <div class="progress-label ${progressionDelivery >=100 ? 'current-status' : '' }">
+          <div class="napredak-label ${napredakDostave >=100 ? 'trenutni-status' : '' }">
             Dostavljen
           </div>
         </div>
 
-        <div class="progress-bar-container">
-          <div class="progress-bar" 
+        <div class="napredak-traka-kontejner">
+          <div class="napredak-traka" 
           style="
-          width:${progressionDelivery}%"></div>
+          width:${napredakDostave}%"></div>
         </div>
       </div>
   `;
@@ -97,4 +90,4 @@ async function renderTrackingPage(){
     document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
   }
 };
-renderTrackingPage();
+renderujStranicuZaPracenje();

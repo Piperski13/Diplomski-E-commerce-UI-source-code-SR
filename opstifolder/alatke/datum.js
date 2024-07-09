@@ -11,7 +11,7 @@ export function prikaziDatumNarudzbine(datumPorudzbine){
 return podaciStringFormat;
 };
 
-export function pprikaziDatumNarudzbinePracenje(datumPorudzbine){
+export function prikaziDatumPorudzbinePracenje(datumPorudzbine){
   let podaciString = dayjs(datumPorudzbine);
   const podaciStringFormat = podaciString.format(
     'dddd, MMMM D'

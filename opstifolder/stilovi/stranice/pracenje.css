@@ -13,7 +13,7 @@
   margin-right: auto;
 }
 
-.back-to-porudzbine-link {
+.povratak-na-porudzbine-link {
   display: inline-block;
   margin-bottom: 30px;
 }
@@ -35,7 +35,7 @@
   margin-bottom: 50px;
 }
 
-.progress-labels-container {
+.progress-labels-kontejner {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
@@ -43,28 +43,28 @@
   margin-bottom: 15px;
 }
 
-.current-status {
+.trenutni-status {
   color: rgb(6, 125, 98);
 }
 
 @media (max-width: 575px) {
-  .progress-labels-container {
+  .progress-labels-kontejner {
     font-size: 16px;
   }
 }
 
 @media (max-width: 450px) {
-  .progress-labels-container {
+  .progress-labels-kontejner {
     flex-direction: column;
     margin-bottom: 5px;
   }
 
-  .progress-label {
+  .napredak-label {
     margin-bottom: 3px;
   }
 }
 
-.progress-bar-container {
+.napredak-traka-kontejner {
   height: 25px;
   width: 100%;
 
@@ -73,7 +73,7 @@
   overflow: hidden;
 }
 
-.progress-bar {
+.napredak-traka {
   height: 100%;
   background-color: green;
   border-radius: 50px;
