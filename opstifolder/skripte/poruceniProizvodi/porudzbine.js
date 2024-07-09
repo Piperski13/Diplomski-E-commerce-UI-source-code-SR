@@ -1,14 +1,14 @@
 import {porudzbine,izbrisiIzPorudzbine} from '../../podaci/porudzbine.js';
 import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
-import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
+import {ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {dodajUKorpu, izracunajKolicinuKorpe} from '../../podaci/korpa.js';
+
 console.log(porudzbine);
-ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
+
+ucitavanjeProizvoda().then(()=>{     
   renderovanjeUkupnePorudzbine();
 });
-
-// loadProducts(renderovanjeUkupnePorudzbine);    //call back , XMLHttpRequest
 
 function renderovanjeUkupnePorudzbine(){
   let generatedHTML = '';

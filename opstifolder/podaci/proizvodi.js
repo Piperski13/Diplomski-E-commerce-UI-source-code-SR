@@ -1,5 +1,5 @@
 import {formatiranjeValute} from "../alatke/rsdFormat.js";
-export class Product{
+export class Proizvod{
   id;
   slika;
   naziv;
@@ -7,35 +7,35 @@ export class Product{
   cenaDinari;
   ključneReči;
 
-  constructor(productDetails){
-    this.id = productDetails.id;
-    this.slika = productDetails.slika;
-    this.naziv = productDetails.naziv
-    this.ocena = productDetails.ocena;
-    this.cenaDinari = productDetails.cenaDinari;
-    this.ključneReči = productDetails.ključneReči;
+  constructor(detaljiProizvoda){
+    this.id = detaljiProizvoda.id;
+    this.slika = detaljiProizvoda.slika;
+    this.naziv = detaljiProizvoda.naziv
+    this.ocena = detaljiProizvoda.ocena;
+    this.cenaDinari = detaljiProizvoda.cenaDinari;
+    this.ključneReči = detaljiProizvoda.ključneReči;
   }
-  getStarsUrl(){
+  uzmiZvezdiceUrl(){
     return `slike/ocene/ocena-${this.ocena.zvezde*10}.png`;
   }
-  getRating(){
+  uzmiOcenu(){
     return `${this.ocena.broj}`;
   }
-  getPrice(){
+  uzmiCenu(){
     return `${formatiranjeValute(this.cenaDinari)} <span class="rsd-stil">RSD</span>`;
   }
-  extraInfoHTML(){
+  dodatniInfoHTML(){
     return '';
   }
 }
 
-export class Clothing extends Product {
+export class Odeća extends Proizvod {
   linkVeličinaTabele;
-  constructor(productDetails){
-    super(productDetails);
-    this.linkVeličinaTabele = productDetails.linkVeličinaTabele;
+  constructor(detaljiProizvoda){
+    super(detaljiProizvoda);
+    this.linkVeličinaTabele = detaljiProizvoda.linkVeličinaTabele;
   }
-  extraInfoHTML(){
+  dodatniInfoHTML(){
     return `<a href="${this.linkVeličinaTabele}" target=_blank >Dostupne veličine</a>`;
   }
 }
@@ -45,14 +45,14 @@ export let proizvodi = [];
 export function ucitavanjeProizvoda(){
   const promise = fetch('http://127.0.0.1:3000/proizvodi').then((response)=>{
     return response.json();
-  }).then((productDetails)=>{
-    proizvodi = productDetails.map((productDetails)=>{
+  }).then((detaljiProizvoda)=>{
+    proizvodi = detaljiProizvoda.map((detaljiProizvoda)=>{
 
-      if(productDetails.tip === "odeća"){
-        return new Clothing(productDetails);
+      if(detaljiProizvoda.tip === "odeća"){
+        return new Odeća(detaljiProizvoda);
       }
 
-      return new Product(productDetails);
+      return new Proizvod(detaljiProizvoda);
     });
 
     console.log('Proizvodi očitani');
@@ -63,27 +63,4 @@ export function ucitavanjeProizvoda(){
   });
 
   return promise;
-};
-
-export function loadProducts(fun){
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener('load',()=>{
-    proizvodi = JSON.parse(xhr.response).map((productDetails)=>{
-
-      if(productDetails.tip === "odeća"){
-        return new Clothing(productDetails);
-      }
-
-      return new Product(productDetails);
-    });
-    fun();
-    console.log('loaded proizvodi');
-  })
-
-  xhr.addEventListener('error',(error)=>{
-    console.log('Unexpected error, please try again later.');
-  })
-
-  xhr.open('GET','http://127.0.0.1:3000/proizvodi');
-  xhr.send();
 };

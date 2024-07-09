@@ -1,8 +1,10 @@
 import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
-import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
+import {proizvodi,ucitavanjeProizvoda} from "../podaci/proizvodi.js";
 import {formatiranjeValute} from "./alatke/rsdFormat.js";
 
-loadProducts(renderProductsGrid);
+ucitavanjeProizvoda().then(()=>{       
+  renderProductsGrid();
+});
 
 function renderProductsGrid(){
 
@@ -46,14 +48,14 @@ function renderProductsGrid(){
 
       <div class="product-rating-container">
         <img class="product-rating-stars"
-          src="${product.getStarsUrl()}">
+          src="${product.uzmiZvezdiceUrl()}">
         <div class="product-rating-count link-primary">
-          ${product.getRating()}
+          ${product.uzmiOcenu()}
         </div>
       </div>
 
       <div class="product-price">
-        ${product.getPrice()}
+        ${product.uzmiCenu()}
       </div>
 
       <div class="product-kolicina-container">
@@ -71,7 +73,7 @@ function renderProductsGrid(){
         </select>
       </div>
       
-      ${product.extraInfoHTML()}
+      ${product.dodatniInfoHTML()}
 
       <div class="product-spacer"></div>
 

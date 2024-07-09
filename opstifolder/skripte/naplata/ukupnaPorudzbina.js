@@ -57,7 +57,7 @@ export function renderovanjeUkupnePorudzbine(){
             ${matchingProduct.naziv}
           </div>
           <div class="product-price js-test-product-price-${matchingProduct.id}">
-            ${matchingProduct.getPrice()}
+            ${matchingProduct.uzmiCenu()}
           </div>
           <div class="product-kolicina">
             <span class="js-test-product-kolicina-${matchingProduct.id}">
