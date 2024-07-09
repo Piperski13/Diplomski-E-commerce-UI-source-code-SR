@@ -24,7 +24,7 @@ input, select, button {
   font-family: Roboto, Arial;
 }
 
-.button-primary {
+.glavno-dugme {
   color:white;
   background-color: #1A5319;
   border: 1px solid #80AF81;
@@ -37,12 +37,12 @@ input, select, button {
   font-size: 10px;
 }
 
-.button-primary:hover {
+.glavno-dugme:hover {
   background-color: #247623;
   border: 1px solid #88bb89;
 }
 
-.button-primary:active {
+.glavno-dugme:active {
   background: #22c820;
   border-color: #05bf02;
   box-shadow: none;

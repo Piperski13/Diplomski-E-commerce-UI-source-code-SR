@@ -19,36 +19,36 @@ function renderovanjeUkupnePorudzbine(){
     porudzbina.proizvodi.forEach(productOrder =>{
       let matchingProduct;
 
-      proizvodi.forEach(product => {
-        if(product.id === productOrder.proizvodId){
-          matchingProduct = product;
+      proizvodi.forEach(proizvod => {
+        if(proizvod.id === productOrder.proizvodId){
+          matchingProduct = proizvod;
         }
       });
      
       generatedDetailsHTML += `
           <div class="porudzbina-details-grid">
-            <div class="product-image-container">
+            <div class="proizvod-image-container">
               <img src=${matchingProduct.slika}>
             </div>
 
-            <div class="product-details">
-              <div class="product-name">
+            <div class="proizvod-details">
+              <div class="proizvod-name">
                 ${matchingProduct.naziv}
               </div>
-              <div class="product-dostava-date">
+              <div class="proizvod-dostava-date">
                 Dolazak: ${prikaziDatumNarudzbine(productOrder.estimatedDeliveryTime)}
               </div>
-              <div class="product-kolicina">
+              <div class="proizvod-kolicina">
                 Količina: ${productOrder.kolicina}
               </div>
-              <button class="kupi-ponovo-button button-primary js-kupi-ponovo"
+              <button class="kupi-ponovo-button glavno-dugme js-kupi-ponovo"
               data-proizvod-id="${matchingProduct.id}">
                 <img class="kupi-ponovo-icon" src="slike/ikonice/kupi-ponovo.png">
                 <span class="kupi-ponovo-message">Kupi ponovo</span>
               </button>
             </div>
 
-            <div class="product-actions">
+            <div class="proizvod-actions">
               <a href="pracenje.html?porudzbinaId=${porudzbina.id}&proizvodId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa

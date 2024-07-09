@@ -35,7 +35,7 @@ app.get('/proizvodi',(req,res)=>{
 
 app.post('/market.html',(req,res)=>{  
   const trenutnoVreme = dayjs().toISOString();
-  const { korpa, totalAfterTax } = req.body;
+  const { korpa, ukupnoPoslePDV } = req.body;
 
   let porudzbina = korpa.map(korpaArtikal =>{
     const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
@@ -52,7 +52,7 @@ app.post('/market.html',(req,res)=>{
   res.status(201).json({
     id: uuidv4(),
     vremePorudzbine: trenutnoVreme,
-    totalCostCents: totalAfterTax,
+    totalCostCents: ukupnoPoslePDV,
     proizvodi: porudzbina
   })         
 });

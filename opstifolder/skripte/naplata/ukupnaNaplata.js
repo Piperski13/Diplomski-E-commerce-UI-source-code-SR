@@ -7,70 +7,70 @@ import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
 export function renderovanjeUkupneNaplate(){
   let generisaniHTML = '';
   let korpakolicina = izracunajKolicinuKorpe();
-  let totalCents = 0;
-  let shippingCents = 0;
+  let ukupniDinari = 0;
+  let dostavaDinari = 0;
   korpa.forEach(korpaArtikal => {
     const proizvodId = korpaArtikal.proizvodId;
-    const productkolicina = korpaArtikal.kolicina;
+    const proizvodKolicina = korpaArtikal.kolicina;
     const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
-    proizvodi.forEach(product => {
-      if(product.id === proizvodId){
-        let ceneDinari = product.cenaDinari
-        totalCents += productkolicina * ceneDinari;
+    proizvodi.forEach(proizvod => {
+      if(proizvod.id === proizvodId){
+        let ceneDinari = proizvod.cenaDinari
+        ukupniDinari += proizvodKolicina * ceneDinari;
 
       }
     });
-    opcijeDostave.forEach(option => {
-      if(option.id === opcijeDostaveId){
-        shippingCents+=option.ceneDinari *productkolicina;
+    opcijeDostave.forEach(opcija => {
+      if(opcija.id === opcijeDostaveId){
+        dostavaDinari+=opcija.ceneDinari *proizvodKolicina;
       }
     });
   });
-  const totalBeforeTax = shippingCents+totalCents;
-  const taxCents = totalBeforeTax * 0.1;
-  const totalAfterTax =  totalBeforeTax + taxCents
+  const ukupnoPrePDV = dostavaDinari+ukupniDinari;
+  const pdvDinari = ukupnoPrePDV * 0.1;
+  const ukupnoPoslePDV =  ukupnoPrePDV + pdvDinari
   
-  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `${formatiranjeValute(shippingCents)}  <span class="rsd-stil">RSD</span>`;
+  dostavaDinari = dostavaDinari === 0 ? 'Besplatna dostava' : `${formatiranjeValute(dostavaDinari)}  <span class="rsd-stil">RSD</span>`;
   generisaniHTML = `
-  <div class="pregled-naplate-title">
+  <div class="pregled-naplate-naslov">
     Porudžbina:
   </div>
 
-  <div class="pregled-naplate-row">
+  <div class="pregled-naplate-red">
     <div>Broj artikala (${korpakolicina}):</div>
-    <div class="pregled-naplate-money">${formatiranjeValute(totalCents)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-novac">${formatiranjeValute(ukupniDinari)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <div class="pregled-naplate-row">
+  <div class="pregled-naplate-red">
     <div>Dostava:</div>
-    <div class="pregled-naplate-money js-test-shipping-price">${shippingCents}</div>
+    <div class="pregled-naplate-novac js-pregled-naplate-novac">${dostavaDinari}</div>
   </div>
 
-  <div class="pregled-naplate-row subtotal-row">
+  <div class="pregled-naplate-red sumarni-iznos-red">
     <div>Cena pre PDV-a:</div>
-    <div class="pregled-naplate-money">${formatiranjeValute(totalBeforeTax)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-novac">${formatiranjeValute(ukupnoPrePDV)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <div class="pregled-naplate-row">
+  <div class="pregled-naplate-red">
     <div>Cena PDV (10%):</div>
-    <div class="pregled-naplate-money">${formatiranjeValute(taxCents)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-novac">${formatiranjeValute(pdvDinari)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <div class="pregled-naplate-row total-row">
+  <div class="pregled-naplate-red ukupno-red">
     <div>Ukupna cena:</div>
-    <div class="pregled-naplate-money js-test-total-price">${formatiranjeValute(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-novac js-test-ukupna-cena">${formatiranjeValute(ukupnoPoslePDV)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <button class="place-porudzbina-button button-primary js-place-porudzbina">
+  <button class="mesto-porudzbine-dugme glavno-dugme js-mesto-porudzbine">
     Poruči
   </button>`;
   document.querySelector('.js-pregled-naplate').innerHTML= generisaniHTML;
   
-  document.querySelector('.js-place-porudzbina').addEventListener('click', async () => {
+  document.querySelector('.js-mesto-porudzbine').addEventListener('click', async () => {
     try {
-      const payload = {
+      const podaciNarudzbine = {
         korpa: korpa,
-        totalAfterTax: totalAfterTax
+        ukupnoPoslePDV: ukupnoPoslePDV
       };
   
       const response = await fetch('http://127.0.0.1:3000/market.html', {
@@ -78,14 +78,14 @@ export function renderovanjeUkupneNaplate(){
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(podaciNarudzbine)
       });
   
       const porudzbina = await response.json();
       dodajPorudzbinu(porudzbina);
   
     } catch (error) {
-      console.log('Unexpected error, try again later.');
+      console.log('Neočekivana greška, molimo pokušajte ponovo kasnije.');
     }
   
     window.location.href = 'porudzbine.html';

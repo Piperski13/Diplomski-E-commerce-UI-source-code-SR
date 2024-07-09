@@ -92,7 +92,7 @@
   }
 }
 
-.product-image {
+.proizvod-image {
   max-width: 100%;
   max-height: 120px;
 
@@ -104,18 +104,18 @@
   margin-right: auto;
 }
 
-.product-name {
+.proizvod-name {
   font-weight: 700;
   margin-bottom: 8px;
 }
 
-.product-price {
+.proizvod-price {
   color: rgb(177, 39, 4);
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.product-kolicina .link-primary {
+.proizvod-kolicina .link-primary {
   margin-left: 3px;
 }
 
@@ -162,13 +162,13 @@
   font-size: 15px;
 }
 
-.pregled-naplate-title {
+.pregled-naplate-naslov {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 12px;
 }
 
-.pregled-naplate-row {
+.pregled-naplate-red {
   display: grid;
   /* 1fr auto; means the width of the 2nd column will be
      determined by the elements inside the column (auto).
@@ -179,19 +179,19 @@
   margin-bottom: 9px;
 }
 
-.pregled-naplate-money {
+.pregled-naplate-novac {
   text-align: right;
 }
 
-.subtotal-row .pregled-naplate-money {
+.sumarni-iznos-red .pregled-naplate-novac {
   border-top: 1px solid rgb(222, 222, 222);
 }
 
-.subtotal-row div {
+.sumarni-iznos-red div {
   padding-top: 9px;
 }
 
-.total-row {
+.ukupno-red {
   color: rgb(177, 39, 4);
   font-weight: 700;
   font-size: 18px;
@@ -200,7 +200,7 @@
   padding-top: 18px;
 }
 
-.place-porudzbina-button {
+.mesto-porudzbine-dugme {
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;

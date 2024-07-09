@@ -26,9 +26,9 @@ export function renderovanjeUkupnePorudzbine(){
     const proizvodId = korpaArtikal.proizvodId;
     let matchingProduct;
 
-    proizvodi.forEach(product => {
-      if(product.id === proizvodId){
-        matchingProduct = product;
+    proizvodi.forEach(proizvod => {
+      if(proizvod.id === proizvodId){
+        matchingProduct = proizvod;
       }
     });
 
@@ -49,18 +49,18 @@ export function renderovanjeUkupnePorudzbine(){
         </div>
 
       <div class="korpa-item-details-grid">
-        <img class="product-image"
+        <img class="proizvod-image"
           src="${matchingProduct.slika}">
 
         <div class="korpa-item-details">
-          <div class="product-name js-test-product-name-${matchingProduct.id}">
+          <div class="proizvod-name js-test-proizvod-name-${matchingProduct.id}">
             ${matchingProduct.naziv}
           </div>
-          <div class="product-price js-test-product-price-${matchingProduct.id}">
+          <div class="proizvod-price js-test-proizvod-price-${matchingProduct.id}">
             ${matchingProduct.uzmiCenu()}
           </div>
-          <div class="product-kolicina">
-            <span class="js-test-product-kolicina-${matchingProduct.id}">
+          <div class="proizvod-kolicina">
+            <span class="js-test-proizvod-kolicina-${matchingProduct.id}">
               Količina: <span class="kolicina-label">
               ${korpaArtikal.kolicina}
               </span>

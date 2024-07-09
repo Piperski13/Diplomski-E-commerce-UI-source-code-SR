@@ -123,25 +123,25 @@
   }
 }
 
-.product-image-container {
+.proizvod-image-container {
   text-align: center;
 }
 
-.product-image-container img {
+.proizvod-image-container img {
   max-width: 110px;
   max-height: 110px;
 }
 
-.product-name {
+.proizvod-name {
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.product-dostava-date {
+.proizvod-dostava-date {
   margin-bottom: 3px;
 }
 
-.product-kolicina {
+.proizvod-kolicina {
   margin-bottom: 8px;
 }
 
@@ -161,7 +161,7 @@
   margin-right: 15px;
 }
 
-.product-actions {
+.proizvod-actions {
   align-self: start;
 }
 
@@ -176,7 +176,7 @@
     margin-bottom: 10px;
   }
 
-  .product-actions {
+  .proizvod-actions {
     /* grid-column: 2 means this element will be placed
        in column 2 in the grid. (Normally, the column that
        an element is placed in is determined by the porudzbina
@@ -192,21 +192,21 @@
 }
 
 @media (max-width: 450px) {
-  .product-image-container {
+  .proizvod-image-container {
     text-align: center;
     margin-bottom: 25px;
   }
 
-  .product-image-container img {
+  .proizvod-image-container img {
     max-width: 150px;
     max-height: 150px;
   }
 
-  .product-name {
+  .proizvod-name {
     margin-bottom: 10px;
   }
 
-  .product-kolicina {
+  .proizvod-kolicina {
     margin-bottom: 15px;
   }
 
@@ -215,7 +215,7 @@
     margin-bottom: 15px;
   }
 
-  .product-actions {
+  .proizvod-actions {
     /* grid-column: auto; undos grid-column: 2; from above.
        This element will now be placed in its normal column
        in the grid. */

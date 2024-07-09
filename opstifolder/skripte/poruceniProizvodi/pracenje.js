@@ -35,9 +35,9 @@ async function renderTrackingPage(){
     }
   });
     
-  proizvodi.forEach(product => {
-    if(product.id === productOrderId ){
-      matchingProduct = product;
+  proizvodi.forEach(proizvod => {
+    if(proizvod.id === productOrderId ){
+      matchingProduct = proizvod;
     }
   });
 
@@ -56,15 +56,15 @@ async function renderTrackingPage(){
           Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.estimatedDeliveryTime)}
         </div>
 
-        <div class="product-info">
+        <div class="proizvod-info">
           ${matchingProduct.naziv}
         </div>
 
-        <div class="product-info">
+        <div class="proizvod-info">
           Količina: ${matchingOrder.kolicina}
         </div>
 
-        <img class="product-image" src="${matchingProduct.slika}">
+        <img class="proizvod-image" src="${matchingProduct.slika}">
 
         <div class="progress-labels-container">
           <div class="progress-label ${progressionDelivery <=49 ? 'current-status' : '' }" >

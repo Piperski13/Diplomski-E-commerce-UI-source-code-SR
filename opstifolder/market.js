@@ -18,14 +18,14 @@ function renderProductsGrid(){
   let filteredProducts = proizvodi;
 
   if(search){
-    filteredProducts = proizvodi.filter((product)=>{  
+    filteredProducts = proizvodi.filter((proizvod)=>{  
 
-      const nameMatch = product.naziv.toLowerCase().includes(search);
+      const nameMatch = proizvod.naziv.toLowerCase().includes(search);
       let keywordMatch = null;
 
-      product.ključneReči.forEach((keyword)=>{
+      proizvod.ključneReči.forEach((keyword)=>{
         if(keyword.includes(search)){
-          keywordMatch = product;
+          keywordMatch = proizvod;
         }
       });
       
@@ -34,32 +34,32 @@ function renderProductsGrid(){
   };
 
   //gets proizvodi from proizvodi.js and generates html 
-  filteredProducts.forEach((product)=>{
+  filteredProducts.forEach((proizvod)=>{
     proizvodiHTML += `
-      <div class="product-container">
-      <div class="product-image-container">
-        <img class="product-image"
-          src="${product.slika}">
+      <div class="proizvod-container">
+      <div class="proizvod-image-container">
+        <img class="proizvod-image"
+          src="${proizvod.slika}">
       </div>
 
-      <div class="product-name limit-text-to-2-lines">
-        ${product.naziv}
+      <div class="proizvod-name limit-text-to-2-lines">
+        ${proizvod.naziv}
       </div>
 
-      <div class="product-rating-container">
-        <img class="product-rating-stars"
-          src="${product.uzmiZvezdiceUrl()}">
-        <div class="product-rating-count link-primary">
-          ${product.uzmiOcenu()}
+      <div class="proizvod-rating-container">
+        <img class="proizvod-rating-stars"
+          src="${proizvod.uzmiZvezdiceUrl()}">
+        <div class="proizvod-rating-count link-primary">
+          ${proizvod.uzmiOcenu()}
         </div>
       </div>
 
-      <div class="product-price">
-        ${product.uzmiCenu()}
+      <div class="proizvod-price">
+        ${proizvod.uzmiCenu()}
       </div>
 
-      <div class="product-kolicina-container">
-        <select class="js-izbor-kolicine-${product.id}">
+      <div class="proizvod-kolicina-container">
+        <select class="js-izbor-kolicine-${proizvod.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -73,16 +73,16 @@ function renderProductsGrid(){
         </select>
       </div>
       
-      ${product.dodatniInfoHTML()}
+      ${proizvod.dodatniInfoHTML()}
 
-      <div class="product-spacer"></div>
+      <div class="proizvod-spacer"></div>
 
-      <div class="added-to-korpa js-add-korpa-${product.id}">
+      <div class="added-to-korpa js-add-korpa-${proizvod.id}">
         <img src="slike/ikonice/kvacica.png">
         Dodato u korpu
       </div>
 
-      <button class="add-to-korpa-button button-primary js-add-button" data-proizvod-id="${product.id}">
+      <button class="add-to-korpa-button glavno-dugme js-add-button" data-proizvod-id="${proizvod.id}">
         Dodaj u korpu
       </button>
     </div>`
@@ -131,7 +131,7 @@ function renderProductsGrid(){
     .forEach((button)=>{      
       let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
       button.addEventListener('click',()=>{
-        const proizvodId = button.dataset.proizvodId;   //on click save data-product-id in a const
+        const proizvodId = button.dataset.proizvodId;   //on click save data-proizvod-id in a const
         console.log(proizvodId);
         dodajUKorpu(proizvodId);
         addedTokorpaGreen(proizvodId,addedMessageTimeouts);  // for a green pop up msg function
