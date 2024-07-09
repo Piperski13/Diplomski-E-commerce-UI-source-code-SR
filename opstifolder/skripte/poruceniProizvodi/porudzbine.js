@@ -49,7 +49,7 @@ function renderovanjeUkupnePorudzbine(){
             </div>
 
             <div class="product-actions">
-              <a href="pracenje.html?orderId=${porudzbina.id}&proizvodId=${matchingProduct.id}">
+              <a href="pracenje.html?porudzbinaId=${porudzbina.id}&proizvodId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa
                 </button>
@@ -99,9 +99,9 @@ function renderovanjeUkupnePorudzbine(){
 
   document.querySelectorAll('.js-remove-porudzbina').forEach((button)=>{
     button.addEventListener('click',()=>{
-      const orderId = button.dataset.proizvodId;
-      izbrisiIzPorudzbine(orderId);
-      const container = document.querySelector(`.js-porudzbine-item-container-${orderId}`);
+      const porudzbinaId = button.dataset.proizvodId;
+      izbrisiIzPorudzbine(porudzbinaId);
+      const container = document.querySelector(`.js-porudzbine-item-container-${porudzbinaId}`);
       container.remove();
       renderovanjeUkupnePorudzbine();
     })

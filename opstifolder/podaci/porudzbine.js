@@ -5,9 +5,9 @@ export function dodajPorudzbinu(porudzbina){
   sacuvajUSkladiste();
 };
 
-export function izbrisiIzPorudzbine(orderId){
-  let newOrders = porudzbine.filter((orderItem) => orderItem.id !== orderId) //returns 
-  porudzbine = newOrders;
+export function izbrisiIzPorudzbine(porudzbinaId){
+  let novePorudzbine = porudzbine.filter((porudzbinaArtikal) => porudzbinaArtikal.id !== porudzbinaId) //returns 
+  porudzbine = novePorudzbine;
   sacuvajUSkladiste();
 }
 

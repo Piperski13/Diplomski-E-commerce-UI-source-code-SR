@@ -4,7 +4,7 @@ import {pprikaziDatumNarudzbinePracenje,trakaNapretka} from '../../alatke/datum.
 import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
-console.log(url.searchParams.get('orderId'));
+console.log(url.searchParams.get('porudzbinaId'));
 console.log(url.searchParams.get('proizvodId'));
 
 // ucitavanjeProizvoda().then(()=>{
@@ -18,7 +18,7 @@ async function renderTrackingPage(){
   let matchingOrder;
   let matchingdatumPorudzbine;
 
-  const madeOrderId = url.searchParams.get('orderId');
+  const madeOrderId = url.searchParams.get('porudzbinaId');
   const productOrderId = url.searchParams.get('proizvodId');
 
   porudzbine.forEach(porudzbina => {
