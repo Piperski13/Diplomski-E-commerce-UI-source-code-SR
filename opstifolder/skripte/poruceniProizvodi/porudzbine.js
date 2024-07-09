@@ -11,7 +11,7 @@ ucitavanjeProizvoda().then(()=>{
 });
 
 function renderovanjeUkupnePorudzbine(){
-  let generatedHTML = '';
+  let generisaniHTML = '';
   let generatedDetailsHTML = '';
 
   porudzbine.forEach(porudzbina => {
@@ -61,7 +61,7 @@ function renderovanjeUkupnePorudzbine(){
     function returnGeneratedDetails(generatedDetailsHTML){
       return generatedDetailsHTML;
     }
-    generatedHTML += `
+    generisaniHTML += `
         <div class="porudzbina-container js-porudzbine-item-container-${porudzbina.id}">
           <div class="porudzbina-header">
             <div class="porudzbina-header-left-section">
@@ -86,7 +86,7 @@ function renderovanjeUkupnePorudzbine(){
     `;
     generatedDetailsHTML = '';
   });
-  document.querySelector('.js-porudzbine-gird').innerHTML = generatedHTML;
+  document.querySelector('.js-porudzbine-gird').innerHTML = generisaniHTML;
   updatekorpakolicina();
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{

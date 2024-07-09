@@ -46,7 +46,7 @@ async function renderTrackingPage(){
   // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
   // console.log(`progressionDelivery: ${progressionDelivery}`);
 
-  let generatedHTML = `
+  let generisaniHTML = `
      <div class="porudzbina-tracking">
         <a class="back-to-porudzbine-link link-primary" href="porudzbine.html">
           Pogledajte sve porudžbine 
@@ -86,7 +86,7 @@ async function renderTrackingPage(){
         </div>
       </div>
   `;
-  document.querySelector('.glavni-sadrzaj').innerHTML = generatedHTML;
+  document.querySelector('.glavni-sadrzaj').innerHTML = generisaniHTML;
   updatekorpakolicina();
 
   function updatekorpakolicina(){        

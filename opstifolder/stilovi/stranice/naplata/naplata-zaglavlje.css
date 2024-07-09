@@ -14,7 +14,7 @@
   z-index: 1000;
 }
 
-.header-content {
+.zagavlje-sadrzaj {
   width: 100%;
   max-width: 1100px;
 
@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.naplata-zaglavlje-left-section {
+.naplata-zaglavlje-leva-sekcija {
   width: 150px;
 }
 
@@ -40,7 +40,7 @@
    means when the screen width is 575px or less, different
    styles (inside the {...}) will be applied. */
 @media (max-width: 575px) {
-  .naplata-zaglavlje-left-section {
+  .naplata-zaglavlje-leva-sekcija {
     width: auto;
   }
 
@@ -55,7 +55,7 @@
   }
 }
 
-.naplata-zaglavlje-middle-section {
+.naplata-zaglavlje-srednja-sekcija {
   flex: 1;
   flex-shrink: 0;
   text-align: center;
@@ -67,7 +67,7 @@
   justify-content: center;
 }
 
-.return-to-home-link {
+.povratak-na-market-link {
   color: rgb(0, 113, 133);
   font-size: 23px;
   text-decoration: none;
@@ -75,29 +75,29 @@
 }
 
 @media (max-width: 1000px) {
-  .naplata-zaglavlje-middle-section {
+  .naplata-zaglavlje-srednja-sekcija {
     font-size: 20px;
     margin-right: 60px;
   }
 
-  .return-to-home-link {
+  .povratak-na-market-link {
     font-size: 18px;
   }
 }
 
 @media (max-width: 575px) {
-  .naplata-zaglavlje-middle-section {
+  .naplata-zaglavlje-srednja-sekcija {
     margin-right: 5px;
   }
 }
 
-.naplata-zaglavlje-right-section {
+.naplata-zaglavlje-desna-sekcija {
   text-align: right;
   width: 150px;
 }
 
 @media (max-width: 1000px) {
-  .naplata-zaglavlje-right-section {
+  .naplata-zaglavlje-desna-sekcija {
     width: auto;
   }
 }

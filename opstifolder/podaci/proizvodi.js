@@ -58,7 +58,7 @@ export function ucitavanjeProizvoda(){
     console.log('Proizvodi očitani');
 
   }).catch((error)=>{
-    console.log('Unexpected error, please try again later.');
+    console.log('Neočekivana greška, molimo pokušajte ponovo kasnije.');
     console.log(error);
   });
 

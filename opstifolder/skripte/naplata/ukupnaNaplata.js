@@ -5,7 +5,7 @@ import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
 import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
-  let generatedHTML = '';
+  let generisaniHTML = '';
   let korpakolicina = izracunajKolicinuKorpe();
   let totalCents = 0;
   let shippingCents = 0;
@@ -31,7 +31,7 @@ export function renderovanjeUkupneNaplate(){
   const totalAfterTax =  totalBeforeTax + taxCents
   
   shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `${formatiranjeValute(shippingCents)}  <span class="rsd-stil">RSD</span>`;
-  generatedHTML = `
+  generisaniHTML = `
   <div class="pregled-naplate-title">
     Porudžbina:
   </div>
@@ -64,7 +64,7 @@ export function renderovanjeUkupneNaplate(){
   <button class="place-porudzbina-button button-primary js-place-porudzbina">
     Poruči
   </button>`;
-  document.querySelector('.js-pregled-naplate').innerHTML= generatedHTML;
+  document.querySelector('.js-pregled-naplate').innerHTML= generisaniHTML;
   
   document.querySelector('.js-place-porudzbina').addEventListener('click', async () => {
     try {

@@ -92,12 +92,12 @@ export function renderovanjeUkupnePorudzbine(){
   });
   //generates dostava html
   function opcijeDostaveHTML(matchingProduct,korpaArtikal){
-    let generatedHTML='';
+    let generisaniHTML='';
     opcijeDostave.forEach((option) =>{
       const formatedDate = izracunajDatumDostave(option.dostaveDani);
       const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatiranjeValute(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === korpaArtikal.opcijeDostaveId;
-      generatedHTML +=
+      generisaniHTML +=
       `<div class="dostava-option js-dostava-option
       js-test-dostava-option-${matchingProduct.id}-${option.id}"
       data-proizvod-id="${matchingProduct.id}"
@@ -117,18 +117,18 @@ export function renderovanjeUkupnePorudzbine(){
         </div>
       </div>`;
     })
-    return generatedHTML;
+    return generisaniHTML;
   }
   function updatekorpakolicina(){ 
     let korpakolicina = izracunajKolicinuKorpe();     //korpa.js function that calculates korpa kolicina
     if(korpakolicina === 0){
-      document.querySelector('.js-return-to-home-link').innerHTML = ``;
+      document.querySelector('.js-povratak-na-market-link').innerHTML = ``;
     }
     else if(korpakolicina === 1){
-      document.querySelector('.js-return-to-home-link').innerHTML = `${korpakolicina} artikal`;
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpakolicina} artikal`;
     }
     else{
-      document.querySelector('.js-return-to-home-link').innerHTML = `${korpakolicina} artikla`;
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpakolicina} artikla`;
     }
   };
 
