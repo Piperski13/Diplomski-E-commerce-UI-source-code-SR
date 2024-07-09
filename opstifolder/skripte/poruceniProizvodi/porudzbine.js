@@ -1,4 +1,4 @@
-import {porudzbine,removeFromOrders} from '../../podaci/porudzbine.js';
+import {porudzbine,izbrisiIzPorudzbine} from '../../podaci/porudzbine.js';
 import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
@@ -100,7 +100,7 @@ function renderovanjeUkupnePorudzbine(){
   document.querySelectorAll('.js-remove-porudzbina').forEach((button)=>{
     button.addEventListener('click',()=>{
       const orderId = button.dataset.proizvodId;
-      removeFromOrders(orderId);
+      izbrisiIzPorudzbine(orderId);
       const container = document.querySelector(`.js-porudzbine-item-container-${orderId}`);
       container.remove();
       renderovanjeUkupnePorudzbine();

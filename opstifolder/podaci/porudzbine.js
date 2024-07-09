@@ -5,7 +5,7 @@ export function dodajPorudzbinu(porudzbina){
   sacuvajUSkladiste();
 };
 
-export function removeFromOrders(orderId){
+export function izbrisiIzPorudzbine(orderId){
   let newOrders = porudzbine.filter((orderItem) => orderItem.id !== orderId) //returns 
   porudzbine = newOrders;
   sacuvajUSkladiste();
