@@ -38,9 +38,9 @@ app.post('/market.html',(req,res)=>{
   const { korpa, ukupnoPoslePDV } = req.body;
 
   let porudzbina = korpa.map(korpaArtikal =>{
-    const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
-    const finalOption = opcijeDostave[itemNumberOption-1];
-    const procenjenoVremeIsporuke = izracunajDatumDostave(finalOption.dostaveDani);
+    const artikalBrojOpcijeDostave = parseInt(korpaArtikal.opcijeDostaveId);
+    const finalnaOpcija = opcijeDostave[artikalBrojOpcijeDostave-1];
+    const procenjenoVremeIsporuke = izracunajDatumDostave(finalnaOpcija.dostaveDani);
     return {
       proizvodId: korpaArtikal.proizvodId,
       kolicina: korpaArtikal.kolicina,
@@ -52,7 +52,7 @@ app.post('/market.html',(req,res)=>{
   res.status(201).json({
     id: uuidv4(),
     vremePorudzbine: trenutnoVreme,
-    totalCostCents: ukupnoPoslePDV,
+    ukupnaCenaDinari: ukupnoPoslePDV,
     proizvodi: porudzbina
   })         
 });

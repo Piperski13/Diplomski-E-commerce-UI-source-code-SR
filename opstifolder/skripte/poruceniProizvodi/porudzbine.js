@@ -71,7 +71,7 @@ function renderovanjeUkupnePorudzbine(){
               </div>
               <div class="ukupna-porudzbina">
                 <div class="porudzbina-zaglavlje-label">Ukupno:</div>
-                <div>${formatiranjeValute(porudzbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
+                <div>${formatiranjeValute(porudzbina.ukupnaCenaDinari)} <span class="rsd-stil">RSD</span></div>
               </div>
             </div>
 

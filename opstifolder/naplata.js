@@ -9,7 +9,7 @@ async function ucitavanjeStranice(){
     await ucitavanjeProizvoda();
     
   } catch (error) {
-    console.log('ERROR, try later');
+    console.log('GREŠKA, pokušaj kasnije.');
     console.log(error);
   }
   
