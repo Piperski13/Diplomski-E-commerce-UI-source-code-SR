@@ -14,7 +14,7 @@ console.log(url.searchParams.get('proizvodId'));
 async function renderTrackingPage(){
   await ucitavanjeProizvoda();
 
-  let matchingProduct;
+  let odgovarajuciProizvod;
   let matchingOrder;
   let matchingdatumPorudzbine;
 
@@ -37,7 +37,7 @@ async function renderTrackingPage(){
     
   proizvodi.forEach(proizvod => {
     if(proizvod.id === productOrderId ){
-      matchingProduct = proizvod;
+      odgovarajuciProizvod = proizvod;
     }
   });
 
@@ -48,23 +48,23 @@ async function renderTrackingPage(){
 
   let generisaniHTML = `
      <div class="porudzbina-tracking">
-        <a class="back-to-porudzbine-link link-primary" href="porudzbine.html">
+        <a class="back-to-porudzbine-link link-primarni" href="porudzbine.html">
           Pogledajte sve porudžbine 
         </a>
 
-        <div class="dostava-date">
+        <div class="dostava-datum">
           Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.estimatedDeliveryTime)}
         </div>
 
         <div class="proizvod-info">
-          ${matchingProduct.naziv}
+          ${odgovarajuciProizvod.naziv}
         </div>
 
         <div class="proizvod-info">
           Količina: ${matchingOrder.kolicina}
         </div>
 
-        <img class="proizvod-image" src="${matchingProduct.slika}">
+        <img class="proizvod-slika" src="${odgovarajuciProizvod.slika}">
 
         <div class="progress-labels-container">
           <div class="progress-label ${progressionDelivery <=49 ? 'current-status' : '' }" >
@@ -87,14 +87,14 @@ async function renderTrackingPage(){
       </div>
   `;
   document.querySelector('.glavni-sadrzaj').innerHTML = generisaniHTML;
-  updatekorpakolicina();
+  azurirajKorpaKolicinu();
 
-  function updatekorpakolicina(){        
-    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
-    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
+  function azurirajKorpaKolicinu(){        
+    let korpaKolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
+    if(!korpaKolicina){          //essentialy break a function if korpaKolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
   }
 };
 renderTrackingPage();

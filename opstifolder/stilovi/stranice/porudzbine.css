@@ -123,21 +123,21 @@
   }
 }
 
-.proizvod-image-container {
+.proizvod-slika-container {
   text-align: center;
 }
 
-.proizvod-image-container img {
+.proizvod-slika-container img {
   max-width: 110px;
   max-height: 110px;
 }
 
-.proizvod-name {
+.proizvod-ime {
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.proizvod-dostava-date {
+.proizvod-dostava-datum {
   margin-bottom: 3px;
 }
 
@@ -192,17 +192,17 @@
 }
 
 @media (max-width: 450px) {
-  .proizvod-image-container {
+  .proizvod-slika-container {
     text-align: center;
     margin-bottom: 25px;
   }
 
-  .proizvod-image-container img {
+  .proizvod-slika-container img {
     max-width: 150px;
     max-height: 150px;
   }
 
-  .proizvod-name {
+  .proizvod-ime {
     margin-bottom: 10px;
   }
 

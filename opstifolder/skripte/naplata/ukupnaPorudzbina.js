@@ -10,199 +10,199 @@ import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePosiljke.j
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
-  function keyboardEvent(proizvodId){
-    document.querySelectorAll('.kolicina-imput').forEach((input)=>{
-      input.addEventListener('keydown',(event)=>{
-        if(event.key==='Enter'){
-          const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-          itemContainer.classList.remove('is-editing-kolicina');
-          updateInput(proizvodId);
+  function dogadjajTastature(proizvodId){
+    document.querySelectorAll('.kolicina-unos').forEach((unos)=>{
+      unos.addEventListener('keydown',(e)=>{
+        if(e.key==='Enter'){
+          const artikalKontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
+          artikalKontejner.classList.remove('azuriranje-kolicine-u-toku');
+          azurirajUnos(proizvodId);
         }
       });
     });
   };
-  let checkoutHTML = '';
+  let naplataHTML = '';
   korpa.forEach(korpaArtikal => {
     const proizvodId = korpaArtikal.proizvodId;
-    let matchingProduct;
+    let odgovarajuciProizvod;
 
     proizvodi.forEach(proizvod => {
       if(proizvod.id === proizvodId){
-        matchingProduct = proizvod;
+        odgovarajuciProizvod = proizvod;
       }
     });
 
     const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
-    let matchingDelivery;
-    opcijeDostave.forEach(option => {
-      if(option.id === opcijeDostaveId){
-        matchingDelivery = option;
+    let odgovarajucaDostava;
+    opcijeDostave.forEach(opcija => {
+      if(opcija.id === opcijeDostaveId){
+        odgovarajucaDostava = opcija;
       }
     });
-    const formatedDate = izracunajDatumDostave(matchingDelivery.dostaveDani);
-    checkoutHTML += 
-    `<div class="js-korpa-item-container-${matchingProduct.id} 
-      js-test-korpa-item-container">
+    const formatiranDatum = izracunajDatumDostave(odgovarajucaDostava.dostaveDani);
+    naplataHTML += 
+    `<div class="js-korpa-artikal-kontejner-${odgovarajuciProizvod.id} 
+      js-test-korpa-proizvod-kontejner">
 
-        <div class="dostava-date">
-          Datum isporuke: ${formatedDate}
+        <div class="dostava-datum">
+          Datum isporuke: ${formatiranDatum}
         </div>
 
-      <div class="korpa-item-details-grid">
-        <img class="proizvod-image"
-          src="${matchingProduct.slika}">
+      <div class="korpa-artikal-detalji-grid">
+        <img class="proizvod-slika"
+          src="${odgovarajuciProizvod.slika}">
 
-        <div class="korpa-item-details">
-          <div class="proizvod-name js-test-proizvod-name-${matchingProduct.id}">
-            ${matchingProduct.naziv}
+        <div class="korpa-artikal-detalji">
+          <div class="proizvod-ime js-test-proizvod-ime-${odgovarajuciProizvod.id}">
+            ${odgovarajuciProizvod.naziv}
           </div>
-          <div class="proizvod-price js-test-proizvod-price-${matchingProduct.id}">
-            ${matchingProduct.uzmiCenu()}
+          <div class="proizvod-cena js-test-proizvod-cena-${odgovarajuciProizvod.id}">
+            ${odgovarajuciProizvod.uzmiCenu()}
           </div>
           <div class="proizvod-kolicina">
-            <span class="js-test-proizvod-kolicina-${matchingProduct.id}">
+            <span class="js-test-proizvod-kolicina-${odgovarajuciProizvod.id}">
               Količina: <span class="kolicina-label">
               ${korpaArtikal.kolicina}
               </span>
             </span>
-            <span class="update-kolicina-link link-primary js-update-link" 
-            data-proizvod-id="${matchingProduct.id}">
+            <span class="azuriraj-kolicinu-link link-primarni js-azuriraj-link" 
+            data-proizvod-id="${odgovarajuciProizvod.id}">
               Ažuriraj
             </span>
-            <input type="text" class="kolicina-imput js-kolicina-imput-${matchingProduct.id}">
-            <span class="save-kolicina-link link-primary js-save-link"
-            data-proizvod-id="${matchingProduct.id}">Save</span>
+            <input type="text" class="kolicina-unos js-kolicina-unos-${odgovarajuciProizvod.id}">
+            <span class="sacuvaj-kolicinu-link link-primarni js-sacuvaj-link"
+            data-proizvod-id="${odgovarajuciProizvod.id}">Sačuvaj</span>
 
-            <span class="delete-kolicina-link link-primary js-delete-link 
-            js-delete-test-${matchingProduct.id}" 
-            data-proizvod-id="${matchingProduct.id}">
+            <span class="izbrisi-kolicinu-link link-primarni js-izbrisi-link 
+            js-izbrisi-test-${odgovarajuciProizvod.id}" 
+            data-proizvod-id="${odgovarajuciProizvod.id}">
               Obriši
             </span>
           </div>
         </div>
 
-        <div class="dostava-options">
-          <div class="dostava-options-title">
+        <div class="dostava-opcije">
+          <div class="dostava-opcije-naslov">
             Izaberite opciju isporuke:
           </div>
-          ${opcijeDostaveHTML(matchingProduct,korpaArtikal)}
+          ${opcijeDostaveHTML(odgovarajuciProizvod,korpaArtikal)}
         </div>
       </div>
     </div>`;
   });
   //generates dostava html
-  function opcijeDostaveHTML(matchingProduct,korpaArtikal){
+  function opcijeDostaveHTML(odgovarajuciProizvod,korpaArtikal){
     let generisaniHTML='';
-    opcijeDostave.forEach((option) =>{
-      const formatedDate = izracunajDatumDostave(option.dostaveDani);
-      const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatiranjeValute(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
-      const isChecked = option.id === korpaArtikal.opcijeDostaveId;
+    opcijeDostave.forEach((opcija) =>{
+      const formatiranDatum = izracunajDatumDostave(opcija.dostaveDani);
+      const cenaRecenice = opcija.ceneDinari === 0 ? 'Besplatna dostava' : `${formatiranjeValute(opcija.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
+      const CekiranoJe = opcija.id === korpaArtikal.opcijeDostaveId;
       generisaniHTML +=
-      `<div class="dostava-option js-dostava-option
-      js-test-dostava-option-${matchingProduct.id}-${option.id}"
-      data-proizvod-id="${matchingProduct.id}"
-      data-dostava-id="${option.id}">
+      `<div class="dostava-opcija js-dostava-opcija
+      js-test-dostava-opcija-${odgovarajuciProizvod.id}-${opcija.id}"
+      data-proizvod-id="${odgovarajuciProizvod.id}"
+      data-dostava-id="${opcija.id}">
         <input type="radio"
-          ${isChecked ? 'checked' : ''}
-          class="dostava-option-input 
-          js-test-dostava-option-input-${matchingProduct.id}-${option.id}"
-          name="dostava-option-${matchingProduct.id}">
+          ${CekiranoJe ? 'checked' : ''}
+          class="dostava-opcija-unos 
+          js-test-dostava-opcija-unos-${odgovarajuciProizvod.id}-${opcija.id}"
+          name="dostava-opcija-${odgovarajuciProizvod.id}">
         <div>
-          <div class="dostava-option-date">
-            ${formatedDate}
+          <div class="dostava-opcija-datum">
+            ${formatiranDatum}
           </div>
-          <div class="dostava-option-price">
-            ${priceStrings}
+          <div class="dostava-opcija-cena">
+            ${cenaRecenice}
           </div>
         </div>
       </div>`;
     })
     return generisaniHTML;
   }
-  function updatekorpakolicina(){ 
-    let korpakolicina = izracunajKolicinuKorpe();     //korpa.js function that calculates korpa kolicina
-    if(korpakolicina === 0){
+  function azurirajKorpaKolicinu(){ 
+    let korpaKolicina = izracunajKolicinuKorpe();     //korpa.js function that calculates korpa kolicina
+    if(korpaKolicina === 0){
       document.querySelector('.js-povratak-na-market-link').innerHTML = ``;
     }
-    else if(korpakolicina === 1){
-      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpakolicina} artikal`;
+    else if(korpaKolicina === 1){
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKolicina} artikal`;
     }
     else{
-      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpakolicina} artikla`;
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKolicina} artikla`;
     }
   };
 
-  function productkolicinaUpdate(){
-    const confirmYes = document.querySelector('.potvrdi-prozor-da');
-    const confirmNo = document.querySelector('.potvrdi-prozor-ne');
+  function proizvodKolicinaAzuriranje(){
+    const potvrdiDa = document.querySelector('.potvrdi-prozor-da');
+    const potvrdiNe = document.querySelector('.potvrdi-prozor-ne');
 
     //event Listener for a delete button
-    document.querySelectorAll('.js-delete-link').forEach((link)=>{
+    document.querySelectorAll('.js-izbrisi-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
-        const confirmWindow = document.getElementById('potvrdi-brisanje');
-        confirmWindow.classList.toggle('potvrdi-skriveno');
+        const prozorPotvrde = document.getElementById('potvrdi-brisanje');
+        prozorPotvrde.classList.toggle('potvrdi-skriveno');
 
-        function handleConfirmYes(){
+        function obradiPotvrduDa(){
           
-          confirmWindow.classList.toggle('potvrdi-skriveno');
-          confirmYes.removeEventListener('click',handleConfirmYes);
-          confirmNo.removeEventListener('click',handleConfirmNo);
-          deleteContainer(proizvodId);
+          prozorPotvrde.classList.toggle('potvrdi-skriveno');
+          potvrdiDa.removeEventListener('click',obradiPotvrduDa);
+          potvrdiNe.removeEventListener('click',obradiPotvrduNe);
+          izbrisiKontejner(proizvodId);
         }
-        function handleConfirmNo(){
-          confirmWindow.classList.toggle('potvrdi-skriveno');
-          confirmYes.removeEventListener('click',handleConfirmYes);
-          confirmNo.removeEventListener('click',handleConfirmNo);
+        function obradiPotvrduNe(){
+          prozorPotvrde.classList.toggle('potvrdi-skriveno');
+          potvrdiDa.removeEventListener('click',obradiPotvrduDa);
+          potvrdiNe.removeEventListener('click',obradiPotvrduNe);
         }
 
-        confirmYes.addEventListener('click',handleConfirmYes);
-        confirmNo.addEventListener('click',handleConfirmNo);
+        potvrdiDa.addEventListener('click',obradiPotvrduDa);
+        potvrdiNe.addEventListener('click',obradiPotvrduNe);
       });
     });
   
     //event Listener for a update button
-    document.querySelectorAll('.js-update-link').forEach((link)=>{
+    document.querySelectorAll('.js-azuriraj-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
-        const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-        itemContainer.classList.add('is-editing-kolicina');
-        keyboardEvent(proizvodId);
+        const artikalKontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
+        artikalKontejner.classList.add('azuriranje-kolicine-u-toku');
+        dogadjajTastature(proizvodId);
       });
     });
   }
 
     //adds event listeners to all Save links and on click removes class that was previously set for container, gets value from input and turns it into a num, and the pass is it in korpa.js
     // and finnaly updates the page ( *renderovanjeUkupnePorudzbine() )
-  function saveLinkEvent(){
-    document.querySelectorAll('.js-save-link').forEach((link)=>{
+  function sacuvajLinkDogadjaj(){
+    document.querySelectorAll('.js-sacuvaj-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
-        const itemContainer = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-        itemContainer.classList.remove('is-editing-kolicina');
-        updateInput(proizvodId);
+        const artikalKontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
+        artikalKontejner.classList.remove('azuriranje-kolicine-u-toku');
+        azurirajUnos(proizvodId);
       });
     });
   }
   
-  function deleteContainer(proizvodId){
+  function izbrisiKontejner(proizvodId){
     izbrisiIzKorpe(proizvodId);
-    const container = document.querySelector(`.js-korpa-item-container-${proizvodId}`);
-    container.remove();
-    updatekorpakolicina();
+    const kontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
+    kontejner.remove();
+    azurirajKorpaKolicinu();
     renderovanjeUkupneNaplate();
   }
-  function updateInput(proizvodId){
-    const kolicinaImput = document.querySelector(`.js-kolicina-imput-${proizvodId}`)
+  function azurirajUnos(proizvodId){
+    const kolicinaImput = document.querySelector(`.js-kolicina-unos-${proizvodId}`)
     let novaKolicina = Number(kolicinaImput.value);
     if(novaKolicina === 0){
-      deleteContainer(proizvodId);
+      izbrisiKontejner(proizvodId);
       azurirajKolicinu(proizvodId,novaKolicina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
     if(novaKolicina>=1000 || novaKolicina<0){
-      alert('Error value');
+      alert('Greška pri unosu');
       renderovanjeUkupnePorudzbine();
     }
     else{
@@ -211,8 +211,8 @@ export function renderovanjeUkupnePorudzbine(){
       renderovanjeUkupneNaplate();
     }
   }
-  function deliveryUpdate(){
-    document.querySelectorAll('.js-dostava-option').forEach(option=>{
+  function dostavaAzuriranje(){
+    document.querySelectorAll('.js-dostava-opcija').forEach(option=>{
       option.addEventListener('click',()=>{
         const proizvodId = option.dataset.proizvodId;
         const opcijeDostaveId = option.dataset.dostavaId;
@@ -223,10 +223,10 @@ export function renderovanjeUkupnePorudzbine(){
     })
   }
 
-  document.querySelector('.pregled-porudzbine').innerHTML = checkoutHTML;
+  document.querySelector('.pregled-porudzbine').innerHTML = naplataHTML;
 
-  updatekorpakolicina(); // updates korpa kolicina in header part of the checkout.html
-  productkolicinaUpdate();  // adds event listeners to update/delete kolicina
-  saveLinkEvent();        // adds event listeners to save button that gets created on click update
-  deliveryUpdate(); // adds interactive radio buttens / dates
+  azurirajKorpaKolicinu(); // updates korpa kolicina in header part of the checkout.html
+  proizvodKolicinaAzuriranje();  // adds event listeners to update/delete kolicina
+  sacuvajLinkDogadjaj();        // adds event listeners to save button that gets created on click update
+  dostavaAzuriranje(); // adds interactive radio buttens / dates
 }

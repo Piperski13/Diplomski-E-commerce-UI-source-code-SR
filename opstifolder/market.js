@@ -8,7 +8,7 @@ ucitavanjeProizvoda().then(()=>{
 
 function renderProductsGrid(){
 
-  updatekorpakolicina();
+  azurirajKorpaKolicinu();
 
   let proizvodiHTML = '';
 
@@ -37,24 +37,24 @@ function renderProductsGrid(){
   filteredProducts.forEach((proizvod)=>{
     proizvodiHTML += `
       <div class="proizvod-container">
-      <div class="proizvod-image-container">
-        <img class="proizvod-image"
+      <div class="proizvod-slika-container">
+        <img class="proizvod-slika"
           src="${proizvod.slika}">
       </div>
 
-      <div class="proizvod-name limit-text-to-2-lines">
+      <div class="proizvod-ime limit-text-to-2-lines">
         ${proizvod.naziv}
       </div>
 
       <div class="proizvod-rating-container">
         <img class="proizvod-rating-stars"
           src="${proizvod.uzmiZvezdiceUrl()}">
-        <div class="proizvod-rating-count link-primary">
+        <div class="proizvod-rating-count link-primarni">
           ${proizvod.uzmiOcenu()}
         </div>
       </div>
 
-      <div class="proizvod-price">
+      <div class="proizvod-cena">
         ${proizvod.uzmiCenu()}
       </div>
 
@@ -106,12 +106,12 @@ function renderProductsGrid(){
     }
   })
 
-  function updatekorpakolicina(){        
-    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
-    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
+  function azurirajKorpaKolicinu(){        
+    let korpaKolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
+    if(!korpaKolicina){          //essentialy break a function if korpaKolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
   }
 
   function addedTokorpaGreen(proizvodId,timeoutObject){     // pop up msg function
@@ -135,7 +135,7 @@ function renderProductsGrid(){
         console.log(proizvodId);
         dodajUKorpu(proizvodId);
         addedTokorpaGreen(proizvodId,addedMessageTimeouts);  // for a green pop up msg function
-        updatekorpakolicina();
+        azurirajKorpaKolicinu();
       });
   });
 };

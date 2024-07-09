@@ -17,39 +17,39 @@ function renderovanjeUkupnePorudzbine(){
   porudzbine.forEach(porudzbina => {
 
     porudzbina.proizvodi.forEach(productOrder =>{
-      let matchingProduct;
+      let odgovarajuciProizvod;
 
       proizvodi.forEach(proizvod => {
         if(proizvod.id === productOrder.proizvodId){
-          matchingProduct = proizvod;
+          odgovarajuciProizvod = proizvod;
         }
       });
      
       generatedDetailsHTML += `
           <div class="porudzbina-details-grid">
-            <div class="proizvod-image-container">
-              <img src=${matchingProduct.slika}>
+            <div class="proizvod-slika-container">
+              <img src=${odgovarajuciProizvod.slika}>
             </div>
 
             <div class="proizvod-details">
-              <div class="proizvod-name">
-                ${matchingProduct.naziv}
+              <div class="proizvod-ime">
+                ${odgovarajuciProizvod.naziv}
               </div>
-              <div class="proizvod-dostava-date">
+              <div class="proizvod-dostava-datum">
                 Dolazak: ${prikaziDatumNarudzbine(productOrder.estimatedDeliveryTime)}
               </div>
               <div class="proizvod-kolicina">
                 Količina: ${productOrder.kolicina}
               </div>
               <button class="kupi-ponovo-button glavno-dugme js-kupi-ponovo"
-              data-proizvod-id="${matchingProduct.id}">
+              data-proizvod-id="${odgovarajuciProizvod.id}">
                 <img class="kupi-ponovo-icon" src="slike/ikonice/kupi-ponovo.png">
                 <span class="kupi-ponovo-message">Kupi ponovo</span>
               </button>
             </div>
 
             <div class="proizvod-actions">
-              <a href="pracenje.html?porudzbinaId=${porudzbina.id}&proizvodId=${matchingProduct.id}">
+              <a href="pracenje.html?porudzbinaId=${porudzbina.id}&proizvodId=${odgovarajuciProizvod.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa
                 </button>
@@ -87,13 +87,13 @@ function renderovanjeUkupnePorudzbine(){
     generatedDetailsHTML = '';
   });
   document.querySelector('.js-porudzbine-gird').innerHTML = generisaniHTML;
-  updatekorpakolicina();
+  azurirajKorpaKolicinu();
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
     button.addEventListener('click',()=>{
       const proizvodId = button.dataset.proizvodId;
       dodajUKorpu(proizvodId);
-      updatekorpakolicina();
+      azurirajKorpaKolicinu();
     })
   })
 
@@ -101,18 +101,18 @@ function renderovanjeUkupnePorudzbine(){
     button.addEventListener('click',()=>{
       const porudzbinaId = button.dataset.proizvodId;
       izbrisiIzPorudzbine(porudzbinaId);
-      const container = document.querySelector(`.js-porudzbine-item-container-${porudzbinaId}`);
-      container.remove();
+      const kontejner = document.querySelector(`.js-porudzbine-item-container-${porudzbinaId}`);
+      kontejner.remove();
       renderovanjeUkupnePorudzbine();
     })
   })
 
-  function updatekorpakolicina(){        
-    let korpakolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
-    if(!korpakolicina){          //essentialy break a function if korpakolicina undefined
+  function azurirajKorpaKolicinu(){        
+    let korpaKolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
+    if(!korpaKolicina){          //essentialy break a function if korpaKolicina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpakolicina;
+    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
   }
 };
 

@@ -78,12 +78,12 @@ input, select, button {
   overflow: hidden;
 }
 
-.link-primary {
+.link-primarni {
   color: rgb(1, 124, 182);
   cursor: pointer;
 }
 
-.link-primary:hover {
+.link-primarni:hover {
   color: rgb(196, 80, 0);
 }
 

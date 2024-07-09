@@ -6,7 +6,7 @@ import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generisaniHTML = '';
-  let korpakolicina = izracunajKolicinuKorpe();
+  let korpaKolicina = izracunajKolicinuKorpe();
   let ukupniDinari = 0;
   let dostavaDinari = 0;
   korpa.forEach(korpaArtikal => {
@@ -37,7 +37,7 @@ export function renderovanjeUkupneNaplate(){
   </div>
 
   <div class="pregled-naplate-red">
-    <div>Broj artikala (${korpakolicina}):</div>
+    <div>Broj artikala (${korpaKolicina}):</div>
     <div class="pregled-naplate-novac">${formatiranjeValute(ukupniDinari)} <span class="rsd-stil">RSD</span></div>
   </div>
 

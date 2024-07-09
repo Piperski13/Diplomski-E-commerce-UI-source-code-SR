@@ -78,7 +78,7 @@
   flex-direction: column;
 }
 
-.proizvod-image-container {
+.proizvod-slika-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +87,7 @@
   margin-bottom: 20px;
 }
 
-.proizvod-image {
+.proizvod-slika {
   /* Images will overflow their container by default. To
     prevent this, we set max-width and max-height to 100%
     so they stay inside their container. */
@@ -95,7 +95,7 @@
   max-height: 100%;
 }
 
-.proizvod-name {
+.proizvod-ime {
   height: 40px;
   margin-bottom: 5px;
 }
@@ -117,7 +117,7 @@
   margin-top: 3px;
 }
 
-.proizvod-price {
+.proizvod-cena {
   font-weight: 700;
   margin-bottom: 10px;
 }

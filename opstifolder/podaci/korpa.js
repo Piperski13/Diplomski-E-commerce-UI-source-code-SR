@@ -47,12 +47,12 @@ export function izbrisiIzKorpe(proizvodId){
 }
 
 export function izracunajKolicinuKorpe(){    //calculates korpa kolicina and retuns its final value
-  let korpakolicina = 0;
+  let korpaKolicina = 0;
 
   korpa.forEach(korpaArtikal => {
-    korpakolicina+=korpaArtikal.kolicina
+    korpaKolicina+=korpaArtikal.kolicina
   });
-  return korpakolicina;
+  return korpaKolicina;
 }
 
 export function azurirajKolicinu(proizvodId, novaKolicina){
