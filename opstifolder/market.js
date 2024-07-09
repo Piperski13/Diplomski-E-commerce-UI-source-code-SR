@@ -37,7 +37,7 @@ function renderProductsGrid(){
   filteredProducts.forEach((proizvod)=>{
     proizvodiHTML += `
       <div class="proizvod-container">
-      <div class="proizvod-slika-container">
+      <div class="proizvod-slika-kontejner">
         <img class="proizvod-slika"
           src="${proizvod.slika}">
       </div>

@@ -25,7 +25,7 @@
   row-gap: 50px;
 }
 
-.porudzbina-header {
+.porudzbina-zaglavlje {
   background-color: rgb(240, 242, 242);
   border: 1px solid rgb(213, 217, 217);
 
@@ -38,54 +38,54 @@
   border-top-right-radius: 8px;
 }
 
-.porudzbina-header-left-section {
+.porudzbina-zaglavlje-leva-sekcija {
   display: flex;
   flex-shrink: 0;
 }
 
-.porudzbina-header-label {
+.porudzbina-zaglavlje-label {
   font-weight: 500;
 }
 
-.porudzbina-date,
-.porudzbina-total {
+.porudzbina-datum,
+.ukupna-porudzbina {
   margin-right: 45px;
 }
 
-.porudzbina-header-right-section {
+.porudzbina-zaglavlje-desna-sekcija {
   flex-shrink: 1;
 }
 
 @media (max-width: 575px) {
-  .porudzbina-header {
+  .porudzbina-zaglavlje {
     flex-direction: column;
     align-items: start;
     line-height: 23px;
     padding: 15px;
   }
 
-  .porudzbina-header-left-section {
+  .porudzbina-zaglavlje-leva-sekcija {
     flex-direction: column;
   }
 
-  .porudzbina-header-label {
+  .porudzbina-zaglavlje-label {
     margin-right: 5px;
   }
 
-  .porudzbina-date,
-  .porudzbina-total {
+  .porudzbina-datum,
+  .ukupna-porudzbina {
     display: grid;
     grid-template-columns: auto 1fr;
     margin-right: 0;
   }
 
-  .porudzbina-header-right-section {
+  .porudzbina-zaglavlje-desna-sekcija {
     display: grid;
     grid-template-columns: auto 1fr;
   }
 }
 
-.porudzbina-details-grid {
+.porudzbina-detalji-grid {
   padding: 40px 25px;
   border: 1px solid rgb(213, 217, 217);
   border-top: none;
@@ -99,7 +99,7 @@
   align-items: center;
 }
 
-.remove-porudzbina {
+.izbrisi-porudzbinu {
   display: inline-block;
   color: white;
   background-color: #531919;
@@ -110,7 +110,7 @@
 }
 
 @media (max-width: 800px) {
-  .porudzbina-details-grid {
+  .porudzbina-detalji-grid {
     grid-template-columns: 110px 1fr;
     row-gap: 0;
     padding-bottom: 8px;
@@ -118,16 +118,16 @@
 }
 
 @media (max-width: 450px) {
-  .porudzbina-details-grid {
+  .porudzbina-detalji-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.proizvod-slika-container {
+.proizvod-slika-kontejner {
   text-align: center;
 }
 
-.proizvod-slika-container img {
+.proizvod-slika-kontejner img {
   max-width: 110px;
   max-height: 110px;
 }
@@ -145,7 +145,7 @@
   margin-bottom: 8px;
 }
 
-.kupi-ponovo-button {
+.kupi-ponovo-dugme {
   font-size: 15px;
   width: 140px;
   height: 36px;
@@ -156,27 +156,27 @@
   justify-content: center;
 }
 
-.kupi-ponovo-icon {
+.kupi-ponovo-ikonica {
   width: 25px;
   margin-right: 15px;
 }
 
-.proizvod-actions {
+.proizvod-akcije {
   align-self: start;
 }
 
-.track-package-button {
+.pracenje-paketa-dugme {
   width: 100%;
   font-size: 15px;
   padding: 8px;
 }
 
 @media (max-width: 800px) {
-  .kupi-ponovo-button {
+  .kupi-ponovo-dugme {
     margin-bottom: 10px;
   }
 
-  .proizvod-actions {
+  .proizvod-akcije {
     /* grid-column: 2 means this element will be placed
        in column 2 in the grid. (Normally, the column that
        an element is placed in is determined by the porudzbina
@@ -186,18 +186,18 @@
     margin-bottom: 30px;
   }
 
-  .track-package-button {
+  .pracenje-paketa-dugme {
     width: 140px;
   }
 }
 
 @media (max-width: 450px) {
-  .proizvod-slika-container {
+  .proizvod-slika-kontejner {
     text-align: center;
     margin-bottom: 25px;
   }
 
-  .proizvod-slika-container img {
+  .proizvod-slika-kontejner img {
     max-width: 150px;
     max-height: 150px;
   }
@@ -210,12 +210,12 @@
     margin-bottom: 15px;
   }
 
-  .kupi-ponovo-button {
+  .kupi-ponovo-dugme {
     width: 100%;
     margin-bottom: 15px;
   }
 
-  .proizvod-actions {
+  .proizvod-akcije {
     /* grid-column: auto; undos grid-column: 2; from above.
        This element will now be placed in its normal column
        in the grid. */
@@ -223,7 +223,7 @@
     margin-bottom: 70px;
   }
 
-  .track-package-button {
+  .pracenje-paketa-dugme {
     width: 100%;
     padding: 12px;
   }

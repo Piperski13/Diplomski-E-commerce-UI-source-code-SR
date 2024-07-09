@@ -27,9 +27,9 @@ async function renderTrackingPage(){
       matchingOrder = porudzbina;
       matchingdatumPorudzbine = porudzbina;
 
-      matchingOrder.proizvodi.forEach(productOrder => {
-        if(productOrder.proizvodId === productOrderId){
-          matchingOrder = productOrder;
+      matchingOrder.proizvodi.forEach(porucenProizvod => {
+        if(porucenProizvod.proizvodId === productOrderId){
+          matchingOrder = porucenProizvod;
         }
       });
     }
@@ -41,9 +41,9 @@ async function renderTrackingPage(){
     }
   });
 
-  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.vremePorudzbine,matchingOrder.estimatedDeliveryTime);
+  const progressionDelivery = trakaNapretka(matchingdatumPorudzbine.vremePorudzbine,matchingOrder.procenjenoVremeIsporuke);
   // console.log(`matchingdatumPorudzbine.vremePorudzbine: ${matchingdatumPorudzbine.vremePorudzbine}`);
-  // console.log(`matchingOrder.estimatedDeliveryTime: ${matchingOrder.estimatedDeliveryTime}`);
+  // console.log(`matchingOrder.procenjenoVremeIsporuke: ${matchingOrder.procenjenoVremeIsporuke}`);
   // console.log(`progressionDelivery: ${progressionDelivery}`);
 
   let generisaniHTML = `
@@ -53,7 +53,7 @@ async function renderTrackingPage(){
         </a>
 
         <div class="dostava-datum">
-          Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.estimatedDeliveryTime)}
+          Dolazak u: ${pprikaziDatumNarudzbinePracenje(matchingOrder.procenjenoVremeIsporuke)}
         </div>
 
         <div class="proizvod-info">

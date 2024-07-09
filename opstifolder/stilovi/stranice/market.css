@@ -78,7 +78,7 @@
   flex-direction: column;
 }
 
-.proizvod-slika-container {
+.proizvod-slika-kontejner {
   display: flex;
   justify-content: center;
   align-items: center;

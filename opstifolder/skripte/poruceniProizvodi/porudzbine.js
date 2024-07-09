@@ -12,45 +12,45 @@ ucitavanjeProizvoda().then(()=>{
 
 function renderovanjeUkupnePorudzbine(){
   let generisaniHTML = '';
-  let generatedDetailsHTML = '';
+  let generisaniDetaljiHTML = '';
 
   porudzbine.forEach(porudzbina => {
 
-    porudzbina.proizvodi.forEach(productOrder =>{
+    porudzbina.proizvodi.forEach(porucenProizvod =>{
       let odgovarajuciProizvod;
 
       proizvodi.forEach(proizvod => {
-        if(proizvod.id === productOrder.proizvodId){
+        if(proizvod.id === porucenProizvod.proizvodId){
           odgovarajuciProizvod = proizvod;
         }
       });
      
-      generatedDetailsHTML += `
-          <div class="porudzbina-details-grid">
-            <div class="proizvod-slika-container">
+      generisaniDetaljiHTML += `
+          <div class="porudzbina-detalji-grid">
+            <div class="proizvod-slika-kontejner">
               <img src=${odgovarajuciProizvod.slika}>
             </div>
 
-            <div class="proizvod-details">
+            <div class="proizvod-detalji">
               <div class="proizvod-ime">
                 ${odgovarajuciProizvod.naziv}
               </div>
               <div class="proizvod-dostava-datum">
-                Dolazak: ${prikaziDatumNarudzbine(productOrder.estimatedDeliveryTime)}
+                Dolazak: ${prikaziDatumNarudzbine(porucenProizvod.procenjenoVremeIsporuke)}
               </div>
               <div class="proizvod-kolicina">
-                Količina: ${productOrder.kolicina}
+                Količina: ${porucenProizvod.kolicina}
               </div>
-              <button class="kupi-ponovo-button glavno-dugme js-kupi-ponovo"
+              <button class="kupi-ponovo-dugme glavno-dugme js-kupi-ponovo"
               data-proizvod-id="${odgovarajuciProizvod.id}">
-                <img class="kupi-ponovo-icon" src="slike/ikonice/kupi-ponovo.png">
-                <span class="kupi-ponovo-message">Kupi ponovo</span>
+                <img class="kupi-ponovo-ikonica" src="slike/ikonice/kupi-ponovo.png">
+                <span class="kupi-ponovo-poruka">Kupi ponovo</span>
               </button>
             </div>
 
-            <div class="proizvod-actions">
+            <div class="proizvod-akcije">
               <a href="pracenje.html?porudzbinaId=${porudzbina.id}&proizvodId=${odgovarajuciProizvod.id}">
-                <button class="track-package-button button-secondary">
+                <button class="pracenje-paketa-dugme dugme-sekundarno">
                   Praćenje paketa
                 </button>
               </a>
@@ -58,33 +58,33 @@ function renderovanjeUkupnePorudzbine(){
           </div>
       `;
     });
-    function returnGeneratedDetails(generatedDetailsHTML){
-      return generatedDetailsHTML;
+    function povratakGenerisanihDetalja(generisaniDetaljiHTML){
+      return generisaniDetaljiHTML;
     }
     generisaniHTML += `
-        <div class="porudzbina-container js-porudzbine-item-container-${porudzbina.id}">
-          <div class="porudzbina-header">
-            <div class="porudzbina-header-left-section">
-              <div class="porudzbina-date">
-                <div class="porudzbina-header-label">Naručeno datuma:</div>
+        <div class="porudzbina-kontejner js-porudzbine-artikal-kontejner-${porudzbina.id}">
+          <div class="porudzbina-zaglavlje">
+            <div class="porudzbina-zaglavlje-leva-sekcija">
+              <div class="porudzbina-datum">
+                <div class="porudzbina-zaglavlje-label">Naručeno datuma:</div>
                 <div>${prikaziDatumNarudzbine(porudzbina.vremePorudzbine)}</div>
               </div>
-              <div class="porudzbina-total">
-                <div class="porudzbina-header-label">Ukupno:</div>
+              <div class="ukupna-porudzbina">
+                <div class="porudzbina-zaglavlje-label">Ukupno:</div>
                 <div>${formatiranjeValute(porudzbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
               </div>
             </div>
 
-            <div class="porudzbina-header-right-section">
-              <div class="porudzbina-header-label">ID Porudžbine:</div>
+            <div class="porudzbina-zaglavlje-desna-sekcija">
+              <div class="porudzbina-zaglavlje-label">ID Porudžbine:</div>
               <div>${porudzbina.id}</div>
             </div>
-            <button class="remove-porudzbina js-remove-porudzbina" data-proizvod-id="${porudzbina.id}">X</button>
+            <button class="izbrisi-porudzbinu js-izbrisi-porudzbinu" data-proizvod-id="${porudzbina.id}">X</button>
           </div>
-          ${returnGeneratedDetails(generatedDetailsHTML)}
+          ${povratakGenerisanihDetalja(generisaniDetaljiHTML)}
         </div>
     `;
-    generatedDetailsHTML = '';
+    generisaniDetaljiHTML = '';
   });
   document.querySelector('.js-porudzbine-gird').innerHTML = generisaniHTML;
   azurirajKorpaKolicinu();
@@ -97,11 +97,11 @@ function renderovanjeUkupnePorudzbine(){
     })
   })
 
-  document.querySelectorAll('.js-remove-porudzbina').forEach((button)=>{
+  document.querySelectorAll('.js-izbrisi-porudzbinu').forEach((button)=>{
     button.addEventListener('click',()=>{
       const porudzbinaId = button.dataset.proizvodId;
       izbrisiIzPorudzbine(porudzbinaId);
-      const kontejner = document.querySelector(`.js-porudzbine-item-container-${porudzbinaId}`);
+      const kontejner = document.querySelector(`.js-porudzbine-artikal-kontejner-${porudzbinaId}`);
       kontejner.remove();
       renderovanjeUkupnePorudzbine();
     })

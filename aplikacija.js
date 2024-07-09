@@ -40,11 +40,11 @@ app.post('/market.html',(req,res)=>{
   let porudzbina = korpa.map(korpaArtikal =>{
     const itemNumberOption = parseInt(korpaArtikal.opcijeDostaveId);
     const finalOption = opcijeDostave[itemNumberOption-1];
-    const estimatedDeliveryTime = izracunajDatumDostave(finalOption.dostaveDani);
+    const procenjenoVremeIsporuke = izracunajDatumDostave(finalOption.dostaveDani);
     return {
       proizvodId: korpaArtikal.proizvodId,
       kolicina: korpaArtikal.kolicina,
-      estimatedDeliveryTime: estimatedDeliveryTime,
+      procenjenoVremeIsporuke: procenjenoVremeIsporuke,
       variation: null
     }
   });
