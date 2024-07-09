@@ -13,18 +13,18 @@ function renederujProizvodeGrid(){
   let proizvodiHTML = '';
 
   const url = new URL(window.location.href);
-  const search = url.searchParams.get('search');
+  const pretraga = url.searchParams.get('pretraga');
 
   let filtriraniProizvodi = proizvodi;
 
-  if(search){
+  if(pretraga){
     filtriraniProizvodi = proizvodi.filter((proizvod)=>{  
 
-      const podudaranjeImena = proizvod.naziv.toLowerCase().includes(search);
+      const podudaranjeImena = proizvod.naziv.toLowerCase().includes(pretraga);
       let podudaranjeTastature = null;
 
       proizvod.ključneReči.forEach((kljucnaRec)=>{
-        if(kljucnaRec.includes(search)){
+        if(kljucnaRec.includes(pretraga)){
           podudaranjeTastature = proizvod;
         }
       });
@@ -77,7 +77,7 @@ function renederujProizvodeGrid(){
 
       <div class="proizvodni-razmak"></div>
 
-      <div class="dodato-u-korpu js-add-korpa-${proizvod.id}">
+      <div class="dodato-u-korpu js-dodaj-korpa-${proizvod.id}">
         <img src="slike/ikonice/kvacica.png">
         Dodato u korpu
       </div>
@@ -92,8 +92,8 @@ function renederujProizvodeGrid(){
 
   function trakaZaPretragu(){
     const vrednostPretrage = document.querySelector('.js-traka-za-pretragu').value;
-    const search = vrednostPretrage.toLowerCase();
-    window.location.href = `market.html?search=${search}`;
+    const pretraga = vrednostPretrage.toLowerCase();
+    window.location.href = `market.html?pretraga=${pretraga}`;
   }
 
   document.querySelector('.js-dugme-za-pretragu').addEventListener('click',()=>{
@@ -114,27 +114,26 @@ function renederujProizvodeGrid(){
     document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
   }
 
-  function addedTokorpaGreen(proizvodId,timeoutObject){     // pop up msg function
-    let addMsgElement = document.querySelector(`.js-add-korpa-${proizvodId}`);    //target add korpa div with opacity 0
-        addMsgElement.classList.add('dodato-u-korpu-clicked');                // and then give it a class with opacity 1
+  function dodajUKorpuZeleno(proizvodId,timeoutObjekat){     // pop up msg function
+    let dodajPorukuElement = document.querySelector(`.js-dodaj-korpa-${proizvodId}`);    //target add korpa div with opacity 0
+        dodajPorukuElement.classList.add('dodato-u-korpu-kliknuto');                // and then give it a class with opacity 1
         
-        if (timeoutObject.timeoutId){               //if true, it means that interval exists, clear it else -> skip it
-          clearTimeout(timeoutObject.timeoutId);
+        if (timeoutObjekat.timeoutId){               //if true, it means that interval exists, clear it else -> skip it
+          clearTimeout(timeoutObjekat.timeoutId);
         }
-        timeoutObject.timeoutId = setTimeout(()=>{        //removes class and return opacity to 0 in 2000ms 
-          addMsgElement.classList.remove('dodato-u-korpu-clicked');      //it also stores interval into timeoutObject
+        timeoutObjekat.timeoutId = setTimeout(()=>{        //removes class and return opacity to 0 in 2000ms 
+          dodajPorukuElement.classList.remove('dodato-u-korpu-kliknuto');      //it also stores interval into timeoutObjekat
         },2000);                                      //so if we press it again we can clear interval with if statemant
   }
 
   //adds event listeners to add buttons
   document.querySelectorAll('.js-dodaj-dugme')
     .forEach((button)=>{      
-      let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
+      let dodatePorukeTimeouts = {};                           //create a object for checking interval dodajUKorpuZeleno
       button.addEventListener('click',()=>{
         const proizvodId = button.dataset.proizvodId;   //on click save data-proizvod-id in a const
-        console.log(proizvodId);
         dodajUKorpu(proizvodId);
-        addedTokorpaGreen(proizvodId,addedMessageTimeouts);  // for a green pop up msg function
+        dodajUKorpuZeleno(proizvodId,dodatePorukeTimeouts);  // for a green pop up msg function
         azurirajKorpaKolicinu();
       });
   });
