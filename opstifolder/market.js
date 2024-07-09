@@ -1,13 +1,13 @@
 import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,ucitavanjeProizvoda} from "../podaci/proizvodi.js";
-import {formatiranjeValute} from "./alatke/rsdFormat.js";
+
 
 ucitavanjeProizvoda().then(()=>{       
-  renderProductsGrid();
+  renederujProizvodeGrid();
 });
 
-function renderProductsGrid(){
-
+function renederujProizvodeGrid(){
+  
   azurirajKorpaKolicinu();
 
   let proizvodiHTML = '';
@@ -15,41 +15,41 @@ function renderProductsGrid(){
   const url = new URL(window.location.href);
   const search = url.searchParams.get('search');
 
-  let filteredProducts = proizvodi;
+  let filtriraniProizvodi = proizvodi;
 
   if(search){
-    filteredProducts = proizvodi.filter((proizvod)=>{  
+    filtriraniProizvodi = proizvodi.filter((proizvod)=>{  
 
-      const nameMatch = proizvod.naziv.toLowerCase().includes(search);
-      let keywordMatch = null;
+      const podudaranjeImena = proizvod.naziv.toLowerCase().includes(search);
+      let podudaranjeTastature = null;
 
-      proizvod.ključneReči.forEach((keyword)=>{
-        if(keyword.includes(search)){
-          keywordMatch = proizvod;
+      proizvod.ključneReči.forEach((kljucnaRec)=>{
+        if(kljucnaRec.includes(search)){
+          podudaranjeTastature = proizvod;
         }
       });
       
-      return nameMatch || keywordMatch;
+      return podudaranjeImena || podudaranjeTastature;
     });
   };
 
   //gets proizvodi from proizvodi.js and generates html 
-  filteredProducts.forEach((proizvod)=>{
+  filtriraniProizvodi.forEach((proizvod)=>{
     proizvodiHTML += `
-      <div class="proizvod-container">
+      <div class="proizvod-kontejner">
       <div class="proizvod-slika-kontejner">
         <img class="proizvod-slika"
           src="${proizvod.slika}">
       </div>
 
-      <div class="proizvod-ime limit-text-to-2-lines">
+      <div class="proizvod-ime limitiraj-tekst-na-2-linije">
         ${proizvod.naziv}
       </div>
 
-      <div class="proizvod-rating-container">
-        <img class="proizvod-rating-stars"
+      <div class="proizvod-ocena-kontejner">
+        <img class="proizvod-ocene-zvezde"
           src="${proizvod.uzmiZvezdiceUrl()}">
-        <div class="proizvod-rating-count link-primarni">
+        <div class="proizvod-ocene-zbir link-primarni">
           ${proizvod.uzmiOcenu()}
         </div>
       </div>
@@ -58,7 +58,7 @@ function renderProductsGrid(){
         ${proizvod.uzmiCenu()}
       </div>
 
-      <div class="proizvod-kolicina-container">
+      <div class="proizvod-kolicina-kontejner">
         <select class="js-izbor-kolicine-${proizvod.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
@@ -75,14 +75,14 @@ function renderProductsGrid(){
       
       ${proizvod.dodatniInfoHTML()}
 
-      <div class="proizvod-spacer"></div>
+      <div class="proizvodni-razmak"></div>
 
-      <div class="added-to-korpa js-add-korpa-${proizvod.id}">
+      <div class="dodato-u-korpu js-add-korpa-${proizvod.id}">
         <img src="slike/ikonice/kvacica.png">
         Dodato u korpu
       </div>
 
-      <button class="add-to-korpa-button glavno-dugme js-add-button" data-proizvod-id="${proizvod.id}">
+      <button class="dodato-u-korpu-dugme glavno-dugme js-dodaj-dugme" data-proizvod-id="${proizvod.id}">
         Dodaj u korpu
       </button>
     </div>`
@@ -90,19 +90,19 @@ function renderProductsGrid(){
 
   document.querySelector('.js-proizvodi-kontejner').innerHTML = proizvodiHTML;
 
-  function searchBar(){
-    const searchValue = document.querySelector('.js-traka-za-pretragu').value;
-    const search = searchValue.toLowerCase();
+  function trakaZaPretragu(){
+    const vrednostPretrage = document.querySelector('.js-traka-za-pretragu').value;
+    const search = vrednostPretrage.toLowerCase();
     window.location.href = `market.html?search=${search}`;
   }
 
   document.querySelector('.js-dugme-za-pretragu').addEventListener('click',()=>{
-    searchBar();
+    trakaZaPretragu();
   });
 
   document.querySelector('.js-traka-za-pretragu').addEventListener('keydown',(event)=>{
     if(event.key==='Enter'){
-      searchBar();
+      trakaZaPretragu();
     }
   })
 
@@ -116,18 +116,18 @@ function renderProductsGrid(){
 
   function addedTokorpaGreen(proizvodId,timeoutObject){     // pop up msg function
     let addMsgElement = document.querySelector(`.js-add-korpa-${proizvodId}`);    //target add korpa div with opacity 0
-        addMsgElement.classList.add('added-to-korpa-clicked');                // and then give it a class with opacity 1
+        addMsgElement.classList.add('dodato-u-korpu-clicked');                // and then give it a class with opacity 1
         
         if (timeoutObject.timeoutId){               //if true, it means that interval exists, clear it else -> skip it
           clearTimeout(timeoutObject.timeoutId);
         }
         timeoutObject.timeoutId = setTimeout(()=>{        //removes class and return opacity to 0 in 2000ms 
-          addMsgElement.classList.remove('added-to-korpa-clicked');      //it also stores interval into timeoutObject
+          addMsgElement.classList.remove('dodato-u-korpu-clicked');      //it also stores interval into timeoutObject
         },2000);                                      //so if we press it again we can clear interval with if statemant
   }
 
   //adds event listeners to add buttons
-  document.querySelectorAll('.js-add-button')
+  document.querySelectorAll('.js-dodaj-dugme')
     .forEach((button)=>{      
       let addedMessageTimeouts = {};                           //create a object for checking interval addedTokorpaGreen
       button.addEventListener('click',()=>{
