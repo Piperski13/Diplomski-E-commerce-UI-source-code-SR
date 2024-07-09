@@ -1,6 +1,6 @@
 import { izracunajKolicinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
-import { formatCurrency } from "../../alatke/rsdFormat.js";
+import { formatiranjeValute } from "../../alatke/rsdFormat.js";
 import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
 import { addOrder } from "../../podaci/porudzbine.js"
 
@@ -30,7 +30,7 @@ export function renderovanjeUkupneNaplate(){
   const taxCents = totalBeforeTax * 0.1;
   const totalAfterTax =  totalBeforeTax + taxCents
   
-  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `${formatCurrency(shippingCents)}  <span class="rsd-stil">RSD</span>`;
+  shippingCents = shippingCents === 0 ? 'Besplatna dostava' : `${formatiranjeValute(shippingCents)}  <span class="rsd-stil">RSD</span>`;
   generatedHTML = `
   <div class="pregled-naplate-title">
     Porudžbina:
@@ -38,7 +38,7 @@ export function renderovanjeUkupneNaplate(){
 
   <div class="pregled-naplate-row">
     <div>Broj artikala (${korpakolicina}):</div>
-    <div class="pregled-naplate-money">${formatCurrency(totalCents)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-money">${formatiranjeValute(totalCents)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="pregled-naplate-row">
@@ -48,17 +48,17 @@ export function renderovanjeUkupneNaplate(){
 
   <div class="pregled-naplate-row subtotal-row">
     <div>Cena pre PDV-a:</div>
-    <div class="pregled-naplate-money">${formatCurrency(totalBeforeTax)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-money">${formatiranjeValute(totalBeforeTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="pregled-naplate-row">
     <div>Cena PDV (10%):</div>
-    <div class="pregled-naplate-money">${formatCurrency(taxCents)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-money">${formatiranjeValute(taxCents)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <div class="pregled-naplate-row total-row">
     <div>Ukupna cena:</div>
-    <div class="pregled-naplate-money js-test-total-price">${formatCurrency(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
+    <div class="pregled-naplate-money js-test-total-price">${formatiranjeValute(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
   <button class="place-porucbina-button button-primary js-place-porucbina">

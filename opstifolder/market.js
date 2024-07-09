@@ -1,6 +1,6 @@
 import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
 import {proizvodi,loadProducts} from "../podaci/proizvodi.js";
-import {formatCurrency} from "./alatke/rsdFormat.js";
+import {formatiranjeValute} from "./alatke/rsdFormat.js";
 
 loadProducts(renderProductsGrid);
 

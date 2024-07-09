@@ -1,9 +1,9 @@
-import {orders,removeFromOrders} from '../../podaci/porudzbine.js';
-import {formatCurrency} from '../../alatke/rsdFormat.js';
+import {porudzbine,removeFromOrders} from '../../podaci/porudzbine.js';
+import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
 import {loadProducts,ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {dodajUKorpu, izracunajKolicinuKorpe} from '../../podaci/korpa.js';
-console.log(orders);
+console.log(porudzbine);
 ucitavanjeProizvoda().then(()=>{          //fetch, returns promise, method then
   renderovanjeUkupnePorudzbine();
 });
@@ -14,7 +14,7 @@ function renderovanjeUkupnePorudzbine(){
   let generatedHTML = '';
   let generatedDetailsHTML = '';
 
-  orders.forEach(porucbina => {
+  porudzbine.forEach(porucbina => {
 
     porucbina.proizvodi.forEach(productOrder =>{
       let matchingProduct;
@@ -62,7 +62,7 @@ function renderovanjeUkupnePorudzbine(){
       return generatedDetailsHTML;
     }
     generatedHTML += `
-        <div class="porucbina-container js-orders-item-container-${porucbina.id}">
+        <div class="porucbina-container js-porudzbine-item-container-${porucbina.id}">
           <div class="porucbina-header">
             <div class="porucbina-header-left-section">
               <div class="porucbina-date">
@@ -71,7 +71,7 @@ function renderovanjeUkupnePorudzbine(){
               </div>
               <div class="porucbina-total">
                 <div class="porucbina-header-label">Ukupno:</div>
-                <div>${formatCurrency(porucbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
+                <div>${formatiranjeValute(porucbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ function renderovanjeUkupnePorudzbine(){
     button.addEventListener('click',()=>{
       const orderId = button.dataset.proizvodId;
       removeFromOrders(orderId);
-      const container = document.querySelector(`.js-orders-item-container-${orderId}`);
+      const container = document.querySelector(`.js-porudzbine-item-container-${orderId}`);
       container.remove();
       renderovanjeUkupnePorudzbine();
     })
@@ -116,8 +116,8 @@ function renderovanjeUkupnePorudzbine(){
   }
 };
 
-console.log(orders); // number of orders
-// console.log(orders[1].proizvodi); //index 1 all proizvodi array
-// console.log(orders[0].proizvodi[0].proizvodId);
+console.log(porudzbine); // number of porudzbine
+// console.log(porudzbine[1].proizvodi); //index 1 all proizvodi array
+// console.log(porudzbine[0].proizvodi[0].proizvodId);
 
 

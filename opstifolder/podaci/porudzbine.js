@@ -1,16 +1,16 @@
-export let orders = JSON.parse(localStorage.getItem('orders')) || [];
+export let porudzbine = JSON.parse(localStorage.getItem('porudzbine')) || [];
 
 export function addOrder(porucbina){
-  orders.unshift(porucbina);
+  porudzbine.unshift(porucbina);
   sacuvajUSkladiste();
 };
 
 export function removeFromOrders(orderId){
-  let newOrders = orders.filter((orderItem) => orderItem.id !== orderId) //returns 
-  orders = newOrders;
+  let newOrders = porudzbine.filter((orderItem) => orderItem.id !== orderId) //returns 
+  porudzbine = newOrders;
   sacuvajUSkladiste();
 }
 
 function sacuvajUSkladiste(){
-  localStorage.setItem('orders',JSON.stringify(orders));
+  localStorage.setItem('porudzbine',JSON.stringify(porudzbine));
 }

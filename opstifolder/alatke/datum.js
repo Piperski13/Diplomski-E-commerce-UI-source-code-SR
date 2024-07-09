@@ -18,7 +18,7 @@ export function pprikaziDatumNarudzbinePracenje(datumPorudzbine){
   );
 return podaciStringFormat;
 };
-// orders i dostava rename lome porucbina opcije na porucbina renderovanju
+
 export function trakaNapretka(porucbina,dostava){
   let trenutnoVreme = dayjs();
   let vremePorudzbine = dayjs(porucbina);

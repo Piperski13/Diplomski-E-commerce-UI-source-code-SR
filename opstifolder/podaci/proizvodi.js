@@ -1,4 +1,4 @@
-import {formatCurrency} from "../alatke/rsdFormat.js";
+import {formatiranjeValute} from "../alatke/rsdFormat.js";
 export class Product{
   id;
   slika;
@@ -22,7 +22,7 @@ export class Product{
     return `${this.ocena.broj}`;
   }
   getPrice(){
-    return `${formatCurrency(this.cenaDinari)} <span class="rsd-stil">RSD</span>`;
+    return `${formatiranjeValute(this.cenaDinari)} <span class="rsd-stil">RSD</span>`;
   }
   extraInfoHTML(){
     return '';

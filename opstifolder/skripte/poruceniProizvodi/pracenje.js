@@ -1,5 +1,5 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
-import {orders} from '../../podaci/porudzbine.js';
+import {porudzbine} from '../../podaci/porudzbine.js';
 import {pprikaziDatumNarudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
 import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
 
@@ -21,7 +21,7 @@ async function renderTrackingPage(){
   const madeOrderId = url.searchParams.get('orderId');
   const productOrderId = url.searchParams.get('proizvodId');
 
-  orders.forEach(porucbina => {
+  porudzbine.forEach(porucbina => {
     if(porucbina.id === madeOrderId){
 
       matchingOrder = porucbina;

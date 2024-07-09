@@ -5,7 +5,7 @@ import {korpa,
   azurirajOpcijeDostave}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
-import {formatCurrency} from "../../alatke/rsdFormat.js";
+import {formatiranjeValute} from "../../alatke/rsdFormat.js";
 import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
@@ -95,7 +95,7 @@ export function renderovanjeUkupnePorudzbine(){
     let generatedHTML='';
     opcijeDostave.forEach((option) =>{
       const formatedDate = izracunajDatumDostave(option.dostaveDani);
-      const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatCurrency(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
+      const priceStrings = option.ceneDinari === 0 ? 'Besplatna dostava' : `${formatiranjeValute(option.ceneDinari)} <span class="rsd-stil">RSD</span> - Dostava`;
       const isChecked = option.id === korpaArtikal.opcijeDostaveId;
       generatedHTML +=
       `<div class="dostava-option js-dostava-option
