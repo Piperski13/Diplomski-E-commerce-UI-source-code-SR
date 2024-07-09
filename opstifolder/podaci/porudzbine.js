@@ -1,7 +1,7 @@
 export let porudzbine = JSON.parse(localStorage.getItem('porudzbine')) || [];
 
-export function addOrder(porucbina){
-  porudzbine.unshift(porucbina);
+export function dodajPorudzbinu(porudzbina){
+  porudzbine.unshift(porudzbina);
   sacuvajUSkladiste();
 };
 

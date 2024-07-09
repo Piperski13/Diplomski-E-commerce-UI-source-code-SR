@@ -61,7 +61,7 @@
   .pregled-naplate {
     /* grid-row: 1 means this element will be placed into row
       1 in the grid. (Normally, the row that an element is
-      placed in is determined by the porucbina of the elements in
+      placed in is determined by the porudzbina of the elements in
       the HTML. grid-row overrides this default ordering). */
     grid-row: 1;
     margin-bottom: 12px;
@@ -123,7 +123,7 @@
   .dostava-options {
     /* grid-column: 1 means this element will be placed
        in column 1 in the grid. (Normally, the column that
-       an element is placed in is determined by the porucbina
+       an element is placed in is determined by the porudzbina
        of the elements in the HTML. grid-column overrides
        this default ordering).
        
@@ -200,7 +200,7 @@
   padding-top: 18px;
 }
 
-.place-porucbina-button {
+.place-porudzbina-button {
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;

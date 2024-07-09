@@ -14,9 +14,9 @@ function renderovanjeUkupnePorudzbine(){
   let generatedHTML = '';
   let generatedDetailsHTML = '';
 
-  porudzbine.forEach(porucbina => {
+  porudzbine.forEach(porudzbina => {
 
-    porucbina.proizvodi.forEach(productOrder =>{
+    porudzbina.proizvodi.forEach(productOrder =>{
       let matchingProduct;
 
       proizvodi.forEach(product => {
@@ -26,7 +26,7 @@ function renderovanjeUkupnePorudzbine(){
       });
      
       generatedDetailsHTML += `
-          <div class="porucbina-details-grid">
+          <div class="porudzbina-details-grid">
             <div class="product-image-container">
               <img src=${matchingProduct.slika}>
             </div>
@@ -49,7 +49,7 @@ function renderovanjeUkupnePorudzbine(){
             </div>
 
             <div class="product-actions">
-              <a href="pracenje.html?orderId=${porucbina.id}&proizvodId=${matchingProduct.id}">
+              <a href="pracenje.html?orderId=${porudzbina.id}&proizvodId=${matchingProduct.id}">
                 <button class="track-package-button button-secondary">
                   Praćenje paketa
                 </button>
@@ -62,24 +62,24 @@ function renderovanjeUkupnePorudzbine(){
       return generatedDetailsHTML;
     }
     generatedHTML += `
-        <div class="porucbina-container js-porudzbine-item-container-${porucbina.id}">
-          <div class="porucbina-header">
-            <div class="porucbina-header-left-section">
-              <div class="porucbina-date">
-                <div class="porucbina-header-label">Naručeno datuma:</div>
-                <div>${prikaziDatumNarudzbine(porucbina.vremePorudzbine)}</div>
+        <div class="porudzbina-container js-porudzbine-item-container-${porudzbina.id}">
+          <div class="porudzbina-header">
+            <div class="porudzbina-header-left-section">
+              <div class="porudzbina-date">
+                <div class="porudzbina-header-label">Naručeno datuma:</div>
+                <div>${prikaziDatumNarudzbine(porudzbina.vremePorudzbine)}</div>
               </div>
-              <div class="porucbina-total">
-                <div class="porucbina-header-label">Ukupno:</div>
-                <div>${formatiranjeValute(porucbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
+              <div class="porudzbina-total">
+                <div class="porudzbina-header-label">Ukupno:</div>
+                <div>${formatiranjeValute(porudzbina.totalCostCents)} <span class="rsd-stil">RSD</span></div>
               </div>
             </div>
 
-            <div class="porucbina-header-right-section">
-              <div class="porucbina-header-label">ID Porudžbine:</div>
-              <div>${porucbina.id}</div>
+            <div class="porudzbina-header-right-section">
+              <div class="porudzbina-header-label">ID Porudžbine:</div>
+              <div>${porudzbina.id}</div>
             </div>
-            <button class="remove-porucbina js-remove-porucbina" data-proizvod-id="${porucbina.id}">X</button>
+            <button class="remove-porudzbina js-remove-porudzbina" data-proizvod-id="${porudzbina.id}">X</button>
           </div>
           ${returnGeneratedDetails(generatedDetailsHTML)}
         </div>
@@ -97,7 +97,7 @@ function renderovanjeUkupnePorudzbine(){
     })
   })
 
-  document.querySelectorAll('.js-remove-porucbina').forEach((button)=>{
+  document.querySelectorAll('.js-remove-porudzbina').forEach((button)=>{
     button.addEventListener('click',()=>{
       const orderId = button.dataset.proizvodId;
       removeFromOrders(orderId);

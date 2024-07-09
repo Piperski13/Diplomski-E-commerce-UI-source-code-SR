@@ -2,7 +2,7 @@ import { izracunajKolicinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatiranjeValute } from "../../alatke/rsdFormat.js";
 import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
-import { addOrder } from "../../podaci/porudzbine.js"
+import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generatedHTML = '';
@@ -61,12 +61,12 @@ export function renderovanjeUkupneNaplate(){
     <div class="pregled-naplate-money js-test-total-price">${formatiranjeValute(totalAfterTax)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <button class="place-porucbina-button button-primary js-place-porucbina">
+  <button class="place-porudzbina-button button-primary js-place-porudzbina">
     Poruči
   </button>`;
   document.querySelector('.js-pregled-naplate').innerHTML= generatedHTML;
   
-  document.querySelector('.js-place-porucbina').addEventListener('click', async () => {
+  document.querySelector('.js-place-porudzbina').addEventListener('click', async () => {
     try {
       const payload = {
         korpa: korpa,
@@ -81,8 +81,8 @@ export function renderovanjeUkupneNaplate(){
         body: JSON.stringify(payload)
       });
   
-      const porucbina = await response.json();
-      addOrder(porucbina);
+      const porudzbina = await response.json();
+      dodajPorudzbinu(porudzbina);
   
     } catch (error) {
       console.log('Unexpected error, try again later.');

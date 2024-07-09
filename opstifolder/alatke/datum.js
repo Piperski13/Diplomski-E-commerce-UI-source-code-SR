@@ -19,9 +19,9 @@ export function pprikaziDatumNarudzbinePracenje(datumPorudzbine){
 return podaciStringFormat;
 };
 
-export function trakaNapretka(porucbina,dostava){
+export function trakaNapretka(porudzbina,dostava){
   let trenutnoVreme = dayjs();
-  let vremePorudzbine = dayjs(porucbina);
+  let vremePorudzbine = dayjs(porudzbina);
   let vremeDostave = dayjs(dostava);
   const procenatNapretka = (trenutnoVreme - vremePorudzbine) / (vremeDostave - vremePorudzbine) * 100;
   return procenatNapretka;
