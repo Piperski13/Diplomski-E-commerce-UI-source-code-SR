@@ -62,7 +62,7 @@ function daLiJeVikend(datum) {
   const danUNedelju = datum.format('dddd');
   return danUNedelju === 'Saturday' || danUNedelju === 'Sunday';
 }
-//if its weekend skip it and return the value of dostava date 
+//ako je vikend preskoci i vrati vrednost dostave 
 function izracunajDatumDostave(opcijaDostave){
   let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
   let datumIsporuke = dayjs();
@@ -74,9 +74,9 @@ function izracunajDatumDostave(opcijaDostave){
     }
   }
 
-  const isoFormattedDate = datumIsporuke.toISOString();
+  const formatiranDatum = datumIsporuke.toISOString();
 
-  return isoFormattedDate;
+  return formatiranDatum;
 }
 
 const port = 3000;
