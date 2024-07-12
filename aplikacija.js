@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const dayjs = require('dayjs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid'); // id generator package
+const { v4: uuidv4 } = require('uuid'); // id generator paket
 const opcijeDostave = require('./serverskaStrana/opcijePosiljke.js');
 
 const app = express();
@@ -64,7 +64,7 @@ function daLiJeVikend(datum) {
 }
 //ako je vikend preskoci i vrati vrednost dostave 
 function izracunajDatumDostave(opcijaDostave){
-  let preostaliDani = opcijaDostave; //its equal to 7 or 3 or 1
+  let preostaliDani = opcijaDostave; //ovo je jednako 7 ili 3 ili 1
   let datumIsporuke = dayjs();
   while (preostaliDani > 0) {
     datumIsporuke = datumIsporuke.add(1, 'day');
