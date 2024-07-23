@@ -1,6 +1,5 @@
 const fs = require('fs');
 const express = require('express');
-const cors = require('cors');
 const dayjs = require('dayjs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // id generator paket
@@ -8,9 +7,7 @@ const opcijeDostave = require('./serverskaStrana/opcijePosiljke.js');
 
 const app = express();
 
-
 app.use(express.json()); //middleware
-app.use(cors()); //middleware
 
 app.use(express.static(path.join(__dirname,'opstiFolder')));
 
