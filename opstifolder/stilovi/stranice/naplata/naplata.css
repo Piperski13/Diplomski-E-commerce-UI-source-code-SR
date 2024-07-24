@@ -246,14 +246,14 @@
 }
 .potvrdi-prozor > div > p {
   font-size: 20px;
-  color: rgb(255, 216, 20);
+  color: yellow;
   text-align: center;
   margin-bottom: 20px;
 }
 .potvrdi-prozor > div > button {
-  background-color: rgb(255, 216, 20);
-  border: 2px solid rgb(255, 216, 20);
-  color: black;
+  background-color: rgb(0, 118, 0);
+  border: 2px solid rgb(0, 118, 0);
+  color: white;
   padding: 13px 27px;
   font-size: 20px;
   font-family: bold;
