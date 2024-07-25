@@ -1,4 +1,4 @@
-import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; // imports a const korpa from korpa.js, created module
+import {korpa, dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; 
 import {proizvodi,ucitavanjeProizvoda} from "../podaci/proizvodi.js";
 
 
