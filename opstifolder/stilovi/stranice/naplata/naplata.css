@@ -115,7 +115,7 @@
   margin-bottom: 5px;
 }
 
-.proizvod-kolicina .link-primarni {
+.proizvod-količina .link-primarni {
   margin-left: 3px;
 }
 
@@ -210,18 +210,18 @@
   margin-bottom: 15px;
 }
 /* checkout update/input start */
-.kolicina-unos {
+.količina-unos {
   width: 30px;
 }
-.kolicina-unos,
+.količina-unos,
 .sacuvaj-kolicinu-link {
   display: none;
 }
-.azuriranje-kolicine-u-toku .kolicina-label,
+.azuriranje-kolicine-u-toku .količina-label,
 .azuriranje-kolicine-u-toku .azuriraj-kolicinu-link {
   display: none;
 }
-.azuriranje-kolicine-u-toku .kolicina-unos,
+.azuriranje-kolicine-u-toku .količina-unos,
 .azuriranje-kolicine-u-toku .sacuvaj-kolicinu-link {
   display: initial;
 }

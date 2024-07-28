@@ -1,5 +1,5 @@
 .market-zaglavlje {
-  background-color: #1A5319;
+  background-color: #1a5319;
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -81,7 +81,7 @@
 }
 
 .dugme-za-pretragu {
-  background-color: #D6EFD8;
+  background-color: #d6efd8;
   border: none;
   width: 45px;
   height: 40px;
@@ -135,7 +135,7 @@
   font-weight: 700;
 }
 
-.kolicina-u-kolicima {
+.količina-u-kolicima {
   color: rgb(221, 79, 3);
   font-size: 16px;
   font-weight: 700;
@@ -143,7 +143,7 @@
   position: absolute;
   top: 4px;
   left: 22px;
-  
+
   width: 26px;
   text-align: center;
 }

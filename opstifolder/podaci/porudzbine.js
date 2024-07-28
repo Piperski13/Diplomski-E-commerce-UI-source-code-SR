@@ -2,15 +2,15 @@ export let porudzbine = JSON.parse(localStorage.getItem('porudzbine')) || [];
 
 export function dodajPorudzbinu(porudzbina){
   porudzbine.unshift(porudzbina);
-  sacuvajUSkladiste();
+  sačuvajUSkladište();
 };
 
 export function izbrisiIzPorudzbine(porudzbinaId){
   let novePorudzbine = porudzbine.filter((porudzbinaArtikal) => porudzbinaArtikal.id !== porudzbinaId) //returns 
   porudzbine = novePorudzbine;
-  sacuvajUSkladiste();
+  sačuvajUSkladište();
 }
 
-function sacuvajUSkladiste(){
+function sačuvajUSkladište(){
   localStorage.setItem('porudzbine',JSON.stringify(porudzbine));
 }

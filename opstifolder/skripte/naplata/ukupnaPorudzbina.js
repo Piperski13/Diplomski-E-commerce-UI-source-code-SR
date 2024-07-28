@@ -1,8 +1,8 @@
 import {korpa,
-  izbrisiIzKorpe,
-  izracunajKolicinuKorpe,
-  azurirajKolicinu,
-  azurirajOpcijeDostave}
+  izbrišiIZKorpe,
+  izračunajKoličinuKorpe,
+  ažurirajKoličinu,
+  ažurirajOpcijeDostave}
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatiranjeValute} from "../../alatke/rsdFormat.js";
@@ -11,7 +11,7 @@ import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudzbine(){
   function dogadjajTastature(proizvodId){
-    document.querySelectorAll('.kolicina-unos').forEach((unos)=>{
+    document.querySelectorAll('.količina-unos').forEach((unos)=>{
       unos.addEventListener('keydown',(e)=>{
         if(e.key==='Enter'){
           const artikalKontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
@@ -59,17 +59,17 @@ export function renderovanjeUkupnePorudzbine(){
           <div class="proizvod-cena js-test-proizvod-cena-${odgovarajuciProizvod.id}">
             ${odgovarajuciProizvod.uzmiCenu()}
           </div>
-          <div class="proizvod-kolicina">
-            <span class="js-test-proizvod-kolicina-${odgovarajuciProizvod.id}">
-              Količina: <span class="kolicina-label">
-              ${korpaArtikal.kolicina}
+          <div class="proizvod-količina">
+            <span class="js-test-proizvod-količina-${odgovarajuciProizvod.id}">
+              Količina: <span class="količina-label">
+              ${korpaArtikal.količina}
               </span>
             </span>
             <span class="azuriraj-kolicinu-link link-primarni js-azuriraj-link" 
             data-proizvod-id="${odgovarajuciProizvod.id}">
               Ažuriraj
             </span>
-            <input type="text" class="kolicina-unos js-kolicina-unos-${odgovarajuciProizvod.id}">
+            <input type="text" class="količina-unos js-količina-unos-${odgovarajuciProizvod.id}">
             <span class="sacuvaj-kolicinu-link link-primarni js-sacuvaj-link"
             data-proizvod-id="${odgovarajuciProizvod.id}">Sačuvaj</span>
 
@@ -120,19 +120,19 @@ export function renderovanjeUkupnePorudzbine(){
     return generisaniHTML;
   }
   function azurirajKorpaKolicinu(){ 
-    let korpaKolicina = izracunajKolicinuKorpe();     //korpa.js function that calculates korpa kolicina
-    if(korpaKolicina === 0){
+    let korpaKoličina = izračunajKoličinuKorpe();     //korpa.js function that calculates korpa količina
+    if(korpaKoličina === 0){
       document.querySelector('.js-povratak-na-market-link').innerHTML = ``;
     }
-    else if(korpaKolicina === 1){
-      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKolicina} artikal`;
+    else if(korpaKoličina === 1){
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKoličina} artikal`;
     }
     else{
-      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKolicina} artikla`;
+      document.querySelector('.js-povratak-na-market-link').innerHTML = `${korpaKoličina} artikla`;
     }
   };
 
-  function proizvodKolicinaAzuriranje(){
+  function proizvodkoličinaAzuriranje(){
     const potvrdiDa = document.querySelector('.potvrdi-prozor-da');
     const potvrdiNe = document.querySelector('.potvrdi-prozor-ne');
 
@@ -186,27 +186,27 @@ export function renderovanjeUkupnePorudzbine(){
   }
   
   function izbrisiKontejner(proizvodId){
-    izbrisiIzKorpe(proizvodId);
+    izbrišiIZKorpe(proizvodId);
     const kontejner = document.querySelector(`.js-korpa-artikal-kontejner-${proizvodId}`);
     kontejner.remove();
     azurirajKorpaKolicinu();
     renderovanjeUkupneNaplate();
   }
   function azurirajUnos(proizvodId){
-    const kolicinaImput = document.querySelector(`.js-kolicina-unos-${proizvodId}`)
-    let novaKolicina = Number(kolicinaImput.value);
-    if(novaKolicina === 0){
+    const količinaImput = document.querySelector(`.js-količina-unos-${proizvodId}`)
+    let novaKoličina = Number(količinaImput.value);
+    if(novaKoličina === 0){
       izbrisiKontejner(proizvodId);
-      azurirajKolicinu(proizvodId,novaKolicina);
+      ažurirajKoličinu(proizvodId,novaKoličina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
-    if(novaKolicina>=1000 || novaKolicina<0){
+    if(novaKoličina>=1000 || novaKoličina<0){
       alert('Greška pri unosu');
       renderovanjeUkupnePorudzbine();
     }
     else{
-      azurirajKolicinu(proizvodId,novaKolicina);
+      ažurirajKoličinu(proizvodId,novaKoličina);
       renderovanjeUkupnePorudzbine();
       renderovanjeUkupneNaplate();
     }
@@ -216,7 +216,7 @@ export function renderovanjeUkupnePorudzbine(){
       option.addEventListener('click',()=>{
         const proizvodId = option.dataset.proizvodId;
         const opcijeDostaveId = option.dataset.dostavaId;
-        azurirajOpcijeDostave(proizvodId,opcijeDostaveId);
+        ažurirajOpcijeDostave(proizvodId,opcijeDostaveId);
         renderovanjeUkupnePorudzbine();
         renderovanjeUkupneNaplate(); // generates Payment box again
       })
@@ -225,8 +225,8 @@ export function renderovanjeUkupnePorudzbine(){
 
   document.querySelector('.pregled-porudzbine').innerHTML = naplataHTML;
 
-  azurirajKorpaKolicinu(); // updates korpa kolicina in header part of the checkout.html
-  proizvodKolicinaAzuriranje();  // adds event listeners to update/delete kolicina
+  azurirajKorpaKolicinu(); // updates korpa količina in header part of the checkout.html
+  proizvodkoličinaAzuriranje();  // adds event listeners to update/delete količina
   sacuvajLinkDogadjaj();        // adds event listeners to save button that gets created on click update
   dostavaAzuriranje(); // adds interactive radio buttens / dates
 }

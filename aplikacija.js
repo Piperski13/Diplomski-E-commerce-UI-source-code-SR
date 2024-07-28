@@ -40,7 +40,7 @@ app.post('/market.html',(req,res)=>{
     const procenjenoVremeIsporuke = izracunajDatumDostave(finalnaOpcija.dostaveDani);
     return {
       proizvodId: korpaArtikal.proizvodId,
-      kolicina: korpaArtikal.kolicina,
+      količina: korpaArtikal.količina,
       procenjenoVremeIsporuke: procenjenoVremeIsporuke,
       variation: null
     }

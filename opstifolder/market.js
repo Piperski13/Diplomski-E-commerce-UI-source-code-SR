@@ -1,4 +1,4 @@
-import {dodajUKorpu,izracunajKolicinuKorpe} from "../podaci/korpa.js"; 
+import {dodajUKorpu,izračunajKoličinuKorpe} from "../podaci/korpa.js"; 
 import {proizvodi,ucitavanjeProizvoda} from "../podaci/proizvodi.js";
 
 
@@ -57,8 +57,8 @@ function renederujProizvodeGrid(){
         ${proizvod.uzmiCenu()}
       </div>
 
-      <div class="proizvod-kolicina-kontejner">
-        <select class="js-izbor-kolicine-${proizvod.id}">
+      <div class="proizvod-količina-kontejner">
+        <select class="js-izbor-količine-${proizvod.id}">
           <option selected value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -106,12 +106,12 @@ function renederujProizvodeGrid(){
   })
 
   function azurirajKorpaKolicinu(){        
-    let korpaKolicina = izracunajKolicinuKorpe();   
+    let korpaKoličina = izračunajKoličinuKorpe();   
 
-    if(!korpaKolicina){          
+    if(!korpaKoličina){          
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
+    document.querySelector('.js-količina-u-kolicima').innerHTML = korpaKoličina;
   }
 
   function dodajUKorpuZeleno(proizvodId,timeoutObjekat){     
@@ -139,7 +139,7 @@ function renederujProizvodeGrid(){
         const proizvodId = button.dataset.proizvodId;   
 
         dodajUKorpu(proizvodId);
-        
+
         dodajUKorpuZeleno(proizvodId,dodatePorukeTimeouts);  
 
         azurirajKorpaKolicinu();

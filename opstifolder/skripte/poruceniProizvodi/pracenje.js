@@ -1,7 +1,7 @@
 import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {porudzbine} from '../../podaci/porudzbine.js';
 import {prikaziDatumPorudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
-import {izracunajKolicinuKorpe} from "../../podaci/korpa.js"
+import {izračunajKoličinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
 console.log(url.searchParams.get('porudzbinaId'));
@@ -54,7 +54,7 @@ async function renderujStranicuZaPracenje(){
         </div>
 
         <div class="proizvod-info">
-          Količina: ${odgovarajucaPorudzbina.kolicina}
+          Količina: ${odgovarajucaPorudzbina.količina}
         </div>
 
         <img class="proizvod-slika" src="${odgovarajuciProizvod.slika}">
@@ -83,11 +83,11 @@ async function renderujStranicuZaPracenje(){
   azurirajKorpaKolicinu();
 
   function azurirajKorpaKolicinu(){        
-    let korpaKolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
-    if(!korpaKolicina){          //essentialy break a function if korpaKolicina undefined
+    let korpaKoličina = izračunajKoličinuKorpe();   //korpa.js function that calculates korpa količina
+    if(!korpaKoličina){          //essentialy break a function if korpaKoličina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
+    document.querySelector('.js-količina-u-kolicima').innerHTML = korpaKoličina;
   }
 };
 renderujStranicuZaPracenje();

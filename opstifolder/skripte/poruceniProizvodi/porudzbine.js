@@ -2,7 +2,7 @@ import {porudzbine,izbrisiIzPorudzbine} from '../../podaci/porudzbine.js';
 import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
 import {ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
-import {dodajUKorpu, izracunajKolicinuKorpe} from '../../podaci/korpa.js';
+import {dodajUKorpu, izračunajKoličinuKorpe} from '../../podaci/korpa.js';
 
 console.log(porudzbine);
 
@@ -38,8 +38,8 @@ function renderovanjeUkupnePorudzbine(){
               <div class="proizvod-dostava-datum">
                 Dolazak: ${prikaziDatumNarudzbine(porucenProizvod.procenjenoVremeIsporuke)}
               </div>
-              <div class="proizvod-kolicina">
-                Količina: ${porucenProizvod.kolicina}
+              <div class="proizvod-količina">
+                Količina: ${porucenProizvod.količina}
               </div>
               <button class="kupi-ponovo-dugme glavno-dugme js-kupi-ponovo"
               data-proizvod-id="${odgovarajuciProizvod.id}">
@@ -108,11 +108,11 @@ function renderovanjeUkupnePorudzbine(){
   })
 
   function azurirajKorpaKolicinu(){        
-    let korpaKolicina = izracunajKolicinuKorpe();   //korpa.js function that calculates korpa kolicina
-    if(!korpaKolicina){          //essentialy break a function if korpaKolicina undefined
+    let korpaKoličina = izračunajKoličinuKorpe();   //korpa.js function that calculates korpa količina
+    if(!korpaKoličina){          //essentialy break a function if korpaKoličina undefined
       return;
     }
-    document.querySelector('.js-kolicina-u-kolicima').innerHTML = korpaKolicina;
+    document.querySelector('.js-količina-u-kolicima').innerHTML = korpaKoličina;
   }
 };
 

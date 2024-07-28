@@ -1,4 +1,4 @@
-import { izracunajKolicinuKorpe, korpa } from "../../podaci/korpa.js";
+import { izračunajKoličinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatiranjeValute } from "../../alatke/rsdFormat.js";
 import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
@@ -6,23 +6,23 @@ import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generisaniHTML = '';
-  let korpaKolicina = izracunajKolicinuKorpe();
+  let korpaKoličina = izračunajKoličinuKorpe();
   let ukupniDinari = 0;
   let dostavaDinari = 0;
   korpa.forEach(korpaArtikal => {
     const proizvodId = korpaArtikal.proizvodId;
-    const proizvodKolicina = korpaArtikal.kolicina;
+    const proizvodkoličina = korpaArtikal.količina;
     const opcijeDostaveId = korpaArtikal.opcijeDostaveId;
     proizvodi.forEach(proizvod => {
       if(proizvod.id === proizvodId){
         let ceneDinari = proizvod.cenaDinari
-        ukupniDinari += proizvodKolicina * ceneDinari;
+        ukupniDinari += proizvodkoličina * ceneDinari;
 
       }
     });
     opcijeDostave.forEach(opcija => {
       if(opcija.id === opcijeDostaveId){
-        dostavaDinari+=opcija.ceneDinari *proizvodKolicina;
+        dostavaDinari+=opcija.ceneDinari *proizvodkoličina;
       }
     });
   });
@@ -37,7 +37,7 @@ export function renderovanjeUkupneNaplate(){
   </div>
 
   <div class="pregled-naplate-red">
-    <div>Broj artikala (${korpaKolicina}):</div>
+    <div>Broj artikala (${korpaKoličina}):</div>
     <div class="pregled-naplate-novac">${formatiranjeValute(ukupniDinari)} <span class="rsd-stil">RSD</span></div>
   </div>
 
