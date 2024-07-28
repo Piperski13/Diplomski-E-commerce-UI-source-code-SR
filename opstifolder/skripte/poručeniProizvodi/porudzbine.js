@@ -1,12 +1,12 @@
 import {porudzbine,izbrisiIzPorudzbine} from '../../podaci/porudzbine.js';
 import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
-import {ucitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
+import {učitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {dodajUKorpu, izračunajKoličinuKorpe} from '../../podaci/korpa.js';
 
 console.log(porudzbine);
 
-ucitavanjeProizvoda().then(()=>{     
+učitavanjeProizvoda().then(()=>{     
   renderovanjeUkupnePorudzbine();
 });
 

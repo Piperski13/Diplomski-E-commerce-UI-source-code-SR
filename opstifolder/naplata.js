@@ -1,12 +1,12 @@
 import { renderovanjeUkupnePorudzbine } from "../skripte/naplata/ukupnaPorudzbina.js";
 import { renderovanjeUkupneNaplate } from "../skripte/naplata/ukupnaNaplata.js";
 import { renderovanjeNaplateZaglavlje } from "../skripte/naplata/naplataZaglavlje.js";
-import { ucitavanjeProizvoda } from "../podaci/proizvodi.js"
+import { učitavanjeProizvoda } from "../podaci/proizvodi.js"
 
 async function ucitavanjeStranice(){
   try {
 
-    await ucitavanjeProizvoda();
+    await učitavanjeProizvoda();
     
   } catch (error) {
     console.log('GREŠKA, pokušaj kasnije.');

@@ -42,7 +42,7 @@ export class Odeća extends Proizvod {
 
 export let proizvodi = [];
 
-export function ucitavanjeProizvoda(){
+export function učitavanjeProizvoda(){
   const promise = fetch('http://127.0.0.1:3000/proizvodi').then((response)=>{
     return response.json();
   }).then((detaljiProizvoda)=>{

@@ -1,4 +1,4 @@
-import {proizvodi,ucitavanjeProizvoda} from '../../podaci/proizvodi.js';
+import {proizvodi,učitavanjeProizvoda} from '../../podaci/proizvodi.js';
 import {porudzbine} from '../../podaci/porudzbine.js';
 import {prikaziDatumPorudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
 import {izračunajKoličinuKorpe} from "../../podaci/korpa.js"
@@ -8,14 +8,14 @@ console.log(url.searchParams.get('porudzbinaId'));
 console.log(url.searchParams.get('proizvodId'));
 
 async function renderujStranicuZaPracenje(){
-  await ucitavanjeProizvoda();
+  await učitavanjeProizvoda();
 
   let odgovarajuciProizvod;
   let odgovarajucaPorudzbina;
   let odgovarajuciDatumPorudzbine;
 
   const obradjenaPorudzbinaId = url.searchParams.get('porudzbinaId');
-  const poruceniProizvodId = url.searchParams.get('proizvodId');
+  const poručeniProizvodId = url.searchParams.get('proizvodId');
 
   porudzbine.forEach(porudzbina => {
     if(porudzbina.id === obradjenaPorudzbinaId){
@@ -24,7 +24,7 @@ async function renderujStranicuZaPracenje(){
       odgovarajuciDatumPorudzbine = porudzbina;
 
       odgovarajucaPorudzbina.proizvodi.forEach(porucenProizvod => {
-        if(porucenProizvod.proizvodId === poruceniProizvodId){
+        if(porucenProizvod.proizvodId === poručeniProizvodId){
           odgovarajucaPorudzbina = porucenProizvod;
         }
       });
@@ -32,7 +32,7 @@ async function renderujStranicuZaPracenje(){
   });
     
   proizvodi.forEach(proizvod => {
-    if(proizvod.id === poruceniProizvodId ){
+    if(proizvod.id === poručeniProizvodId ){
       odgovarajuciProizvod = proizvod;
     }
   });
@@ -79,7 +79,7 @@ async function renderujStranicuZaPracenje(){
         </div>
       </div>
   `;
-  document.querySelector('.glavni-sadrzaj').innerHTML = generisaniHTML;
+  document.querySelector('.glavni-sadržaj').innerHTML = generisaniHTML;
   azurirajKorpaKolicinu();
 
   function azurirajKorpaKolicinu(){        

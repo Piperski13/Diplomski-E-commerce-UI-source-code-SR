@@ -2,7 +2,7 @@
 export function renderovanjeNaplateZaglavlje(){
   let generisaniHTML = '';
   generisaniHTML= `
-    <div class="zagavlje-sadrzaj">
+    <div class="zagavlje-sadržaj">
     <div class="naplata-zaglavlje-leva-sekcija">
       <a href="/">
         <img class="beli-logo" src="slike/crni-logo.png">

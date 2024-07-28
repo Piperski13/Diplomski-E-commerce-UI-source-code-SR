@@ -1,8 +1,8 @@
 import {dodajUKorpu,izračunajKoličinuKorpe} from "../podaci/korpa.js"; 
-import {proizvodi,ucitavanjeProizvoda} from "../podaci/proizvodi.js";
+import {proizvodi,učitavanjeProizvoda} from "../podaci/proizvodi.js";
 
 
-ucitavanjeProizvoda().then(()=>{       
+učitavanjeProizvoda().then(()=>{       
   renederujProizvodeGrid();
 });
 
