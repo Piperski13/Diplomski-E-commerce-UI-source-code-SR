@@ -120,7 +120,7 @@ export function renderovanjeUkupnePorudzbine(){
     return generisaniHTML;
   }
   function azurirajKorpaKolicinu(){ 
-    let korpaKoličina = izračunajKoličinuKorpe();     //korpa.js function that calculates korpa količina
+    let korpaKoličina = izračunajKoličinuKorpe();     
     if(korpaKoličina === 0){
       document.querySelector('.js-povratak-na-market-link').innerHTML = ``;
     }
@@ -136,7 +136,6 @@ export function renderovanjeUkupnePorudzbine(){
     const potvrdiDa = document.querySelector('.potvrdi-prozor-da');
     const potvrdiNe = document.querySelector('.potvrdi-prozor-ne');
 
-    //event Listener for a delete button
     document.querySelectorAll('.js-izbrisi-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
@@ -161,7 +160,7 @@ export function renderovanjeUkupnePorudzbine(){
       });
     });
   
-    //event Listener for a update button
+    
     document.querySelectorAll('.js-azuriraj-link').forEach((link)=>{
       link.addEventListener('click',()=>{
         const proizvodId = link.dataset.proizvodId;
@@ -172,8 +171,6 @@ export function renderovanjeUkupnePorudzbine(){
     });
   }
 
-    //adds event listeners to all Save links and on click removes class that was previously set for container, gets value from input and turns it into a num, and the pass is it in korpa.js
-    // and finnaly updates the page ( *renderovanjeUkupnePorudzbine() )
   function sacuvajLinkDogadjaj(){
     document.querySelectorAll('.js-sacuvaj-link').forEach((link)=>{
       link.addEventListener('click',()=>{
@@ -218,15 +215,15 @@ export function renderovanjeUkupnePorudzbine(){
         const opcijeDostaveId = option.dataset.dostavaId;
         ažurirajOpcijeDostave(proizvodId,opcijeDostaveId);
         renderovanjeUkupnePorudzbine();
-        renderovanjeUkupneNaplate(); // generates Payment box again
+        renderovanjeUkupneNaplate(); 
       })
     })
   }
 
   document.querySelector('.pregled-porudzbine').innerHTML = naplataHTML;
 
-  azurirajKorpaKolicinu(); // updates korpa količina in header part of the checkout.html
-  proizvodkoličinaAzuriranje();  // adds event listeners to update/delete količina
-  sacuvajLinkDogadjaj();        // adds event listeners to save button that gets created on click update
-  dostavaAzuriranje(); // adds interactive radio buttens / dates
+  azurirajKorpaKolicinu(); 
+  proizvodkoličinaAzuriranje();  
+  sacuvajLinkDogadjaj();        
+  dostavaAzuriranje(); 
 }

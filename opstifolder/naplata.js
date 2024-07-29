@@ -3,7 +3,7 @@ import { renderovanjeUkupneNaplate } from "../skripte/naplata/ukupnaNaplata.js";
 import { renderovanjeNaplateZaglavlje } from "../skripte/naplata/naplataZaglavlje.js";
 import { učitavanjeProizvoda } from "../podaci/proizvodi.js"
 
-async function ucitavanjeStranice(){
+async function učitavanjeStranice(){
   try {
 
     await učitavanjeProizvoda();
@@ -17,4 +17,4 @@ async function ucitavanjeStranice(){
   renderovanjeUkupnePorudzbine();
   renderovanjeUkupneNaplate();
 };
-ucitavanjeStranice();
+učitavanjeStranice();
