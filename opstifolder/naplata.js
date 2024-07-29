@@ -1,4 +1,4 @@
-import { renderovanjeUkupnePorudzbine } from "../skripte/naplata/ukupnaPorudzbina.js";
+import { renderovanjeUkupnePorudžbine } from "../skripte/naplata/ukupnaPorudžbina.js";
 import { renderovanjeUkupneNaplate } from "../skripte/naplata/ukupnaNaplata.js";
 import { renderovanjeNaplateZaglavlje } from "../skripte/naplata/naplataZaglavlje.js";
 import { učitavanjeProizvoda } from "../podaci/proizvodi.js"
@@ -14,7 +14,7 @@ async function učitavanjeStranice(){
   }
   
   renderovanjeNaplateZaglavlje();
-  renderovanjeUkupnePorudzbine();
+  renderovanjeUkupnePorudžbine();
   renderovanjeUkupneNaplate();
 };
 učitavanjeStranice();

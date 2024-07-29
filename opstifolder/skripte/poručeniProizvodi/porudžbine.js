@@ -1,20 +1,20 @@
-import {porudzbine,izbrisiIzPorudzbine} from '../../podaci/porudzbine.js';
+import {porudžbine,izbrisiIzPorudžbine} from '../../podaci/porudžbine.js';
 import {formatiranjeValute} from '../../alatke/rsdFormat.js';
 import {prikaziDatumNarudzbine} from '../../alatke/datum.js';
 import {učitavanjeProizvoda,proizvodi} from '../../podaci/proizvodi.js';
 import {dodajUKorpu, izračunajKoličinuKorpe} from '../../podaci/korpa.js';
 
-console.log(porudzbine);
+console.log(porudžbine);
 
 učitavanjeProizvoda().then(()=>{     
-  renderovanjeUkupnePorudzbine();
+  renderovanjeUkupnePorudžbine();
 });
 
-function renderovanjeUkupnePorudzbine(){
+function renderovanjeUkupnePorudžbine(){
   let generisaniHTML = '';
   let generisaniDetaljiHTML = '';
 
-  porudzbine.forEach(porudzbina => {
+  porudžbine.forEach(porudzbina => {
 
     porudzbina.proizvodi.forEach(porucenProizvod =>{
       let odgovarajuciProizvod;
@@ -62,12 +62,12 @@ function renderovanjeUkupnePorudzbine(){
       return generisaniDetaljiHTML;
     }
     generisaniHTML += `
-        <div class="porudzbina-kontejner js-porudzbine-artikal-kontejner-${porudzbina.id}">
+        <div class="porudzbina-kontejner js-porudžbine-artikal-kontejner-${porudzbina.id}">
           <div class="porudzbina-zaglavlje">
             <div class="porudzbina-zaglavlje-leva-sekcija">
               <div class="porudzbina-datum">
                 <div class="porudzbina-zaglavlje-label">Naručeno datuma:</div>
-                <div>${prikaziDatumNarudzbine(porudzbina.vremePorudzbine)}</div>
+                <div>${prikaziDatumNarudzbine(porudzbina.vremePorudžbine)}</div>
               </div>
               <div class="ukupna-porudzbina">
                 <div class="porudzbina-zaglavlje-label">Ukupno:</div>
@@ -86,7 +86,7 @@ function renderovanjeUkupnePorudzbine(){
     `;
     generisaniDetaljiHTML = '';
   });
-  document.querySelector('.js-porudzbine-gird').innerHTML = generisaniHTML;
+  document.querySelector('.js-porudžbine-gird').innerHTML = generisaniHTML;
   azurirajKorpaKolicinu();
 
   document.querySelectorAll('.js-kupi-ponovo').forEach((button)=>{
@@ -100,10 +100,10 @@ function renderovanjeUkupnePorudzbine(){
   document.querySelectorAll('.js-izbrisi-porudzbinu').forEach((button)=>{
     button.addEventListener('click',()=>{
       const porudzbinaId = button.dataset.proizvodId;
-      izbrisiIzPorudzbine(porudzbinaId);
-      const kontejner = document.querySelector(`.js-porudzbine-artikal-kontejner-${porudzbinaId}`);
+      izbrisiIzPorudžbine(porudzbinaId);
+      const kontejner = document.querySelector(`.js-porudžbine-artikal-kontejner-${porudzbinaId}`);
       kontejner.remove();
-      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupnePorudžbine();
     })
   })
 
@@ -116,8 +116,8 @@ function renderovanjeUkupnePorudzbine(){
   }
 };
 
-console.log(porudzbine); // number of porudzbine
-// console.log(porudzbine[1].proizvodi); //index 1 all proizvodi array
-// console.log(porudzbine[0].proizvodi[0].proizvodId);
+console.log(porudžbine); // number of porudžbine
+// console.log(porudžbine[1].proizvodi); //index 1 all proizvodi array
+// console.log(porudžbine[0].proizvodi[0].proizvodId);
 
 

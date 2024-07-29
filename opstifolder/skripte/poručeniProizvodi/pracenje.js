@@ -1,6 +1,6 @@
 import {proizvodi,učitavanjeProizvoda} from '../../podaci/proizvodi.js';
-import {porudzbine} from '../../podaci/porudzbine.js';
-import {prikaziDatumPorudzbinePracenje,trakaNapretka} from '../../alatke/datum.js';
+import {porudžbine} from '../../podaci/porudžbine.js';
+import {prikaziDatumPorudžbinePracenje,trakaNapretka} from '../../alatke/datum.js';
 import {izračunajKoličinuKorpe} from "../../podaci/korpa.js"
 
 const url = new URL(window.location.href);
@@ -12,16 +12,16 @@ async function renderujStranicuZaPracenje(){
 
   let odgovarajuciProizvod;
   let odgovarajucaPorudzbina;
-  let odgovarajuciDatumPorudzbine;
+  let odgovarajuciDatumPorudžbine;
 
   const obradjenaPorudzbinaId = url.searchParams.get('porudzbinaId');
   const poručeniProizvodId = url.searchParams.get('proizvodId');
 
-  porudzbine.forEach(porudzbina => {
+  porudžbine.forEach(porudzbina => {
     if(porudzbina.id === obradjenaPorudzbinaId){
 
       odgovarajucaPorudzbina = porudzbina;
-      odgovarajuciDatumPorudzbine = porudzbina;
+      odgovarajuciDatumPorudžbine = porudzbina;
 
       odgovarajucaPorudzbina.proizvodi.forEach(porucenProizvod => {
         if(porucenProizvod.proizvodId === poručeniProizvodId){
@@ -37,16 +37,16 @@ async function renderujStranicuZaPracenje(){
     }
   });
 
-  const napredakDostave = trakaNapretka(odgovarajuciDatumPorudzbine.vremePorudzbine,odgovarajucaPorudzbina.procenjenoVremeIsporuke);
+  const napredakDostave = trakaNapretka(odgovarajuciDatumPorudžbine.vremePorudžbine,odgovarajucaPorudzbina.procenjenoVremeIsporuke);
 
   let generisaniHTML = `
      <div class="porudzbina-pracenje">
-        <a class="povratak-na-porudzbine-link link-primarni" href="porudzbine.html">
+        <a class="povratak-na-porudžbine-link link-primarni" href="porudžbine.html">
           Pogledajte sve porudžbine 
         </a>
 
         <div class="dostava-datum">
-          Dolazak u: ${prikaziDatumPorudzbinePracenje(odgovarajucaPorudzbina.procenjenoVremeIsporuke)}
+          Dolazak u: ${prikaziDatumPorudžbinePracenje(odgovarajucaPorudzbina.procenjenoVremeIsporuke)}
         </div>
 
         <div class="proizvod-info">

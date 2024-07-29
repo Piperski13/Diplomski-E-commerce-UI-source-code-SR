@@ -22,8 +22,8 @@ app.get('/naplata', (req, res) => {
   res.sendFile(path.join(__dirname, 'opstiFolder', 'naplata.html'));
 });
 
-app.get('/porudzbine', (req, res) => {
-  res.sendFile(path.join(__dirname, 'opstiFolder', 'porudzbine.html'));
+app.get('/porudžbine', (req, res) => {
+  res.sendFile(path.join(__dirname, 'opstiFolder', 'porudžbine.html'));
 });
 
 app.get('/proizvodi',(req,res)=>{
@@ -48,7 +48,7 @@ app.post('/market.html',(req,res)=>{
 
   res.status(201).json({
     id: uuidv4(),
-    vremePorudzbine: trenutnoVreme,
+    vremePorudžbine: trenutnoVreme,
     ukupnaCenaDinari: ukupnoPoslePDV,
     proizvodi: porudzbina
   })         

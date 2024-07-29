@@ -2,7 +2,7 @@ import { izračunajKoličinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatiranjeValute } from "../../alatke/rsdFormat.js";
 import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
-import { dodajPorudzbinu } from "../../podaci/porudzbine.js"
+import { dodajPorudzbinu } from "../../podaci/porudžbine.js"
 
 export function renderovanjeUkupneNaplate(){
   let generisaniHTML = '';
@@ -61,12 +61,12 @@ export function renderovanjeUkupneNaplate(){
     <div class="pregled-naplate-novac js-test-ukupna-cena">${formatiranjeValute(ukupnoPoslePDV)} <span class="rsd-stil">RSD</span></div>
   </div>
 
-  <button class="mesto-porudzbine-dugme glavno-dugme js-mesto-porudzbine">
+  <button class="mesto-porudžbine-dugme glavno-dugme js-mesto-porudžbine">
     Poruči
   </button>`;
   document.querySelector('.js-pregled-naplate').innerHTML= generisaniHTML;
   
-  document.querySelector('.js-mesto-porudzbine').addEventListener('click', async () => {
+  document.querySelector('.js-mesto-porudžbine').addEventListener('click', async () => {
     try {
       const podaciNarudzbine = {
         korpa: korpa,
@@ -88,6 +88,6 @@ export function renderovanjeUkupneNaplate(){
       console.log('Neočekivana greška, molimo pokušajte ponovo kasnije.');
     }
   
-    window.location.href = 'porudzbine.html';
+    window.location.href = 'porudžbine.html';
   });  
 };

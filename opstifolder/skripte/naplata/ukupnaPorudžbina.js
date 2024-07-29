@@ -9,7 +9,7 @@ import {formatiranjeValute} from "../../alatke/rsdFormat.js";
 import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePosiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
-export function renderovanjeUkupnePorudzbine(){
+export function renderovanjeUkupnePorudžbine(){
   function dogadjajTastature(proizvodId){
     document.querySelectorAll('.količina-unos').forEach((unos)=>{
       unos.addEventListener('keydown',(e)=>{
@@ -195,16 +195,16 @@ export function renderovanjeUkupnePorudzbine(){
     if(novaKoličina === 0){
       izbrisiKontejner(proizvodId);
       ažurirajKoličinu(proizvodId,novaKoličina);
-      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupnePorudžbine();
       renderovanjeUkupneNaplate();
     }
     if(novaKoličina>=1000 || novaKoličina<0){
       alert('Greška pri unosu');
-      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupnePorudžbine();
     }
     else{
       ažurirajKoličinu(proizvodId,novaKoličina);
-      renderovanjeUkupnePorudzbine();
+      renderovanjeUkupnePorudžbine();
       renderovanjeUkupneNaplate();
     }
   }
@@ -214,13 +214,13 @@ export function renderovanjeUkupnePorudzbine(){
         const proizvodId = option.dataset.proizvodId;
         const opcijeDostaveId = option.dataset.dostavaId;
         ažurirajOpcijeDostave(proizvodId,opcijeDostaveId);
-        renderovanjeUkupnePorudzbine();
+        renderovanjeUkupnePorudžbine();
         renderovanjeUkupneNaplate(); 
       })
     })
   }
 
-  document.querySelector('.pregled-porudzbine').innerHTML = naplataHTML;
+  document.querySelector('.pregled-porudžbine').innerHTML = naplataHTML;
 
   azurirajKorpaKolicinu(); 
   proizvodkoličinaAzuriranje();  

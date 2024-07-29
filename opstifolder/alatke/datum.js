@@ -3,16 +3,16 @@ import sr from 'https://unpkg.com/dayjs@1.11.10/esm/locale/sr.js';
 
 dayjs.locale(sr);
 
-export function prikaziDatumNarudzbine(datumPorudzbine){
-  let podaciString = dayjs(datumPorudzbine);
+export function prikaziDatumNarudzbine(datumPorudžbine){
+  let podaciString = dayjs(datumPorudžbine);
   const podaciStringFormat = podaciString.format(
     'MMMM D'
   );
 return podaciStringFormat;
 };
 
-export function prikaziDatumPorudzbinePracenje(datumPorudzbine){
-  let podaciString = dayjs(datumPorudzbine);
+export function prikaziDatumPorudžbinePracenje(datumPorudžbine){
+  let podaciString = dayjs(datumPorudžbine);
   const podaciStringFormat = podaciString.format(
     'dddd, MMMM D'
   );
@@ -21,8 +21,8 @@ return podaciStringFormat;
 
 export function trakaNapretka(porudzbina,dostava){
   let trenutnoVreme = dayjs();
-  let vremePorudzbine = dayjs(porudzbina);
+  let vremePorudžbine = dayjs(porudzbina);
   let vremeDostave = dayjs(dostava);
-  const procenatNapretka = (trenutnoVreme - vremePorudzbine) / (vremeDostave - vremePorudzbine) * 100;
+  const procenatNapretka = (trenutnoVreme - vremePorudžbine) / (vremeDostave - vremePorudžbine) * 100;
   return procenatNapretka;
 }
