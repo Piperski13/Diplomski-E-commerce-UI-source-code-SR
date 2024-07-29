@@ -1,7 +1,7 @@
 import { izračunajKoličinuKorpe, korpa } from "../../podaci/korpa.js";
 import { proizvodi } from "../../podaci/proizvodi.js";
 import { formatiranjeValute } from "../../alatke/rsdFormat.js";
-import { opcijeDostave } from "../../podaci/opcijePosiljke.js"
+import { opcijeDostave } from "../../podaci/opcijePošiljke.js"
 import { dodajPorudzbinu } from "../../podaci/porudžbine.js"
 
 export function renderovanjeUkupneNaplate(){

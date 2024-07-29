@@ -3,7 +3,7 @@ const express = require('express');
 const dayjs = require('dayjs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid'); // id generator paket
-const opcijeDostave = require('./serverskaStrana/opcijePosiljke.js');
+const opcijeDostave = require('./serverskaStrana/opcijePošiljke.js');
 
 const app = express();
 

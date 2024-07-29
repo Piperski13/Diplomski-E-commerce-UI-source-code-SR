@@ -6,7 +6,7 @@ import {korpa,
    from "../../podaci/korpa.js";
 import {proizvodi} from "../../podaci/proizvodi.js"
 import {formatiranjeValute} from "../../alatke/rsdFormat.js";
-import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePosiljke.js"
+import {opcijeDostave,izracunajDatumDostave} from "../../podaci/opcijePošiljke.js"
 import { renderovanjeUkupneNaplate } from "./ukupnaNaplata.js";
 
 export function renderovanjeUkupnePorudžbine(){
