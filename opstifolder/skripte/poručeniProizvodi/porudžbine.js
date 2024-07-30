@@ -108,16 +108,10 @@ function renderovanjeUkupnePorudžbine(){
   })
 
   function azurirajKorpaKolicinu(){        
-    let korpaKoličina = izračunajKoličinuKorpe();   //korpa.js function that calculates korpa količina
-    if(!korpaKoličina){          //essentialy break a function if korpaKoličina undefined
+    let korpaKoličina = izračunajKoličinuKorpe();   
+    if(!korpaKoličina){         
       return;
     }
     document.querySelector('.js-količina-u-kolicima').innerHTML = korpaKoličina;
   }
 };
-
-console.log(porudžbine); // number of porudžbine
-// console.log(porudžbine[1].proizvodi); //index 1 all proizvodi array
-// console.log(porudžbine[0].proizvodi[0].proizvodId);
-
-
